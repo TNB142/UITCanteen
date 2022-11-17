@@ -1,0 +1,37 @@
+[
+    {
+        "id":1,
+        "name": "Chả cá sợi",
+        "imgUrl":"/imgs/cha_ca_soi.jpg"
+    },
+
+    {
+        "id":2,
+        "name": "Đậu hủ chiên",
+        "imgUrl":"/imgs/dau_hu_chien_xa.jpg"
+    },
+
+    {
+        "id":3,
+        "name": "Ốp la",
+        "imgUrl":"/imgs/op_la.jpg"
+    },
+
+    {
+        "id":4,
+        "name": "Chả cá sợi",
+        "imgUrl":"/imgs/cha_ca_soi.jpg"
+    },
+
+    {
+        "id":5,
+        "name": "Đậu hủ chiên",
+        "imgUrl":"/imgs/dau_hu_chien_xa.jpg"
+    },
+
+    {
+        "id":6,
+        "name": "Ốp la",
+        "imgUrl":"/imgs/op_la.jpg"
+    }
+]
