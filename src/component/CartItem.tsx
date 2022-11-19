@@ -8,7 +8,7 @@ type CartItemProps = {
 }
 
 export function CartItem({ id, quantity }: CartItemProps) {
-    const { removeFromCart } = useShoppingCart()
+    const { decreaseCartQuantity } = useShoppingCart()
     const item = menuItems.find(i => i.id === id)
     if (item == null) return null
 
@@ -40,7 +40,7 @@ export function CartItem({ id, quantity }: CartItemProps) {
                 variant="danger"
                 size="sm"
                 // className="bg-danger"
-                onClick={() => removeFromCart(item.id)}
+                onClick={() => decreaseCartQuantity(item.id)}
             >
                 <img
                 alt=""
