@@ -8,7 +8,6 @@ export function Login() {
   };
   return (
     <>
-      <h1>Bao_Code</h1>
       <Container className="bg-light pt-5">
         <Row>
           <Col className="mb-5">
@@ -38,13 +37,7 @@ export function Login() {
               </div>
             </Stack>
           </Col>
-          <Col
-            // className="bg-danger"
-            className="d-flex flex-row justify-content-center align-items-start"
-            // style={{
-            //   paddingLeft:"10%"
-            // }}
-          >
+          <Col className="d-flex flex-row justify-content-center align-items-start">
             <div className="d-flex flex-column justify-content-center align-items-start">
               <h1 className="mb-3 mg-3">Đăng nhập</h1>
               <Form
@@ -79,7 +72,36 @@ export function Login() {
               >
                 Đăng nhập
               </Button>
-              <p>Chưa có tài khoản?</p>
+              <div
+                className="d-flex flex-row align-items-center mb-3"
+                style={{
+                  width: "100%",
+                }}
+              >
+                <div
+                  style={{
+                    width: "100%",
+                    height: "3px",
+                    backgroundColor: "black",
+                  }}
+                ></div>
+                <span
+                  className="text-center font-weight-bold"
+                  style={{
+                    width: "150%",
+                  }}
+                >
+                  Chưa có tài khoản?
+                </span>
+                <div
+                  // className="text-center"
+                  style={{
+                    width: "100%",
+                    height: "3px",
+                    backgroundColor: "black",
+                  }}
+                ></div>
+              </div>
               <Button
                 className="bg-danger border border-danger mg-3"
                 style={{
