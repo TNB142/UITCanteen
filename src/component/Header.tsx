@@ -25,7 +25,7 @@ export function Header() {
               Trang chủ
             </Nav.Link>
             <Nav.Link href="/#menu">Thực đơn</Nav.Link>
-            <Nav.Link to="/History" as={NavLink}>
+            <Nav.Link href="/History/#history">
               Lịch sử
             </Nav.Link>
             <Nav.Link to="/Rate" as={NavLink}>
@@ -71,7 +71,7 @@ export function Header() {
         <div>
           <Nav>
             <button>
-              <Nav.Link to="/login" as={NavLink}>
+              <Nav.Link href="/login/#login">
                 Đăng Nhập
               </Nav.Link>
             </button>

@@ -3,7 +3,7 @@ import { Button, Card, Container, Table } from "react-bootstrap";
 export function OrderHistoryTable() {
   return (
     <>
-      <Container className="bg-white shadow-sm">
+      <Container className="bg-white shadow-sm" id="history">
         <Table>
           <thead>
             <tr>
