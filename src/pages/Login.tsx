@@ -111,7 +111,6 @@ export function Login() {
               >
                 Đăng nhập
               </Button>
-<<<<<<< HEAD
               <div
                 className="d-flex flex-row align-items-center mb-3"
                 style={{
@@ -142,10 +141,6 @@ export function Login() {
                   }}
                 ></div>
               </div>
-=======
-              <h1>{loginStatus}</h1>
-              <p>Chưa có tài khoản?</p>
->>>>>>> main
               <Button
                 className="bg-danger border border-danger mg-3"
                 style={{
