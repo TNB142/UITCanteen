@@ -1,4 +1,4 @@
 # UITcanteenTest
 
 ## Live Demo 
-<a href = "https://uit-canteen-test.netlify.app/" >DEMO HERE!<a/>
+<a href = "uit-canteen-test.netlify.app" >DEMO HERE!<a/>
