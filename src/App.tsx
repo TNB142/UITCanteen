@@ -15,7 +15,8 @@ function App() {
   return (
     <ShoppingCartProvider>
       <Header />
-      <Container className="min-vh-100 d-flex flex-column
+      <Container
+        className="min-vh-100 d-flex flex-column
                 justify-content-between">
         <Routes>
           <Route path="/" element={<Home />} />
