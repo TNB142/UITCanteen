@@ -25,6 +25,7 @@ export function History() {
         style={{
           height: "100%",
         }}
+        id="history"
       >
         <div>
           <p>Xin chào, user_name</p>
