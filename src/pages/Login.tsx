@@ -5,7 +5,7 @@ import styles from "./UI02LogIn.module.css";
 import React, { useEffect, useState } from "react";
 import Axios from "axios";
 export function Login() {
-  const forgetButton = (event) => {
+  const forgetButton = (event : any) => {
     console.log(event.target);
 
     console.log("Forget Password");

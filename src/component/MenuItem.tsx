@@ -15,7 +15,7 @@ export function MenuItem({ id, name, imgUrl }: MenuItemProps) {
     removeFromCart,
   } = useShoppingCart();
   const quantity = getItemQuantity(id);
-  const handleClick = (event) => {
+  const handleClick = (event: any) => {
     // 👇️ refers to the image element
     console.log(event.target);
 
