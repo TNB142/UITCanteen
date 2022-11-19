@@ -1,11 +1,43 @@
 import { Container, Form, Row, Col, Stack, Button } from "react-bootstrap";
-
+import { FunctionComponent, useCallback } from "react";
+import { useNavigate, Link } from "react-router-dom";
+import styles from "./UI02LogIn.module.css";
+import React, { useEffect, useState } from "react";
+import Axios from "axios";
 export function Login() {
   const forgetButton = (event) => {
     console.log(event.target);
 
     console.log("Forget Password");
   };
+
+  Axios.defaults.withCredentials = true;
+
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [loginStatus, setLoginStatus] = useState("");
+
+  useEffect(() => {
+    Axios.get("http://localhost:3001/login").then((response) => {
+      if (response.data.loggedIn == true) {
+        setLoginStatus(response.data.user[0].username);
+      }
+    });
+  }, []);
+
+  const login = () => {
+    Axios.post("http://localhost:3001/login", {
+      username: username,
+      password: password,
+    }).then((response) => {
+      if (response.data.message) {
+        setLoginStatus(response.data.message);
+      } else {
+        setLoginStatus(response.data[0].username);
+      }
+    });
+  };
+
   return (
     <>
       <Container className="bg-light pt-5">
@@ -51,6 +83,9 @@ export function Login() {
                     placeholder="username/Email"
                     className="mb-3 border border-danger border-3"
                     style={{ height: "60px" }}
+                    onChange={(e) => {
+                      setUsername(e.target.value);
+                    }}
                   />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formPlaintextPassword">
@@ -59,12 +94,16 @@ export function Login() {
                     placeholder="Password"
                     className="mb-3 border border-danger border-3"
                     style={{ height: "60px" }}
+                    onChange={(e) => {
+                      setPassword(e.target.value);
+                    }}
                   />
                 </Form.Group>
               </Form>
               <p onClick={forgetButton}>Quên mật khẩu?</p>
               <Button
                 className="bg-danger border border-danger mg-3 mb-3"
+                onClick={login}
                 style={{
                   width: "100%",
                   height: "60px",
@@ -72,6 +111,7 @@ export function Login() {
               >
                 Đăng nhập
               </Button>
+<<<<<<< HEAD
               <div
                 className="d-flex flex-row align-items-center mb-3"
                 style={{
@@ -102,6 +142,10 @@ export function Login() {
                   }}
                 ></div>
               </div>
+=======
+              <h1>{loginStatus}</h1>
+              <p>Chưa có tài khoản?</p>
+>>>>>>> main
               <Button
                 className="bg-danger border border-danger mg-3"
                 style={{
