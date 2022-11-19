@@ -8,6 +8,7 @@ export function Login() {
   };
   return (
     <>
+      <h1>Bao_Code</h1>
       <Container className="bg-light pt-5">
         <Row>
           <Col className="mb-5">
