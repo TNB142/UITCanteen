@@ -1,5 +1,6 @@
-import { Container, Row, Col, Stack } from "react-bootstrap";
+import { Container, Row, Col, Stack, Section } from "react-bootstrap";
 import { Menu } from "../component/Menu";
+import { ProposedMenu } from "../component/proposedMenu";
 // import { useRef } from "react";
 
 export function Home() {
@@ -7,7 +8,7 @@ export function Home() {
 
   return (
     <>
-      <Container className="bg-light" id="home_top">
+      <Container className="bg-light" id="home">
         <Row className="mt-5 mb-5">
           <Col className="mb-5">
             <Stack
@@ -41,10 +42,10 @@ export function Home() {
           </Col>
         </Row>
         <h1 className="text-center">
-          <u>Đề suất cho bạn</u>
+          <u>Đề xuất cho bạn</u>
         </h1>
         <div className="bg-white mb-5 p-5 shadow-sm">
-          <Menu />
+          {/* <ProposedMenu /> */}
         </div>
         <div id="menu">
           <h1 className="text-center">

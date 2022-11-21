@@ -11,7 +11,7 @@ import {
 import { MenuItem } from "../component/MenuItem";
 import { useState } from "react";
 
-export function Menu() {
+export function ProposedMenu() {
   const [radioValue, setRadioValue] = useState("1");
 
   const radios = [

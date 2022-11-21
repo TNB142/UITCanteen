@@ -1,0 +1,59 @@
+.headerSpace {
+    background-color: white;
+    width: 100%;
+}
+
+.containerHeader_Name{
+    background-color: #BDBDBD;
+    flex: none;
+    flex-direction: row;
+    justify-content: end;
+    align-items: center;
+}
+
+.CanteenUIT_header_icon{
+    height: 75px;
+}
+
+.CanteenUIT_header_text{
+    color: #F72D57;
+    margin-left: 15px;
+    font-size: 30px;
+}
+
+
+.nav_link
+{
+    flex: none;
+    margin:0px 20px;
+    text-decoration: double;
+    font-weight: bold;
+    font-size: 20px;
+    color: #3F3F3F;
+}
+
+.nav_link a:hover
+{
+    color: #F72D57;
+    font-weight: bold;
+    text-shadow: -0.125px 3.25px 3px #BDBDBD;
+}
+
+.nav_link a.nav-link.active
+{
+    color: #F72D57;
+    font-weight: bold;
+    text-shadow: -0.125px 3.25px 3px #BDBDBD;
+}
+
+.shoppingCartIcon{
+    flex:none;
+    margin-right: 20px;
+    background-color: #BDBDBD;
+}
+
+.loginButton{
+    flex:none;
+}
+
+

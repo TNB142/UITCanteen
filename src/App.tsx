@@ -6,10 +6,11 @@ import { History } from "./pages/orderHistory";
 import { RatePage } from "./pages/Rate";
 import { About } from "./pages/About";
 
-import { Header } from "./component/Header";
-import { Footer } from "./component/Footer";
+import { Header } from "./component/header/Header";
+import { Footer } from "./component/footer/Footer";
 
 import { ShoppingCartProvider } from "./context/shoppingCartContext";
+import {Menu_page as Menu} from "./pages/Menu"
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route path="/History" element={<History />} />
           <Route path="/Rate" element={<RatePage />} />
           <Route path="/About" element={<About />} />
+          <Route path="/Menu" element={<Menu/>}/>
         </Routes>
       </Container>
       <Footer />
