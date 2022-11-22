@@ -1,5 +1,5 @@
 import { Card, Button, Container } from "react-bootstrap";
-import { useShoppingCart } from "../context/shoppingCartContext";
+import { useShoppingCart } from "../../context/shoppingCartContext";
 
 type MenuItemProps = {
   id: number;

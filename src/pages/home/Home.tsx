@@ -1,6 +1,6 @@
-import { Container, Row, Col, Stack, Section } from "react-bootstrap";
-import { Menu } from "../component/Menu";
-import { ProposedMenu } from "../component/proposedMenu";
+import { Container, Row, Col, Stack } from "react-bootstrap";
+import { Menu } from "../../component/menu/Menu";
+import { ProposedMenu } from "../../component/menu/proposedMenu";
 // import { useRef } from "react";
 
 export function Home() {
@@ -9,8 +9,8 @@ export function Home() {
   return (
     <>
       <Container className="bg-light" id="home">
-        <Row className="mt-5 mb-5">
-          <Col className="mb-5">
+        <Row className="mb-5">
+          <Col className="mt-5 mb-5">
             <Stack
               // className="bg-white"
               style={{
@@ -28,7 +28,7 @@ export function Home() {
               </h1>
             </Stack>
           </Col>
-          <Col>
+          <Col className="mt-5 mb-5">
             <div>
               <img
                 alt="Rounded image"
@@ -53,7 +53,7 @@ export function Home() {
           </h1>
         </div>
 
-        <div className="bg-white mb-5 p-5 shadow-sm">
+        <div className="mb-5 p-5">
           <Menu />
         </div>
       </Container>

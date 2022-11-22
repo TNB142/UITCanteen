@@ -1,5 +1,5 @@
 import { NavItem, Offcanvas, Stack } from "react-bootstrap";
-import { useShoppingCart } from "../context/shoppingCartContext";
+import { useShoppingCart } from "../../context/shoppingCartContext";
 import { CartItem } from "./CartItem";
 
 type ShoppingCartProps = {

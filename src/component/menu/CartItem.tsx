@@ -1,6 +1,6 @@
 import { Button, Stack } from "react-bootstrap"
-import { useShoppingCart } from "../context/shoppingCartContext"
-import menuItems from "../data/items.json"
+import { useShoppingCart } from "../../context/shoppingCartContext"
+import menuItems from "../../data/items.json"
 
 type CartItemProps = {
     id: number

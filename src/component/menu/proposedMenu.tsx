@@ -1,4 +1,4 @@
-import menuItems from "../data/items.json";
+import menuItems from "../../data/items.json";
 import {
   Col,
   Container,
@@ -8,7 +8,7 @@ import {
   ToggleButton,
   ButtonGroup,
 } from "react-bootstrap";
-import { MenuItem } from "../component/MenuItem";
+import { MenuItem } from "../../component/menu/MenuItem";
 import { useState } from "react";
 
 export function ProposedMenu() {
