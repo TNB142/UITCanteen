@@ -1,9 +1,6 @@
 import { Container, Form, Row, Col, Stack, Button } from "react-bootstrap";
-<<<<<<< HEAD:src/pages/login/Login.tsx
 import { FunctionComponent, useCallback } from "react";
 import { useNavigate, Link } from "react-router-dom";
-=======
->>>>>>> bc280bb28081a3b942ddbcdf405ec8056323b12e:src/pages/Login.tsx
 import React, { useEffect, useState } from "react";
 import Axios from "axios";
 export function Login() {
