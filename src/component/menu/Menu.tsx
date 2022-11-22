@@ -55,7 +55,7 @@ export function Menu() {
             key={idx}
             id={`radio-${idx}`}
             type="radio"
-            variant={"danger"}
+            variant={"outline-danger"}
             // name="radio"
             value={radio.value}
             checked={radioValue === radio.value}
