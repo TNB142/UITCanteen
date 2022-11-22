@@ -14,7 +14,6 @@ import {
 } from "react-bootstrap";
 import { MenuItem } from "../../component/menu/MenuItem";
 import { useState } from "react";
-import CustomButton from "../button/CustomButton";
 import COLOR from "../../assets/color/index";
 import "../menu/style.css";
 
@@ -50,13 +49,13 @@ export function Menu() {
           </ToggleButton>
         ))}
       </ButtonGroup> */}
-      <div>
+      <Container fluid className="">
         {radios.map((radio, idx) => (
           <ToggleButton
             key={idx}
             id={`radio-${idx}`}
             type="radio"
-            variant={"outline-danger"}
+            variant={"danger"}
             // name="radio"
             value={radio.value}
             checked={radioValue === radio.value}
@@ -74,30 +73,30 @@ export function Menu() {
           </ToggleButton>
         ))}
         {radioValue === "1" && (
-          <div className="containerMenu">
-            <Row md={2} xs={3} lg={3} className="g-3">
+          <Container fluid className="containerMenu">
+            <Row md={2} xs={3} lg={3}>
               {menuItems.map((item) => (
                 // <Col>{JSON.stringify(item)}</Col>
-                <Col key={item.id}>
+                <Col key={item.id} className="g-3">
                   <MenuItem {...item} />
                 </Col>
               ))}
             </Row>
-          </div>
+          </Container>
         )}
         {radioValue === "2" && (
-          <div className="containerMenu">
-            <Row md={2} xs={3} lg={3} className="g-3">
+          <Container fluid className="containerMenu">
+            <Row md={2} xs={3} lg={3}>
               {anothermenuItems.map((item) => (
                 // <Col>{JSON.stringify(item)}</Col>
-                <Col key={item.id}>
+                <Col key={item.id} className="g-3">
                   <MenuItem {...item} />
                 </Col>
               ))}
             </Row>
-          </div>
+          </Container>
         )}
-      </div>
+      </Container>
 
       {/* <Row md={2} xs={3} lg={3} className="g-3">
           {menuItems.map((item) => (

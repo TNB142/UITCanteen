@@ -1,30 +1,18 @@
 import menuItems from "../../data/items.json";
-import {
-  Col,
-  Container,
-  Row,
-  Button,
-  Stack,
-  ToggleButton,
-  ButtonGroup,
-} from "react-bootstrap";
-import { MenuItem } from "../../component/menu/MenuItem";
-import { useState } from "react";
-import {Menu} from "../../component/menu/Menu"
+import { Container } from "react-bootstrap";
+import { Menu } from "../../component/menu/Menu";
+import "./style.css";
 
 export function Menu_page() {
   return (
     <>
-      <Container>
-        <div id="menu">
-          <h1 className="text-center">
-            <u>Thực đơn hôm nay</u>
+      <Container fluid>
+        <div id="menu" className="p-5 text-center">
+          <h1 className="menu_page_text">
+            Thực đơn <a style={{ color: "#F72D57" }}>hôm nay</a>
           </h1>
         </div>
-
-        <div className="bg-white mb-5 p-5 shadow-sm">
-          <Menu />
-        </div>
+        <Menu />
       </Container>
     </>
   );

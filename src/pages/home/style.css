@@ -1,0 +1,52 @@
+.orderNow_container{
+    background-color: #ffffffea;
+    box-shadow: 5px 6px gainsboro;
+    border-radius: 0px 0px 50px 50px;
+    height: 100%;
+    padding-top: 2%;
+}
+
+.rowContainer{
+    margin: 4%;
+    padding-left: 5%;
+    padding-right: 5%;
+
+}
+
+.colContainer{
+    margin-left: 2%
+}
+.orderNow_text{
+    color: #2A69B4;
+    font-family: 'Arial';
+    font-size: 52px;
+    font-weight: 700;
+
+}
+.CanteenUIT_orderNow_text{
+    color: #F72D57;
+    /* margin-left: 15px; */
+    font-size: 70px;
+    font-family: 'Praise',cursive;
+}
+
+.menu_text{
+    font-size: 48px;
+    font-family: "Arial";
+    font-weight: 700;
+    color: #3F3F3F;
+    position: relative;
+    display: inline-block; /* Header are 100% width by their default block behaviour */
+}
+.menu_text:before{
+    position: absolute;
+    height: 5px;
+    width: 75%;
+    left: 16%;
+    bottom: -5px;
+    background: #FD2925;
+    display: block;
+    content: "";
+    border-radius: 5px;
+}
+

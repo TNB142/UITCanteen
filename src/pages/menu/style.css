@@ -1,0 +1,19 @@
+.menu_page_text{
+    font-size: 48px;
+    font-family: "Arial";
+    font-weight: 700;
+    color: #3F3F3F;
+    position: relative;
+    display: inline-block; /* Header are 100% width by their default block behaviour */
+}
+.menu_page_text:before{
+    position: absolute;
+    height: 5px;
+    width: 75%;
+    left: 16%;
+    bottom: -5px;
+    background: #FD2925;
+    display: block;
+    content: "";
+    border-radius: 5px;
+}

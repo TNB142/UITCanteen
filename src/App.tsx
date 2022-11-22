@@ -16,15 +16,17 @@ import "./App.css";
 function App() {
   return (
     <>
-      <Header />
-      <Container fluid className="bg-danger">
+      {/* <Container fluid className="min-vh-100 main-content"> */}
+      <div className="min-vh-100 main-content">
         <ShoppingCartProvider>
-          <Container
-            fluid
+          <div
+            className="route_content"
+            // className="bg-warning"
             // className="min-vh-100 d-flex flex-column
             //       justify-content-between"
-            // className="main-content"
           >
+            <Header />
+
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/login" element={<Login />} />
@@ -32,18 +34,14 @@ function App() {
               <Route path="/About" element={<About />} />
               <Route path="/Menu" element={<Menu />} />
             </Routes>
-          </Container>
+          </div>
         </ShoppingCartProvider>
-      </Container>
+      </div>
+
+      {/* </Container> */}
       <Footer />
+      {/* <div className="footer">aaa</div> */}
     </>
-
-    // <>
-    // <Container fluid>
-    //   hello
-    // </Container>
-
-    // </>
   );
 }
 
