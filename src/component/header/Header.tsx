@@ -78,7 +78,7 @@ export function Header() {
         <div>
           <Nav>
             <button className="button">
-              <Nav.Link /* href="/login/#login" */ href="/Login">
+              <Nav.Link to="/Login" as={NavLink}>
                 <text className="loginText">Đăng Nhập</text>
               </Nav.Link>
             </button>
