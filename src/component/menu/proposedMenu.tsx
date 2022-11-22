@@ -14,8 +14,6 @@ import {
 } from "react-bootstrap";
 import { MenuItem } from "../../component/menu/MenuItem";
 import { useState } from "react";
-import CustomButton from "../button/CustomButton";
-import COLOR from "../../assets/color/index";
 import "../menu/style.css";
 
 export function ProposedMenu() {
