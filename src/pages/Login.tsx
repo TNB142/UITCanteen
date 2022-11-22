@@ -113,6 +113,7 @@ export function Login() {
                   width: "100%",
                 }}
               >
+                
                 <div
                   style={{
                     width: "100%",
@@ -128,6 +129,7 @@ export function Login() {
                 >
                   Chưa có tài khoản?
                 </span>
+                <div>{loginStatus}</div>
                 <div
                   // className="text-center"
                   style={{
