@@ -1,6 +1,6 @@
-import { Container, Form, Row, Col, Stack, Button } from "react-bootstrap";
+import { Container, Form, Row, Col, Stack, Button, Nav } from "react-bootstrap";
 import React, { useEffect, useState, useCallback } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, NavLink } from "react-router-dom";
 import Axios from "axios";
 import "./style.css";
 
@@ -154,11 +154,8 @@ export function Register() {
                   }}
                 ></div>
               </div>
-
-              <button
-                className="text-center button_register_page"
-                onClick={register}
-              >
+              <button className="text-center button_register_page"
+              onClick={loginButton}>
                 <div className="register_page_Text">Đăng nhập</div>
               </button>
             </div>

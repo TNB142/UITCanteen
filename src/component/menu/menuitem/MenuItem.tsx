@@ -1,5 +1,7 @@
 import { Card, Button, Container } from "react-bootstrap";
-import { useShoppingCart } from "../../context/shoppingCartContext";
+import { useShoppingCart } from "../../../context/shoppingCartContext";
+import { useState } from "react";
+import "./style.css";
 
 type MenuItemProps = {
   id: number;
@@ -13,6 +15,7 @@ export function MenuItem({ id, name, imgUrl }: MenuItemProps) {
     increaseCartQuantity,
     decreaseCartQuantity,
     removeFromCart,
+    cartQuantity
   } = useShoppingCart();
   const quantity = getItemQuantity(id);
   const handleClick = (event: any) => {
@@ -20,7 +23,9 @@ export function MenuItem({ id, name, imgUrl }: MenuItemProps) {
     console.log(event.target);
 
     console.log("add to cart");
-    increaseCartQuantity(id);
+    if (cartQuantity <3)
+      increaseCartQuantity(id);
+    else alert("Chỉ được thêm tối đa 3 món")
   };
   return (
     <Card className="h-100 containerItem">
@@ -51,15 +56,15 @@ export function MenuItem({ id, name, imgUrl }: MenuItemProps) {
         >
           <img
             alt=""
-            src="../svg/shopping-cart-add.svg"
+            src="../../../public/svg/shopping-cart-add.svg"
             style={{
               width: "2.5rem",
               position: "relative",
               // transform:"translate(700%,-60%)"
             }}
             onClick={handleClick}
+            className="shopping_cart_add"
           />
-
           {/* {quantity === 0 ? (
                         <Button className="w-100 " onClick={() => increaseCartQuantity(id)}>+Add To Cart
                         </Button>

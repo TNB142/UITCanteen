@@ -1,0 +1,49 @@
+.shopping_cart_container{
+    background-color: #2B2525!important;
+    border-radius: 20px 20px 20px 20px;
+    padding-top: 0.5%;
+    padding-left: 0.0125%;
+    padding-right: 0.0125%;
+}
+.shopping_cart_title_item{
+    width: 100%;
+    padding: 2%;
+}
+.shopping_cart_title_text{
+    color:#FFFFFF;
+    font-family: "Arial";
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 23px;
+    margin-right: 10px;
+
+}
+.Delete_effect:hover{
+    opacity: 0.6;
+}
+.Delete_effect:active{
+    opacity: 1;
+}
+
+.shopping_cart_title_delete{
+    color:#FFFFFF;
+    font-family: "Arial";
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 23px;
+    margin-right: 10px;
+}
+
+.thanhtoan_container{
+    background-color: #3F3F3F;
+    border-radius: 20px 20px 20px 20px;
+    height: 25%;
+    /* box-shadow: 5px 6px gainsboro; */
+}
+
+.label_text{
+    color: white
+}
+.currency_number{
+    color: white
+}

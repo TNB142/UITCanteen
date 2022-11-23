@@ -1,5 +1,5 @@
-import menuItems from "../../data/items.json";
-import anothermenuItems from "../../data/items2.json";
+import menuItems from "../../../data/items.json";
+import anothermenuItems from "../../../data/items2.json";
 
 import {
   Col,
@@ -12,9 +12,9 @@ import {
   ToggleButtonGroup,
   ButtonGroup,
 } from "react-bootstrap";
-import { MenuItem } from "../../component/menu/MenuItem";
+import { MenuItem } from "../menuitem/MenuItem";
 import { useState } from "react";
-import COLOR from "../../assets/color/index";
+import COLOR from "../../../assets/color/index";
 import "../menu/style.css";
 
 export function Menu() {
