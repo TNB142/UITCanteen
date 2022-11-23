@@ -125,10 +125,14 @@
     opacity: 0;
     transition: all 0.8s
   } */
-
-  .button:active {
+.button:hover{
     content: "";
-    background: #F72D40;
+    background: #e02a4f;
+    display: block;
+}
+.button:active {
+    content: "";
+    background: #c52646;
     display: block;
     /* position: absolute;
     padding-top: 300%;

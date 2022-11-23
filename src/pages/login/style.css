@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Praise&display=swap');
+
+.login_container{
+    background-color: #ffffffea;
+    box-shadow: 5px 6px gainsboro;
+    border-radius: 0px 0px 50px 50px;
+    height: 100%;
+    padding-top: 2%;
+}
+
+.login_rowContainer{
+    margin: 4%;
+    padding-left: 5%;
+    padding-right: 5%;
+
+}
+
+.login_colContainer{
+    margin-left: 2%
+}
+.login_text{
+    color: #2A69B4;
+    font-family: 'Arial';
+    font-size: 52px;
+    font-weight: 700;
+
+}
+.CanteenUIT_login_text{
+    color: #F72D57;
+    /* margin-left: 15px; */
+    font-size: 70px;
+    font-family: 'Praise',cursive;
+}
+
+.login_head{
+    color: #3F3F3F;
+    font-size: 48px;
+    font-family: 'Arial';
+    font-weight: 700;
+}
+
+.forgetpassword_text{
+    color: #F72D57;
+    font-size: 16px;
+    font-family: 'Arial';
+    font-weight: 700;
+    line-height: 18.4px;
+}
+.haveAcount_text{
+    color:#000000;
+    font-size: 16px;
+    font-family: 'Arial';
+    font-weight: 700;
+    line-height: 18.4px;
+}
+
+.button_login_page{
+    background-color: #F72D57;
+    width: 100%;
+    height: 60px;
+    border-radius: 5px 5px 5px 5px;
+    margin-bottom: 5%;
+    padding-top: 3.5%;
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+    border: none;
+}
+
+.button_login_page:hover{
+    background-color: #dd294d;
+}
+
+.login_page_Text{
+    flex: content;
+    font-weight: bold;
+    font-size: 20px;
+    color: white;
+}
