@@ -57,7 +57,6 @@ export function Header() {
               style={{
                 width: "2.5rem",
               }}
-              
               onClick={openCart}
             />
             {cartQuantity > 0 && (
