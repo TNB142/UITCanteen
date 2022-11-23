@@ -26,14 +26,14 @@ export function ShoppingCart({ isOpen }: ShoppingCartProps) {
         <Offcanvas.Title className="d-flex flex-row w-100">
           <div className="d-flex flex-row shopping_cart_title_item">
             <div className="shopping_cart_title_text">Giỏ hàng</div>
-            <img alt="" src="../../../public/svg/shopping-cart_2.svg" />
+            <img alt="" src="../svg/shopping-cart_2.svg" />
           </div>
           <div
             className="d-flex flex-row justify-content-end Delete_effect shopping_cart_title_item"
             onClick={() => Remove()}
           >
             <div className="shopping_cart_title_delete">Xoá</div>
-            <img alt="" src="../../../public/svg/refresh.svg" />
+            <img alt="" src="../svg/refresh.svg" />
           </div>
         </Offcanvas.Title>
       </Offcanvas.Header>

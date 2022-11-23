@@ -56,7 +56,7 @@ export function MenuItem({ id, name, imgUrl }: MenuItemProps) {
         >
           <img
             alt=""
-            src="../../../public/svg/shopping-cart-add.svg"
+            src="../svg/shopping-cart-add.svg"
             style={{
               width: "2.5rem",
               position: "relative",
