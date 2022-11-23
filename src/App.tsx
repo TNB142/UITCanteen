@@ -5,6 +5,7 @@ import { Login } from "./pages/Login"
 import {History} from "./pages/orderHistory"
 import {RatePage} from "./pages/Rate"
 import {About} from "./pages/About"
+import { Register } from "./pages/Register"
 
 import { Header } from "./component/Header"
 import {Footer} from "./component/Footer"
@@ -22,6 +23,7 @@ function App() {
           <Route path="/History" element ={<History/>}/>
           <Route path="/Rate" element ={<RatePage/>}/>
           <Route path="/About" element ={<About/>}/>
+          <Route path="/register" element={<Register/>}/>
         </Routes>
       </Container>
       <Footer/>

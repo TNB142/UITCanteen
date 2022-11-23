@@ -1,11 +1,19 @@
 import { Container, Form, Row, Col, Stack, Button } from "react-bootstrap";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import Axios from "axios";
+import { useNavigate } from "react-router-dom";
+
 export function Login() {
   const forgetButton = (event) => {
     console.log(event.target);
     console.log("Forget Password");
   };
+
+  const navigate = useNavigate();
+
+  const registerButton = useCallback(() => {
+    navigate("/register");
+  }, [navigate]);
 
   Axios.defaults.withCredentials = true;
 
@@ -68,9 +76,9 @@ export function Login() {
           <Col
             // className="bg-danger"
             className="d-flex flex-row justify-content-center align-items-start"
-            // style={{
-            //   paddingLeft:"10%"
-            // }}
+          // style={{
+          //   paddingLeft:"10%"
+          // }}
           >
             <div className="d-flex flex-column justify-content-center align-items-start">
               <h1 className="mb-3 mg-3">Đăng nhập</h1>
@@ -79,6 +87,7 @@ export function Login() {
                   width: "373px",
                 }}
               >
+                <h1>{loginStatus}</h1>
                 <Form.Group controlId="fromPlaintextEmail">
                   <Form.Control
                     type="email"
@@ -113,7 +122,6 @@ export function Login() {
               >
                 Đăng nhập
               </Button>
-              <h1>{loginStatus}</h1>
               <p>Chưa có tài khoản?</p>
               <Button
                 className="bg-danger border border-danger mg-3"
@@ -121,13 +129,14 @@ export function Login() {
                   width: "100%",
                   height: "60px",
                 }}
+                onClick={registerButton}
               >
-                Đăng ký
-              </Button>
-            </div>
-          </Col>
-        </Row>
-      </Container>
+              Đăng ký
+            </Button>
+          </div>
+        </Col>
+      </Row>
+    </Container>
     </>
   );
 }
