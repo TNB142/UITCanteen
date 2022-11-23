@@ -1,8 +1,14 @@
 import { Container, Form, Row, Col, Stack, Button } from "react-bootstrap";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
+import { useNavigate } from "react-router-dom";
 import Axios from "axios";
 
 export function Register() {
+    const navigate = useNavigate();
+    const loginButton = useCallback(() => {
+        navigate("/register");
+    }, [navigate]);
+
     Axios.defaults.withCredentials = true;
 
     const [usernameReg, setUsernameReg] = useState("");
@@ -12,27 +18,27 @@ export function Register() {
     const [loginStatus, setLoginStatus] = useState("");
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
-  
+
     const register = () => {
-        if(confirmPassword==passwordReg){
+        if (confirmPassword == passwordReg) {
             Axios.post("http://localhost:3001/register", {
-            username: usernameReg,
-            password: passwordReg,
-        }).then((response) => {
-            console.log(response);
-        });
+                username: usernameReg,
+                password: passwordReg,
+            }).then((response) => {
+                console.log(response);
+            });
         } else {
             setRegisterStatus("confirm password doesn't match");
-        } 
+        }
     };
 
     useEffect(() => {
         Axios.get("http://localhost:3001/login").then((response) => {
-          if (response.data.loggedIn == true) {
-            setLoginStatus(response.data.user[0].username);
-          }
+            if (response.data.loggedIn == true) {
+                setLoginStatus(response.data.user[0].username);
+            }
         });
-      }, []);
+    }, []);
 
 
     return (
@@ -127,7 +133,41 @@ export function Register() {
                                 Register
                             </Button>
                             {registerStatus}
+                            <div
+                            className="d-flex flex-row align-items-center mb-3"
+                            style={{
+                              width: "100%",
+                            }}
+                            >
+                                <span
+                                    className="text-center font-weight-bold"
+                                    style={{
+                                        width: "150%",
+                                    }}
+                                >
+                                    Có tài khoản?
+                                </span>
+                                <div
+                                    // className="text-center"
+                                    style={{
+                                        width: "100%",
+                                        height: "3px",
+                                        backgroundColor: "black",
+                                    }}
+                                ></div></div>
+
+                            <Button
+                                className="bg-danger border border-danger mg-3"
+                                style={{
+                                    width: "100%",
+                                    height: "60px",
+                                }}
+                                onClick={loginButton}
+                            >
+                                Login
+                            </Button>
                         </div>
+
                     </Col>
                 </Row>
             </Container>
