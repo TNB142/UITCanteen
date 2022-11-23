@@ -1,6 +1,6 @@
 import { NavItem, Offcanvas, Stack } from "react-bootstrap";
-import { useShoppingCart } from "../context/shoppingCartContext";
-import { CartItem } from "../component/CartItem";
+import { useShoppingCart } from "../../context/shoppingCartContext";
+import { CartItem } from "./CartItem";
 
 type ShoppingCartProps = {
   isOpen: boolean;

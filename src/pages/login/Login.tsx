@@ -1,11 +1,21 @@
 import { Container, Form, Row, Col, Stack, Button } from "react-bootstrap";
+import { FunctionComponent, useCallback } from "react";
+import { useNavigate, Link } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import Axios from "axios";
+import "./style.css";
+
 export function Login() {
-  const forgetButton = (event : any) => {
+  const forgetButton = (event: any) => {
     console.log(event.target);
     console.log("Forget Password");
   };
+
+  const navigate = useNavigate();
+
+  const registerButton = useCallback(() => {
+    navigate("/register");
+  }, [navigate]);
 
   Axios.defaults.withCredentials = true;
 
@@ -36,24 +46,12 @@ export function Login() {
 
   return (
     <>
-      <Container className="bg-light pt-5" id="login">
+      <Container className="pt-5" id="login">
         <Row>
           <Col className="mb-5">
-            <Stack
-              // className="bg-white"
-              style={{
-                width: "80%",
-              }}
-            >
-              <h1>Trải nghiệm đặt món online tại</h1>
-              <h1
-                className="fs-2"
-                style={{
-                  color: "red",
-                }}
-              >
-                Canteen UIT
-              </h1>
+            <Stack>
+              <h1 className="login_text">Trải nghiệm đặt món online tại</h1>
+              <h1 className="CanteenUIT_login_text">Canteen UIT</h1>
               <div>
                 <img
                   alt=""
@@ -65,19 +63,26 @@ export function Login() {
               </div>
             </Stack>
           </Col>
-          <Col className="d-flex flex-row justify-content-center align-items-start">
+          <Col
+            // className="bg-danger"
+            className="d-flex flex-row justify-content-center align-items-start"
+            // style={{
+            //   paddingLeft:"10%"
+            // }}
+          >
             <div className="d-flex flex-column justify-content-center align-items-start">
-              <h1 className="mb-3 mg-3">Đăng nhập</h1>
+              <h1 className="mb-3 mg-3 login_head">Đăng nhập</h1>
               <Form
                 style={{
                   width: "373px",
                 }}
               >
+                <h1>{loginStatus}</h1>
                 <Form.Group controlId="fromPlaintextEmail">
                   <Form.Control
                     type="email"
-                    placeholder="username/Email"
-                    className="mb-3 border border-danger border-3"
+                    placeholder="Username/Email"
+                    className="mb-3 border border-danger border-3 "
                     style={{ height: "60px" }}
                     onChange={(e) => {
                       setUsername(e.target.value);
@@ -96,17 +101,15 @@ export function Login() {
                   />
                 </Form.Group>
               </Form>
-              <p onClick={forgetButton}>Quên mật khẩu?</p>
-              <Button
-                className="bg-danger border border-danger mg-3 mb-3"
+              <p className="forgetpassword_text" onClick={forgetButton}>
+                Quên mật khẩu?
+              </p>
+              <button
+                className=" text-center button_login_page"
                 onClick={login}
-                style={{
-                  width: "100%",
-                  height: "60px",
-                }}
               >
-                Đăng nhập
-              </Button>
+                <div className="login_page_Text">Đăng nhập</div>
+              </button>
               <div
                 className="d-flex flex-row align-items-center mb-3"
                 style={{
@@ -118,11 +121,12 @@ export function Login() {
                   style={{
                     width: "100%",
                     height: "3px",
-                    backgroundColor: "black",
+                    backgroundColor: "#3F3F3F",
+                    borderRadius: "2px 2px",
                   }}
                 ></div>
                 <span
-                  className="text-center font-weight-bold"
+                  className="text-center font-weight-bold donthaveAcount_text"
                   style={{
                     width: "150%",
                   }}
@@ -135,19 +139,17 @@ export function Login() {
                   style={{
                     width: "100%",
                     height: "3px",
-                    backgroundColor: "black",
+                    backgroundColor: "#3F3F3F",
+                    borderRadius: "2px 2px",
                   }}
                 ></div>
               </div>
-              <Button
-                className="bg-danger border border-danger mg-3"
-                style={{
-                  width: "100%",
-                  height: "60px",
-                }}
+              <button
+                className=" text-center button_login_page"
+                onClick={registerButton}
               >
-                Đăng ký
-              </Button>
+                <div className="login_page_Text">Đăng ký</div>
+              </button>
             </div>
           </Col>
         </Row>

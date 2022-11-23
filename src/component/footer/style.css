@@ -1,0 +1,19 @@
+.containerFooter_Name{
+    background-image: linear-gradient(90deg, rgba(194, 194, 194, 0.4) 31.01%, rgba(0, 0, 0, 0.4) 65.59%);
+    width:100%;
+    bottom:0;
+    /* margin-top: 1%; */
+    /* position: absolute; */
+    /*  */
+}
+.CanteenUIT_footer_icon{
+    height: 75px;
+    margin-left: 4.5%;
+}
+
+.CanteenUIT_footer_text{
+    color: #F72D57;
+    margin-left: 15px;
+    font-size: 48px;
+    font-family: 'Praise',cursive;
+}
