@@ -12,6 +12,7 @@ import { ShoppingCartProvider } from "./context/shoppingCartContext";
 import { Menu_page as Menu } from "./pages/menu/Menu";
 
 import "./App.css";
+import { Register } from "./pages/register/Register";
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
               <Route path="/History" element={<History />} />
               <Route path="/About" element={<About />} />
               <Route path="/Menu" element={<Menu />} />
+              <Route path="/Register" element={<Register/>}/>
             </Routes>
           </div>
         </ShoppingCartProvider>
