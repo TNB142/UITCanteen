@@ -1,0 +1,136 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Praise&display=swap');
+
+
+.headerSpace {
+    background-color: white;
+    width: 100%;
+    height:100px;
+    flex: content;
+
+    /* margin-bottom: 1%; */
+    /* flex:content;
+    flex-direction: row;
+    justify-content: center; */
+}
+
+.containerHeader_Name{
+    /* background-color: #BDBDBD; */
+    flex: content;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-left: -3%;
+    width: 100%;
+}
+
+.CanteenUIT_header_icon{
+    height: 75px;
+}
+
+.CanteenUIT_header_text{
+    color: #F72D57;
+    /* margin-left: 15px; */
+    font-size: 48px;
+    font-family: 'Praise',cursive;
+}
+
+
+.nav_link
+{
+    flex: content;
+    text-decoration: double;
+    font-weight: bold;
+    font-size: 20px;
+    color: #3F3F3F;
+}
+
+.nav_link a.nav-link {
+    margin: 0 10px;
+    font-family: 'Arial';
+}
+
+.nav_link a:hover
+{
+    color: #F72D57;
+    font-weight: bold;
+    text-shadow: -0.125px 3.25px 3px #BDBDBD;
+}
+
+.nav_link a.nav-link.active
+{
+    color: #F72D57;
+    font-weight: bold;
+    text-shadow: -0.125px 3.25px 3px #BDBDBD;
+}
+
+.shoppingCartIcon{
+    flex:content;
+    margin-right: 10%;
+    /* background-color: #BDBDBD; */
+}
+
+.loginButton{
+    flex:content;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #F72D57;
+    border-radius: 5px 5px 5px;
+    /* border-color: #F72D57; */
+    cursor: pointer;
+    outline: none;
+    border: none;
+    height:34px
+}
+
+/* .loginButton:hover{
+    background-color: #F72D50;
+} */
+.loginButton:hover,
+.loginButton:focus {
+  box-shadow: inset 0 -3.25em 0 0 var(--hover);
+}
+.loginText{
+    flex: content;
+    font-weight: bold;
+    font-size: 20px;
+    color: white;
+}
+.button {
+    position: relative;
+    background-color: #F72D57;
+    border-radius: 5px 5px 5px;
+    height:34px;
+    border: none;
+    color: #FFFFFF;
+    flex:content;
+    flex-direction: column;
+    justify-content: center;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    text-decoration: none;
+    overflow: hidden;
+    cursor: pointer;
+  }
+
+  .button:after {
+    content: "";
+    background: #F72D70;
+    display: block;
+    position: absolute;
+    padding-top: 300%;
+    padding-left: 350%;
+    margin-left: -20px!important;
+    margin-top: -120%;
+    opacity: 0;
+    transition: all 0.8s
+  }
+
+  .button:active:after {
+    padding: 0;
+    margin: 0;
+    opacity: 1;
+    transition: 0s
+  }
+
+

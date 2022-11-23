@@ -1,5 +1,5 @@
 import { createContext, useContext, ReactNode, useState } from "react";
-import { ShoppingCart } from "../component/ShoppingCart";
+import { ShoppingCart } from "../component/menu/ShoppingCart";
 import { Alert } from "react-bootstrap";
 import {useLocalStorage} from "../hooks/usLocalStorage"
 

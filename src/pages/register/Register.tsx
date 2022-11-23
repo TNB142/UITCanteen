@@ -34,6 +34,7 @@ export function Register() {
         });
       }, []);
 
+
     return (
         <>
             <Container className="bg-light pt-5">

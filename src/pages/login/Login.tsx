@@ -1,8 +1,8 @@
 import { Container, Form, Row, Col, Stack, Button } from "react-bootstrap";
-import React, { useEffect, useState, useCallback } from "react";
+import { FunctionComponent, useCallback } from "react";
+import { useNavigate, Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
 import Axios from "axios";
-import { useNavigate } from "react-router-dom";
-
 export function Login() {
   const forgetButton = (event : any) => {
     console.log(event.target);

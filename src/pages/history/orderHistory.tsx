@@ -8,7 +8,7 @@ import {
   ButtonGroup
 } from "react-bootstrap";
 import React, { useState } from "react";
-import { OrderHistoryTable } from "../component/orderHistoryTable";
+import { OrderHistoryTable } from "../../component/history/orderHistoryTable";
 
 
 export function History() {

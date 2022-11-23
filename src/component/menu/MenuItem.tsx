@@ -1,5 +1,5 @@
 import { Card, Button, Container } from "react-bootstrap";
-import { useShoppingCart } from "../context/shoppingCartContext";
+import { useShoppingCart } from "../../context/shoppingCartContext";
 
 type MenuItemProps = {
   id: number;
@@ -23,21 +23,22 @@ export function MenuItem({ id, name, imgUrl }: MenuItemProps) {
     increaseCartQuantity(id);
   };
   return (
-    <Card className="h-100 bg-warning pt-5">
+    <Card className="h-100 containerItem">
       <Card.Img
-        className="mg-6"
+        className="containerItemImage"
         variant="top"
         src={imgUrl}
-        height="200px"
+        // height="200px"
         style={{ objectFit: "cover" }}
       />
 
-      <Card.Body className="d-flex flex-column">
+      <Card.Body className="d-flex flex-column justify-content-baseline align-items-center">
         <Card.Title
           className="
                 d-flex
+                flex-column
                 justify-content-center
-                align-items-baseline
+                align-items-center
                 mb-4"
         >
           <span className="fs-2">{name}</span>
