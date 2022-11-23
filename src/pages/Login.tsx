@@ -4,7 +4,7 @@ import Axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 export function Login() {
-  const forgetButton = (event) => {
+  const forgetButton = (event : any) => {
     console.log(event.target);
     console.log("Forget Password");
   };
@@ -44,7 +44,7 @@ export function Login() {
 
   return (
     <>
-      <Container className="bg-light pt-5">
+      <Container className="bg-light pt-5" id="login">
         <Row>
           <Col className="mb-5">
             <Stack
@@ -122,7 +122,36 @@ export function Login() {
               >
                 Đăng nhập
               </Button>
-              <p>Chưa có tài khoản?</p>
+              <div
+                className="d-flex flex-row align-items-center mb-3"
+                style={{
+                  width: "100%",
+                }}
+              >
+                <div
+                  style={{
+                    width: "100%",
+                    height: "3px",
+                    backgroundColor: "black",
+                  }}
+                ></div>
+                <span
+                  className="text-center font-weight-bold"
+                  style={{
+                    width: "150%",
+                  }}
+                >
+                  Chưa có tài khoản?
+                </span>
+                <div
+                  // className="text-center"
+                  style={{
+                    width: "100%",
+                    height: "3px",
+                    backgroundColor: "black",
+                  }}
+                ></div>
+              </div>
               <Button
                 className="bg-danger border border-danger mg-3"
                 style={{
