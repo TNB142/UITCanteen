@@ -86,7 +86,7 @@ export function RePassword() {
               <div className="pt-2 w-100 d-flex flex-row justify-content-center">
                 <img
                   alt=""
-                  src="../../../../public/svg/arrow-back-circle-sharp.svg"
+                  src="../../svg/arrow-back-circle-sharp.svg"
                   className="previous_page_button"
                   onClick={Move_back}
                 />
