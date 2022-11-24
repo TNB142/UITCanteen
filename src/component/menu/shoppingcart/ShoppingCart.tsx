@@ -38,7 +38,7 @@ export function ShoppingCart({ isOpen }: ShoppingCartProps) {
         </Offcanvas.Title>
       </Offcanvas.Header>
       {cartQuantity == 0 && (
-        <div className=" d-flex flex-column align-items-center justify-content-center">
+        <div className="p-5 d-flex flex-column align-items-center justify-content-center">
           <img
             alt=""
             src="../svg/nothing-in-cart.svg"
