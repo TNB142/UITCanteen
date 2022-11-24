@@ -69,6 +69,13 @@
 
 .button_login_page:hover{
     background-color: #dd294d;
+    opacity:0.9;
+}
+
+.button_login_page:active{
+    background-color: #dd294d;
+    opacity:1;
+
 }
 
 .login_page_Text{

@@ -1,6 +1,6 @@
 import menuItems from "../../data/items.json";
 import { Container } from "react-bootstrap";
-import { Menu } from "../../component/menu/Menu";
+import { Menu } from "../../component/menu/menu/Menu";
 import "./style.css";
 
 export function Menu_page() {

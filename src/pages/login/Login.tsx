@@ -1,6 +1,6 @@
-import { Container, Form, Row, Col, Stack, Button } from "react-bootstrap";
+import { Container, Form, Row, Col, Stack, Button, Nav } from "react-bootstrap";
 import { FunctionComponent, useCallback } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate, Link,NavLink } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import Axios from "axios";
 import "./style.css";
@@ -81,7 +81,7 @@ export function Login() {
                 <Form.Group controlId="fromPlaintextEmail">
                   <Form.Control
                     type="email"
-                    placeholder="Username/Email"
+                    placeholder="Tên đăng nhập/Email"
                     className="mb-3 border border-danger border-3 "
                     style={{ height: "60px" }}
                     onChange={(e) => {
@@ -92,7 +92,7 @@ export function Login() {
                 <Form.Group className="mb-3" controlId="formPlaintextPassword">
                   <Form.Control
                     type="password"
-                    placeholder="Password"
+                    placeholder="Mật khẩu"
                     className="mb-3 border border-danger border-3"
                     style={{ height: "60px" }}
                     onChange={(e) => {
@@ -101,9 +101,13 @@ export function Login() {
                   />
                 </Form.Group>
               </Form>
-              <p className="forgetpassword_text" onClick={forgetButton}>
-                Quên mật khẩu?
-              </p>
+
+              <Nav.Link to="/ForgetPassword" as={NavLink}>
+                <p className="forgetpassword_text">
+                  Quên mật khẩu?
+                </p>
+              </Nav.Link>
+
               <button
                 className=" text-center button_login_page"
                 onClick={login}

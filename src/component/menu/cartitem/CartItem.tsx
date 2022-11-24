@@ -1,6 +1,6 @@
 import { Button, Stack } from "react-bootstrap"
-import { useShoppingCart } from "../../context/shoppingCartContext"
-import menuItems from "../../data/items.json"
+import { useShoppingCart } from "../../../context/shoppingCartContext"
+import menuItems from "../../../data/items.json"
 
 type CartItemProps = {
     id: number
@@ -11,6 +11,8 @@ export function CartItem({ id, quantity }: CartItemProps) {
     const { decreaseCartQuantity } = useShoppingCart()
     const item = menuItems.find(i => i.id === id)
     if (item == null) return null
+
+
 
     return (
         <Stack direction="horizontal" gap={2}
@@ -25,14 +27,14 @@ export function CartItem({ id, quantity }: CartItemProps) {
                 <div>
                     {item.name} {" "}
                     <div>
-                        {quantity >= 1 && (<span
+                        (<span
                             className="text-muted"
                             style={{
                                 fontSize: "1rem"
                             }}>
                             Số lượng: {quantity} phần
                         </span>
-                        )}
+                        )
                     </div>
                 </div>
             </div>

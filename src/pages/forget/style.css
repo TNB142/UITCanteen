@@ -1,48 +1,25 @@
-@import url('https://fonts.googleapis.com/css2?family=Praise&display=swap');
-
-
-
-
-.login_colContainer{
-    margin-left: 2%
-}
-.register_text{
+.forget_text{
     color: #2A69B4;
     font-family: 'Arial';
     font-size: 52px;
     font-weight: 700;
 
 }
-.CanteenUIT_register_text{
+.CanteenUIT_forget_text{
     color: #F72D57;
     /* margin-left: 15px; */
     font-size: 70px;
     font-family: 'Praise',cursive;
 }
 
-.register_title{
+.forget_head{
     color: #3F3F3F;
     font-size: 48px;
     font-family: 'Arial';
     font-weight: 700;
 }
 
-.forgetpassword_text{
-    color: #F72D57;
-    font-size: 16px;
-    font-family: 'Arial';
-    font-weight: 700;
-    line-height: 18.4px;
-}
-.donthaveAcount_text{
-    color:#000000;
-    font-size: 16px;
-    font-family: 'Arial';
-    font-weight: 700;
-    line-height: 18.4px;
-}
-
-.button_register_page{
+.button_Next_page{
     background-color: #F72D57;
     width: 100%;
     height: 60px;
@@ -55,18 +32,28 @@
     border: none;
 }
 
-.button_register_page:hover{
+.button_Next_page:hover{
     background-color: #dd294d;
-    opacity: 0.9;
+    opacity:0.9;
 }
-.button_register_page:active{
+.button_Next_page:active{
     background-color: #dd294d;
-    opacity: 1;
+    opacity:1;
 }
 
-.register_page_Text{
+
+.forget_next_page_Text{
     flex: content;
     font-weight: bold;
     font-size: 20px;
     color: white;
+}
+
+.previous_page_button:hover{
+    /* background-color: #2A69B4; */
+    opacity: 0.9;
+}
+
+.previous_page_button:active{
+    opacity: 1;
 }

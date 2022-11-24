@@ -58,6 +58,7 @@ export function Header() {
                 width: "2.5rem",
               }}
               onClick={openCart}
+              className="shoppingCartpage"
             />
             {cartQuantity > 0 && (
               <div

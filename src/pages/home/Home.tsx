@@ -1,6 +1,6 @@
 import { Container, Row, Col, Stack } from "react-bootstrap";
-import { Menu } from "../../component/menu/Menu";
-import { ProposedMenu } from "../../component/menu/proposedMenu";
+import { Menu } from "../../component/menu/menu/Menu";
+import { ProposedMenu } from "../../component/menu/proposemenu/proposedMenu";
 // import { useRef } from "react";
 import "../home/style.css";
 

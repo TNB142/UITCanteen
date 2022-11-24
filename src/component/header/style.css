@@ -147,4 +147,10 @@
     transition: 0s
   }
 
+.shoppingCartpage:hover{
+    opacity: 0.8;
+}
+.shoppingCartpage:active{
+    opacity: 1;
+}
 

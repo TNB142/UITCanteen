@@ -4,15 +4,22 @@ import { Home } from "./pages/home/Home";
 import { Login } from "./pages/login/Login";
 import { History } from "./pages/history/orderHistory";
 import { About } from "./pages/about/About";
+import { Register } from "./pages/register/Register";
 
 import { Header } from "./component/header/Header";
 import { Footer } from "./component/footer/Footer";
 
 import { ShoppingCartProvider } from "./context/shoppingCartContext";
+import {ForgetPassword} from "./pages/forget/Forget";
+import {VerifyEmail} from "./pages/forget/verify/Verify";
+import { RePassword } from "./pages/forget/repassword/RePassword";
+
+
 import { Menu_page as Menu } from "./pages/menu/Menu";
 
+
 import "./App.css";
-import { Register } from "./pages/register/Register";
+
 
 function App() {
   return (
@@ -35,6 +42,12 @@ function App() {
               <Route path="/About" element={<About />} />
               <Route path="/Menu" element={<Menu />} />
               <Route path="/Register" element={<Register/>}/>
+              <Route path="/ForgetPassword" element={<ForgetPassword/>}/>
+              <Route path="/ForgetPassword/Verify" element={<VerifyEmail/>}/>
+              <Route path="/ForgetPassword/Verify/RePassword" element={<RePassword/>}/>
+
+
+
             </Routes>
           </div>
         </ShoppingCartProvider>
