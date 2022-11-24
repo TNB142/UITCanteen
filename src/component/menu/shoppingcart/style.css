@@ -37,13 +37,75 @@
 .thanhtoan_container{
     background-color: #3F3F3F;
     border-radius: 20px 20px 20px 20px;
-    height: 25%;
+    /* height: 25%; */
+    height: 174px;
     /* box-shadow: 5px 6px gainsboro; */
 }
 
+.thanhtoan_div{
+    background-color: red;
+}
+
 .label_text{
-    color: white
+    color:#C2C2C2;
+    font-family: "Arial";
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 18.4px;
+    width: 33%;
+    /* margin-right: 10px; */
 }
 .currency_number{
-    color: white
+    color:#C2C2C2;
+    font-family: "Arial";
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 18.4px;
+    width: 35%;
+
+}
+.currency_number_total{
+    color:#FFFFFF;
+    font-family: "Arial";
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 18.4px;
+    margin-left: 3%;
+    padding-top: 10%;
+
+}
+.Total_container{
+    width:100%;
+    /* background-color: yellow; */
+}
+.Total_text{
+    color: #FFFFFF;
+    font-family: "Arial";
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 18.4px;
+    width: 80%;
+    padding-top: 10%;
+}
+.button_div{
+    padding-top: 8%;
+}
+.button_orderNow{
+    background-color: #F72D57;
+    border-radius: 5px 5px 5px 5px;
+    border: none;
+    color: #FFFFFF;
+    font-family: "Arial";
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 16.1px;
+    width:80%;
+    height: 34px;
+}
+
+.button_orderNow:hover{
+    opacity: 0.8;
+}
+.button_orderNow:active{
+    opacity: 1;
 }

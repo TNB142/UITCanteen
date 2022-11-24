@@ -45,22 +45,88 @@ export function ShoppingCart({ isOpen }: ShoppingCartProps) {
         </Stack>
       </Offcanvas.Body>
       {cartQuantity == 2 && (
-        <Container className="d-flex flex-row thanhtoan_container">
-          <div className="p-4 d-fex flex-row">
-            <div className="d-flex flex-row label_text">
-              Thành tiền<div className="currency_number">25.000vnd</div>
+        <Container className="d-flex flex-column thanhtoan_container">
+        <div className="p-3 d-fex flex-column w-100 ">
+          <div className="d-flex flex-row  align-items-center justify-content-center text-center">
+            <div className="label_text">Thành tiền{" "}</div>
+            <div
+              style={{
+                width: "5%",
+                height: "3px",
+                backgroundColor: "#C2C2C2",
+                borderRadius: "2px 2px",
+                marginLeft: "25%",
+                marginRight: "25%",
+              }}
+            ></div>
+            <div className="currency_number">25.000 vnd</div>
+          </div>
+        </div>
+        <div>
+          <div>
+            {""}
+            <div
+              style={{
+                width: "100%",
+                height: "3px",
+                backgroundColor: "#C2C2C2",
+                borderRadius: "2px 2px",
+              }}
+            ></div>
+          </div>
+        </div>
+        <div className="d-fex flex-row  w-100 p-3">
+          <div className="Total_container d-flex flex-row">
+            <div className="Total_text ">Tổng cộng:</div>
+            <div className="currency_number_total">25.000vnd</div>
+            <div className="d-flex flex-row justify-content-end w-100 button_div">
+              <button className="button_orderNow">Đặt món ngay</button>
             </div>
           </div>
-        </Container>
+        </div>
+      </Container>
       )}
       {cartQuantity == 3 && (
-        <Container className="d-flex flex-row thanhtoan_container">
-          <div className="p-4 d-fex flex-row">
-            <div className="d-flex flex-row label_text">
-              Thành tiền<div className="currency_number">30.000vnd</div>
+        <Container className="d-flex flex-column thanhtoan_container">
+        <div className="p-3 d-fex flex-column w-100 ">
+          <div className="d-flex flex-row  align-items-center justify-content-center text-center">
+            <div className="label_text">Thành tiền{" "}</div>
+            <div
+              style={{
+                width: "5%",
+                height: "3px",
+                backgroundColor: "#C2C2C2",
+                borderRadius: "2px 2px",
+                marginLeft: "25%",
+                marginRight: "25%",
+              }}
+            ></div>
+            <div className="currency_number">30.000 vnd</div>
+          </div>
+        </div>
+        <div>
+          <div>
+            {""}
+            <div
+              style={{
+                width: "100%",
+                height: "3px",
+                backgroundColor: "#C2C2C2",
+                borderRadius: "2px 2px",
+              }}
+            ></div>
+          </div>
+        </div>
+        <div className="d-fex flex-row  w-100 p-3">
+          <div className="Total_container d-flex flex-row">
+            <div className="Total_text ">Tổng cộng:</div>
+            <div className="currency_number_total">30.000vnd</div>
+            <div className="d-flex flex-row justify-content-end w-100 button_div">
+              <button className="button_orderNow">Đặt món ngay</button>
             </div>
           </div>
-        </Container>
+        </div>
+      </Container>
       )}
     </Offcanvas>
   );
