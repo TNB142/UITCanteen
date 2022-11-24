@@ -18,6 +18,7 @@
     margin-right: 10px;
 
 }
+
 .Delete_effect:hover{
     opacity: 0.6;
 }
@@ -32,6 +33,14 @@
     font-size: 20px;
     line-height: 23px;
     margin-right: 10px;
+}
+
+.nothing_in_cart{
+    color:#C2C2C2;
+    font-family: "Arial";
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 27.6px;
 }
 
 .thanhtoan_container{
