@@ -4,6 +4,9 @@ import { useNavigate, NavLink } from "react-router-dom";
 import Axios from "axios";
 import "./style.css";
 
+import { ToastContainer, toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
+
 export function Register() {
   const navigate = useNavigate();
   const loginButton = useCallback(() => {
@@ -15,23 +18,29 @@ export function Register() {
   const [usernameReg, setUsernameReg] = useState("");
   const [passwordReg, setPasswordReg] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [registerStatus, setRegisterStatus] = useState("");
   const [loginStatus, setLoginStatus] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
   const register = () => {
-    if (confirmPassword == passwordReg) {
-      Axios.post("http://localhost:3001/register", {
-        username: usernameReg,
-        password: passwordReg,
-      }).then((response) => {
-        setRegisterStatus(response.data.message);
-      });
-    } else {
-      setRegisterStatus("confirm password doesn't match");
+    Axios.post("http://localhost:3001/register", {
+      username: usernameReg,
+      password: passwordReg,
+      confirmPassword: confirmPassword,
     }
-  };
+    ).then((response) => {
+      toast(response.data.message, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,  
+        progress: undefined,
+        theme: "colored",
+      });
+    });
+  }
 
   useEffect(() => {
     Axios.get("http://localhost:3001/login").then((response) => {
@@ -42,6 +51,7 @@ export function Register() {
   }, []);
 
   return (
+
     <>
       <Container className="pt-5" id="register">
         <Row>
@@ -65,9 +75,9 @@ export function Register() {
           <Col
             // className="bg-danger"
             className="d-flex flex-row justify-content-center align-items-start"
-            // style={{
-            //   paddingLeft:"10%"
-            // }}
+          // style={{
+          //   paddingLeft:"10%"
+          // }}
           >
             <div className="d-flex flex-column justify-content-center align-items-start">
               <h1 className="mb-3 mg-3 register_title">Đăng ký</h1>
@@ -121,7 +131,6 @@ export function Register() {
               >
                 <div className="register_page_Text">Đăng ký tài khoản</div>
               </button>
-              {registerStatus}
               <div
                 className="d-flex flex-row align-items-center mb-3"
                 style={{
@@ -155,13 +164,14 @@ export function Register() {
                 ></div>
               </div>
               <button className="text-center button_register_page"
-              onClick={loginButton}>
+                onClick={loginButton}>
                 <div className="register_page_Text">Đăng nhập</div>
               </button>
             </div>
           </Col>
         </Row>
       </Container>
+      <ToastContainer />
     </>
   );
 }
