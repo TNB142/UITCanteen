@@ -5,7 +5,7 @@ import React, { useEffect, useState } from "react";
 import Axios from "axios";
 import "./style.css";
 import { toast, ToastContainer } from "react-toastify";
-import 'react-toastify/dist/ReactToastify.css';
+import "react-toastify/dist/ReactToastify.css";
 
 export function Login() {
   const forgetButton = (event: any) => {
@@ -36,9 +36,8 @@ export function Login() {
   }, []);
 
   const login = () => {
-    if(username == "")
-    {
-      toast('Please enter email')
+    if (username == "") {
+      toast("Please enter email");
     } else {
       Axios.post("http://localhost:3001/login", {
         username: username,
@@ -47,8 +46,8 @@ export function Login() {
         if (response.data.message) {
           toast(response.data.message);
         } else {
-          toast("logged in as "+response.data.email);
-        };
+          toast("logged in as " + response.data.email);
+        }
       });
     }
   };
@@ -75,9 +74,9 @@ export function Login() {
             <Col
               // className="bg-danger"
               className="d-flex flex-row justify-content-center align-items-start"
-            // style={{
-            //   paddingLeft:"10%"
-            // }}
+              // style={{
+              //   paddingLeft:"10%"
+              // }}
             >
               <div className="d-flex flex-column justify-content-center align-items-start">
                 <h1 className="mb-3 mg-3 login_head">Đăng nhập</h1>
@@ -97,7 +96,10 @@ export function Login() {
                       }}
                     />
                   </Form.Group>
-                  <Form.Group className="mb-3" controlId="formPlaintextPassword">
+                  <Form.Group
+                    className="mb-3"
+                    controlId="formPlaintextPassword"
+                  >
                     <Form.Control
                       type="password"
                       placeholder="Mật khẩu"
@@ -111,9 +113,7 @@ export function Login() {
                 </Form>
 
                 <Nav.Link to="/ForgetPassword" as={NavLink}>
-                  <p className="forgetpassword_text">
-                    Quên mật khẩu?
-                  </p>
+                  <p className="forgetpassword_text">Quên mật khẩu?</p>
                 </Nav.Link>
 
                 <button
@@ -128,7 +128,6 @@ export function Login() {
                     width: "100%",
                   }}
                 >
-
                   <div
                     style={{
                       width: "100%",
@@ -165,9 +164,10 @@ export function Login() {
             </Col>
           </Row>
         </Container>
-        <ToastContainer/>
+        <ToastContainer />
       </>
-      
     );
+  } else {
+    return null;
   }
 }
