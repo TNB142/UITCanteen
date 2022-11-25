@@ -4,7 +4,8 @@ import { useNavigate, Link, NavLink } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import Axios from "axios";
 import "./style.css";
-import { ToastContainer } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 export function Login() {
   const forgetButton = (event: any) => {
@@ -24,27 +25,32 @@ export function Login() {
   const [password, setPassword] = useState("");
   const [loginStatus, setLoginStatus] = useState("");
   var isloggedIn = false;
-  
+
   useEffect(() => {
     Axios.get("http://localhost:3001/login").then((response) => {
       if (response.data.loggedIn == true) {
         isloggedIn = true;
-        setLoginStatus(response.data.user[0].username);
+        setLoginStatus(response.data.email);
       }
     });
   }, []);
 
   const login = () => {
-    Axios.post("http://localhost:3001/login", {
-      username: username,
-      password: password,
-    }).then((response) => {
-      if (response.data.message) {
-        setLoginStatus(response.data.message);
-      } else {
-        setLoginStatus(response.data.username);
-      }
-    });
+    if(username == "")
+    {
+      toast('Please enter email')
+    } else {
+      Axios.post("http://localhost:3001/login", {
+        username: username,
+        password: password,
+      }).then((response) => {
+        if (response.data.message) {
+          toast(response.data.message);
+        } else {
+          toast("logged in as "+response.data.email);
+        };
+      });
+    }
   };
   if (!isloggedIn) {
     return (
@@ -80,7 +86,6 @@ export function Login() {
                     width: "373px",
                   }}
                 >
-                  <h1>{loginStatus}</h1>
                   <Form.Group controlId="fromPlaintextEmail">
                     <Form.Control
                       type="email"
@@ -140,7 +145,6 @@ export function Login() {
                   >
                     Chưa có tài khoản?
                   </span>
-                  <div>{loginStatus}</div>
                   <div
                     // className="text-center"
                     style={{
@@ -161,7 +165,9 @@ export function Login() {
             </Col>
           </Row>
         </Container>
+        <ToastContainer/>
       </>
+      
     );
   }
 }

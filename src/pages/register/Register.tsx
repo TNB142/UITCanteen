@@ -18,9 +18,7 @@ export function Register() {
   const [usernameReg, setUsernameReg] = useState("");
   const [passwordReg, setPasswordReg] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [loginStatus, setLoginStatus] = useState("");
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+  // const [loginStatus, setLoginStatus] = useState("");
 
   const register = () => {
     Axios.post("http://localhost:3001/register", {
@@ -42,13 +40,13 @@ export function Register() {
     });
   }
 
-  useEffect(() => {
-    Axios.get("http://localhost:3001/login").then((response) => {
-      if (response.data.loggedIn == true) {
-        setLoginStatus(response.data.user[0].username);
-      }
-    });
-  }, []);
+  // useEffect(() => {
+  //   Axios.get("http://localhost:3001/login").then((response) => {
+  //     if (response.data.loggedIn == true) {
+  //       setLoginStatus(response.data.user[0].username);
+  //     }
+  //   });
+  // }, []);
 
   return (
 
