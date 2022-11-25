@@ -7,7 +7,7 @@ import "./style.css";
 export function Register() {
   const navigate = useNavigate();
   const loginButton = useCallback(() => {
-    navigate("/Login");
+    navigate("/login");
   }, [navigate]);
 
   Axios.defaults.withCredentials = true;
@@ -26,7 +26,7 @@ export function Register() {
         username: usernameReg,
         password: passwordReg,
       }).then((response) => {
-        console.log(response);
+        setRegisterStatus(response.data.message);
       });
     } else {
       setRegisterStatus("confirm password doesn't match");
