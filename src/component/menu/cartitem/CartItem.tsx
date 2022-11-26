@@ -50,7 +50,7 @@ export function CartItem({ id, quantity }: CartItemProps) {
         <div className="d-flex flex-row justify-content-end trash_item">
           <img
             alt=""
-            src="../public/svg/trash-can-empty.svg"
+            src="../svg/trash-can-empty.svg"
             onClick={() => removeFromCart(item.id)}
           />
         </div>
