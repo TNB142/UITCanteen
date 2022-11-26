@@ -28,8 +28,8 @@ export function PayCart({ isOpenPay }: PayCartProps) {
 
   const [checkMethod, setCheckMethod] = useState("1");
   const PayMethod = [
-    { url: "../public/svg/momo.svg", name: "Ví Momo", value: "1" },
-    { url: "../public/svg/banking.svg", name: "Online Banking", value: "2" },
+    { url: "../svg/momo.svg", name: "Ví Momo", value: "1" },
+    { url: "../svg/banking.svg", name: "Online Banking", value: "2" },
   ];
 
   const checkButton = (currentTargetvalue: any) => {
