@@ -8,7 +8,7 @@ import {
 } from "react-bootstrap";
 import { useState } from "react";
 import { useShoppingCart } from "../../../context/shoppingCartContext";
-import { CartPayItem } from "../cartpayitem/cartpayitem";
+import { CartPayItem } from "../cartpayitem/CartPayItem";
 
 import "./style.css";
 
