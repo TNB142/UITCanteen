@@ -16,9 +16,19 @@ import { RePassword } from "./pages/forget/repassword/RePassword";
 
 import { Menu_page as Menu } from "./pages/menu/Menu";
 
-import "./App.css";
+import axios from "axios";
 
-function App() {
+
+import "./App.css";
+import { useEffect } from "react";
+
+export default function App() {
+  axios.defaults.withCredentials = true;
+  useEffect(() => {
+    axios.get("http://localhost:3001/").then((response) => {
+      console.log(response);
+    });
+  }, []);
   return (
     <>
       {/* <Container fluid className="min-vh-100 main-content"> */}
@@ -26,9 +36,9 @@ function App() {
         <ShoppingCartProvider>
           <div
             className="route_content"
-            // className="bg-warning"
-            // className="min-vh-100 d-flex flex-column
-            //       justify-content-between"
+          // className="bg-warning"
+          // className="min-vh-100 d-flex flex-column
+          //       justify-content-between"
           >
             <Header />
 
@@ -56,5 +66,3 @@ function App() {
     </>
   );
 }
-
-export default App;

@@ -24,16 +24,6 @@ export function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [loginStatus, setLoginStatus] = useState("");
-  var isloggedIn = false;
-
-  useEffect(() => {
-    Axios.get("http://localhost:3001/login").then((response) => {
-      if (response.data.loggedIn == true) {
-        isloggedIn = true;
-        setLoginStatus(response.data.email);
-      }
-    });
-  }, []);
 
   const login = () => {
     if (username == "") {
@@ -46,128 +36,128 @@ export function Login() {
         if (response.data.message) {
           toast(response.data.message);
         } else {
+          setLoginStatus(response.data);
           toast("logged in as " + response.data.email);
+          Axios.get("http://localhost:3001/login").then((response) => {
+          console.log(response);
+    });
         }
       });
     }
   };
-  if (!isloggedIn) {
-    return (
-      <>
-        <Container className="pt-5" id="login">
-          <Row>
-            <Col className="mb-5">
-              <Stack>
-                <h1 className="login_text">Trải nghiệm đặt món online tại</h1>
-                <h1 className="CanteenUIT_login_text">Canteen UIT</h1>
-                <div>
-                  <img
-                    alt=""
-                    src="../imgs/UIT_CANTEEN.png"
-                    style={{
-                      width: "542px",
+  return (
+    <>
+      <Container className="pt-5" id="login">
+        <Row>
+          <Col className="mb-5">
+            <Stack>
+              <h1 className="login_text">Trải nghiệm đặt món online tại</h1>
+              <h1 className="CanteenUIT_login_text">Canteen UIT</h1>
+              <div>
+                <img
+                  alt=""
+                  src="../imgs/UIT_CANTEEN.png"
+                  style={{
+                    width: "542px",
+                  }}
+                />
+              </div>
+            </Stack>
+          </Col>
+          <Col
+            // className="bg-danger"
+            className="d-flex flex-row justify-content-center align-items-start"
+          // style={{
+          //   paddingLeft:"10%"
+          // }}
+          >
+            <div className="d-flex flex-column justify-content-center align-items-start">
+              <h1 className="mb-3 mg-3 login_head">Đăng nhập</h1>
+              <Form
+                style={{
+                  width: "373px",
+                }}
+              >
+                <Form.Group controlId="fromPlaintextEmail">
+                  <Form.Control
+                    type="email"
+                    placeholder="Tên đăng nhập/Email"
+                    className="mb-3 border border-danger border-3 "
+                    style={{ height: "60px" }}
+                    onChange={(e) => {
+                      setUsername(e.target.value);
                     }}
                   />
-                </div>
-              </Stack>
-            </Col>
-            <Col
-              // className="bg-danger"
-              className="d-flex flex-row justify-content-center align-items-start"
-              // style={{
-              //   paddingLeft:"10%"
-              // }}
-            >
-              <div className="d-flex flex-column justify-content-center align-items-start">
-                <h1 className="mb-3 mg-3 login_head">Đăng nhập</h1>
-                <Form
-                  style={{
-                    width: "373px",
-                  }}
+                </Form.Group>
+                <Form.Group
+                  className="mb-3"
+                  controlId="formPlaintextPassword"
                 >
-                  <Form.Group controlId="fromPlaintextEmail">
-                    <Form.Control
-                      type="email"
-                      placeholder="Tên đăng nhập/Email"
-                      className="mb-3 border border-danger border-3 "
-                      style={{ height: "60px" }}
-                      onChange={(e) => {
-                        setUsername(e.target.value);
-                      }}
-                    />
-                  </Form.Group>
-                  <Form.Group
-                    className="mb-3"
-                    controlId="formPlaintextPassword"
-                  >
-                    <Form.Control
-                      type="password"
-                      placeholder="Mật khẩu"
-                      className="mb-3 border border-danger border-3"
-                      style={{ height: "60px" }}
-                      onChange={(e) => {
-                        setPassword(e.target.value);
-                      }}
-                    />
-                  </Form.Group>
-                </Form>
+                  <Form.Control
+                    type="password"
+                    placeholder="Mật khẩu"
+                    className="mb-3 border border-danger border-3"
+                    style={{ height: "60px" }}
+                    onChange={(e) => {
+                      setPassword(e.target.value);
+                    }}
+                  />
+                </Form.Group>
+              </Form>
 
-                <Nav.Link to="/ForgetPassword" as={NavLink}>
-                  <p className="forgetpassword_text">Quên mật khẩu?</p>
-                </Nav.Link>
+              <Nav.Link to="/ForgetPassword" as={NavLink}>
+                <p className="forgetpassword_text">Quên mật khẩu?</p>
+              </Nav.Link>
 
-                <button
-                  className=" text-center button_login_page"
-                  onClick={login}
-                >
-                  <div className="login_page_Text">Đăng nhập</div>
-                </button>
+              <button
+                className=" text-center button_login_page"
+                onClick={login}
+              >
+                <div className="login_page_Text">Đăng nhập</div>
+              </button>
+              <div
+                className="d-flex flex-row align-items-center mb-3"
+                style={{
+                  width: "100%",
+                }}
+              >
                 <div
-                  className="d-flex flex-row align-items-center mb-3"
                   style={{
                     width: "100%",
+                    height: "3px",
+                    backgroundColor: "#3F3F3F",
+                    borderRadius: "2px 2px",
+                  }}
+                ></div>
+                <span
+                  className="text-center font-weight-bold donthaveAcount_text"
+                  style={{
+                    width: "150%",
                   }}
                 >
-                  <div
-                    style={{
-                      width: "100%",
-                      height: "3px",
-                      backgroundColor: "#3F3F3F",
-                      borderRadius: "2px 2px",
-                    }}
-                  ></div>
-                  <span
-                    className="text-center font-weight-bold donthaveAcount_text"
-                    style={{
-                      width: "150%",
-                    }}
-                  >
-                    Chưa có tài khoản?
-                  </span>
-                  <div
-                    // className="text-center"
-                    style={{
-                      width: "100%",
-                      height: "3px",
-                      backgroundColor: "#3F3F3F",
-                      borderRadius: "2px 2px",
-                    }}
-                  ></div>
-                </div>
-                <button
-                  className=" text-center button_login_page"
-                  onClick={registerButton}
-                >
-                  <div className="login_page_Text">Đăng ký</div>
-                </button>
+                  Chưa có tài khoản?
+                </span>
+                <div
+                  // className="text-center"
+                  style={{
+                    width: "100%",
+                    height: "3px",
+                    backgroundColor: "#3F3F3F",
+                    borderRadius: "2px 2px",
+                  }}
+                ></div>
               </div>
-            </Col>
-          </Row>
-        </Container>
-        <ToastContainer />
-      </>
-    );
-  } else {
-    return null;
-  }
+              <button
+                className=" text-center button_login_page"
+                onClick={registerButton}
+              >
+                <div className="login_page_Text">Đăng ký</div>
+              </button>
+            </div>
+          </Col>
+        </Row>
+      </Container>
+      <ToastContainer />
+    </>
+  );
 }
