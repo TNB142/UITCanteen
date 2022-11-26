@@ -1,5 +1,8 @@
-import { NavItem, Offcanvas, Stack, Container } from "react-bootstrap";
-import { useShoppingCart } from "../../../context/shoppingCartContext";
+import { NavItem, Offcanvas, Stack, Container, Button } from "react-bootstrap";
+import {
+  ShoppingCartProvider,
+  useShoppingCart,
+} from "../../../context/shoppingCartContext";
 import { CartItem } from "../cartitem/CartItem";
 import "./style.css";
 
@@ -8,14 +11,20 @@ type ShoppingCartProps = {
 };
 
 export function ShoppingCart({ isOpen }: ShoppingCartProps) {
-  const { closeCart, cartItems, removeFromCart, cartQuantity } =
-    useShoppingCart();
+  const {
+    openPayCart,
+    closeCart,
+    cartItems,
+    removeFromCart,
+    cartQuantity,
+  } = useShoppingCart();
 
   const Remove = () => {
     cartItems.map((item) => removeFromCart(item.id));
   };
 
   return (
+    // <ShoppingCartProvider>
     <Offcanvas
       className="shopping_cart_container"
       show={isOpen}
@@ -95,7 +104,7 @@ export function ShoppingCart({ isOpen }: ShoppingCartProps) {
               <div className="Total_text ">Tổng cộng:</div>
               <div className="currency_number_total">25.000vnd</div>
               <div className="d-flex flex-row justify-content-end w-100 button_div">
-                <button className="button_orderNow">Đặt món ngay</button>
+                <button className="button_orderNow"  onClick={openPayCart}>Đặt món ngay</button>
               </div>
             </div>
           </div>
@@ -136,13 +145,16 @@ export function ShoppingCart({ isOpen }: ShoppingCartProps) {
             <div className="Total_container d-flex flex-row">
               <div className="Total_text ">Tổng cộng:</div>
               <div className="currency_number_total">30.000vnd</div>
-              <div className="d-flex flex-row justify-content-end w-100 button_div">
-                <button className="button_orderNow">Đặt món ngay</button>
+              <div className="d-flex flex-row justify-content-end w-100 button_div" >
+                <button className="button_orderNow" onClick={openPayCart} >
+                  Đặt món ngay
+                </button>
               </div>
             </div>
           </div>
         </Container>
       )}
     </Offcanvas>
+    // </ShoppingCartProvider>
   );
 }
