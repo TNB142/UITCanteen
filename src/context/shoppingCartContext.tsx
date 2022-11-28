@@ -1,7 +1,9 @@
 import { createContext, useContext, ReactNode, useState } from "react";
 import { ShoppingCart } from "../component/menu/shoppingcart/ShoppingCart";
+import { PayCart } from "../component/menu/thanhtoancart/thanhtoanCart";
+
 import { Alert } from "react-bootstrap";
-import {useLocalStorage} from "../hooks/usLocalStorage"
+import { useLocalStorage } from "../hooks/usLocalStorage";
 
 type ShoppingCartProviderProps = {
   children: ReactNode;
@@ -15,6 +17,8 @@ type CartItem = {
 type ShoppingCartContext = {
   openCart: () => void;
   closeCart: () => void;
+  openPayCart: () => void;
+  closePayCart: () => void;
   getItemQuantity: (id: number) => number;
   increaseCartQuantity: (id: number) => void;
   decreaseCartQuantity: (id: number) => void;
@@ -36,13 +40,32 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
   );
   const [isOpen, setIsOpen] = useState(false);
 
+  const [isOpenPay, setIsOpenPay] = useState(false);
+
   const cartQuantity = cartItems.reduce(
     (quantity, item) => item.quantity + quantity,
     0
   );
 
-  const openCart = () => setIsOpen(true);
-  const closeCart = () => setIsOpen(false);
+  const openCart = () => {
+    setIsOpen(true);
+    console.log("open cart");
+  };
+  const closeCart = () => {
+    setIsOpen(false);
+    console.log("close cart")
+  };
+
+  const openPayCart = () => {
+    setIsOpenPay(true);
+    closeCart();
+    console.log("open pay");
+  };
+  const closePayCart = () => {
+    setIsOpenPay(false);
+    openCart();
+    console.log("close pay")
+  };
 
   function getItemQuantity(id: number) {
     return cartItems.find((item) => item.id == id)?.quantity || 0;
@@ -95,12 +118,15 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
         removeFromCart,
         openCart,
         closeCart,
+        openPayCart,
+        closePayCart,
         cartItems,
         cartQuantity,
       }}
     >
       {children}
       <ShoppingCart isOpen={isOpen} />
+      <PayCart isOpenPay={isOpenPay} />
     </ShoppingCartContext.Provider>
   );
 }

@@ -12,7 +12,7 @@ import { useRef, useState } from "react";
 import "./style.css";
 
 export function Header() {
-  const { openCart, cartQuantity } = useShoppingCart();
+  const { openPayCart,openCart, cartQuantity } = useShoppingCart();
   return (
     <NavbarBs sticky="top" className="headerSpace">
       <Container>

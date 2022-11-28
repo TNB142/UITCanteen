@@ -1,0 +1,89 @@
+.CartCard{
+    background-image: linear-gradient(to bottom, #2A69B4, #F72D57);
+    offset: 0px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 4px 4px 4px 4px;
+    box-shadow: 1px 2px 9px #ff4267;
+    height: 122px;
+}
+
+.imgDish{
+    width: 125px;
+    height: 75px;
+    object-fit: cover;
+    padding-left: 5%;
+}
+
+.nameDish_text{
+    color:#FFFFFF;
+    font-family: "Arial";
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 23px;
+    text-align: center;
+    padding-right:8%;
+
+}
+
+.typeDish_text{
+    color:#FFFFFF;
+    font-family: "Arial";
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 18.4px;
+    text-align: center;
+    padding-right:8%;
+}
+
+.food_name_container{
+    padding-top: 1%;
+    padding-right: 1%;
+}
+
+.button_container_1{
+    margin-right: 3%;
+    background-color: #D9D9D9;
+    width: 25px;
+    height: 25px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.button_container_1:hover{
+    opacity: 0.8;
+}
+.button_container_1:active{
+    opacity: 1;
+}
+.button_container_2{
+    width: 25px;
+    height: 25px;
+    background-color: #D9D9D9;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.button_container_2:hover{
+    opacity: 0.8;
+}
+.button_container_2:active{
+    opacity: 1;
+}
+.quantity_text{
+    color: #FFFFFF;
+    font-family: "Arial";
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 23px;
+    text-align: center;
+    margin-right: 4%;
+}
+.trash_item:hover{
+    opacity:0.8;
+}
+
+.trash_item:active{
+    opacity:1;
+}
