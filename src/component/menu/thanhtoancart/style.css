@@ -1,49 +1,75 @@
-.shopping_cart_container{
+.pay_cart_container{
     background-color: #2B2525!important;
     border-radius: 20px 20px 20px 20px;
     padding-top: 0.5%;
     padding-left: 0.0125%;
     padding-right: 0.0125%;
 }
-.shopping_cart_title_item{
-    width: 100%;
-    padding: 2%;
-}
-.shopping_cart_title_text{
+
+.paying_cart_title_text{
     color:#FFFFFF;
     font-family: "Arial";
     font-weight: 700;
     font-size: 20px;
     line-height: 23px;
     margin-right: 10px;
-
+    text-align: center;
+    width: 100%;
 }
 
-.Delete_effect:hover{
-    opacity: 0.6;
+.back_arrow_pay:hover{
+    opacity: 0.8;
 }
-.Delete_effect:active{
+
+.back_arrow_pay:active{
     opacity: 1;
 }
 
-.shopping_cart_title_delete{
-    color:#FFFFFF;
+.paying_cart_title__body_text{
+    color:#C2C2C2;
     font-family: "Arial";
     font-weight: 400;
     font-size: 20px;
     line-height: 23px;
-    margin-right: 10px;
+    /* margin-right: 10px; */
+    text-align: start;
+    padding-right: 3%;
+    width: 100%;
 }
 
-.nothing_in_cart{
-    color:#C2C2C2;
+.select_time_button{
+    width:30%;
+    height: 30px;
+    border: none;
+    margin-right: 3%;
+    border-radius: 5px 5px 5px 5px;
+}
+.select_time_button:hover{
+    box-shadow: 1px 2px 9px #ff4267;
+}
+.select_time_button:active{
+    box-shadow: 1px 2px 9px #ff4267;
+    opacity: 0.8;
+}
+
+.button_text{
+    color:#FFFFFF;
     font-family: "Arial";
-    font-weight: 700;
-    font-size: 24px;
-    line-height: 27.6px;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 23px;
+    padding-right: 3%;
+}
+.imgMethod{
+    padding-right:10%
 }
 
-.thanhtoan_container{
+.payment_container{
+    width:70%;
+    margin-top: 3%;
+    height:50%;
+}
+.thanhtoan_container_pay{
     background-color: #3F3F3F;
     border-radius: 20px 20px 20px 20px;
     /* height: 25%; */
@@ -52,7 +78,7 @@
 }
 
 
-.label_text{
+.label_text_pay{
     color:#C2C2C2;
     font-family: "Arial";
     font-weight: 400;
@@ -61,7 +87,7 @@
     width: 33%;
     /* margin-right: 10px; */
 }
-.currency_number{
+.currency_number_pay{
     color:#C2C2C2;
     font-family: "Arial";
     font-weight: 700;
@@ -70,7 +96,7 @@
     width: 35%;
 
 }
-.currency_number_total{
+.currency_number_total_pay{
     color:#FFFFFF;
     font-family: "Arial";
     font-weight: 700;
@@ -80,11 +106,11 @@
     padding-top: 3%;
 
 }
-.Total_container{
+.Total_container_pay{
     width:100%;
     /* background-color: yellow; */
 }
-.Total_text{
+.Total_text_pay{
     color: #FFFFFF;
     font-family: "Arial";
     font-weight: 400;
@@ -93,10 +119,10 @@
     width: 80%;
     padding-top: 3%;
 }
-.button_div{
+.button_div_pay{
     padding-top: 1.5%;
 }
-.button_orderNow{
+.button_order{
     background-color: #F72D57;
     border-radius: 5px 5px 5px 5px;
     border: none;
@@ -109,9 +135,9 @@
     height: 34px;
 }
 
-.button_orderNow:hover{
+.button_order:hover{
     opacity: 0.8;
 }
-.button_orderNow:active{
+.button_order:active{
     opacity: 1;
 }

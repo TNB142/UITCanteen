@@ -1,0 +1,31 @@
+.PayCartCard{
+    background-image: linear-gradient(to bottom, #2A69B4, #F72D57);
+    offset: 0px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 4px 4px 4px 4px;
+    box-shadow: 1px 2px 9px #ff4267;
+    height: 122px;
+}
+
+.food_name_pay_container{
+    padding-top: 1%;
+    padding-right: 1%;
+}
+
+.text_quantity{
+    color:#FFFFFF;
+    font-family: "Arial";
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 18.4px;
+    margin-right: 10px;
+    height: 100%;
+    align-items:center;
+}
+
+.payimgDish{
+    width: 94px;
+    height: 95px;
+    object-fit: cover;
+    padding-left: 5%;
+    border-radius: 5px 5px 5px 5px;
+}
