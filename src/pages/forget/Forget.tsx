@@ -18,7 +18,7 @@ export function ForgetPassword() {
     console.log("Move back to verify email")
     navigate("./Verify");
 
-  }, [navigate]);
+  }, [navigate]); 
   const Move_back = useCallback(() => {
     console.log("Move back to login")
     navigate("/Login");

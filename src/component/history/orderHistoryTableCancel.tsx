@@ -1,7 +1,7 @@
 import { Button, Card, Container, Table } from "react-bootstrap";
 import "./style.css"
 
-export function OrderHistoryTable() {
+export function OrderHistoryTableCancel() {
   return (
     <>
       <Container className="bg-white shadow-sm">
@@ -16,10 +16,10 @@ export function OrderHistoryTable() {
           </thead>
           <tbody className="orderHistory_table">
             <tr>
-              <td>#12345678</td>
-              <td>25.000 vnd</td>
+              <td>#12345679</td>
+              <td>30.000 vnd</td>
               <td>14/11/2022</td>
-              <td className="text-success ">Đã thanh toán</td>
+              <td className="text-danger ">Đã huỷ</td>
             </tr>
           </tbody>
         </Table>
