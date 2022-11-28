@@ -9,6 +9,8 @@ import {
 import { useState } from "react";
 import { useShoppingCart } from "../../../context/shoppingCartContext";
 import { CartPayItem } from "../cartpayitem/CartPayItem";
+import { useNavigate } from "react-router-dom";
+import { useCallback } from "react";
 
 import "./style.css";
 
@@ -17,7 +19,7 @@ type PayCartProps = {
 };
 
 export function PayCart({ isOpenPay }: PayCartProps) {
-  const { closePayCart, cartItems, cartQuantity } = useShoppingCart();
+  const { closeCart,closePayCart, cartItems, cartQuantity } = useShoppingCart();
   const [radioValue, setRadioValue] = useState("1");
 
   const radios = [
@@ -40,7 +42,13 @@ export function PayCart({ isOpenPay }: PayCartProps) {
     setCheckMethod(currentTargetvalue);
     console.log(currentTargetvalue);
   };
+  const navigate = useNavigate();
 
+  const clickPay = useCallback(() => {
+    closePayCart();
+    closeCart();
+    navigate("/Success");
+  }, [navigate]);
   return (
     <Offcanvas
       className="pay_cart_container"
@@ -63,7 +71,7 @@ export function PayCart({ isOpenPay }: PayCartProps) {
       </Offcanvas.Header>
       <Offcanvas.Body>
         <div className="paying_cart_title__body_text">Giờ nhận đơn hàng</div>
-        <Container fluid className="pt-3">
+        <Container fluid className="select_time_container d-flex flex-row pt-3">
           {radios.map((radio, idx) => (
             <ToggleButton
               key={idx}
@@ -73,6 +81,7 @@ export function PayCart({ isOpenPay }: PayCartProps) {
               value={radio.value}
               onChange={() => checkButton(radio.value)}
               checked={radioValue === radio.value}
+
             >
               <div className="button_text">{radio.name}</div>
             </ToggleButton>
@@ -146,7 +155,7 @@ export function PayCart({ isOpenPay }: PayCartProps) {
             <div className="Total_container_pay d-flex flex-row">
               <div className="Total_text_pay ">Tổng cộng:</div>
               <div className="currency_number_total_pay">25.000vnd</div>
-              <div className="d-flex flex-row justify-content-end w-100 button_div_pay">
+              <div className="d-flex flex-row justify-content-end w-100">
                 <button className="button_order">Đặt món</button>
               </div>
             </div>
@@ -189,7 +198,7 @@ export function PayCart({ isOpenPay }: PayCartProps) {
               <div className="Total_text_pay ">Tổng cộng:</div>
               <div className="currency_number_total_pay">30.000vnd</div>
               <div className="d-flex flex-row justify-content-end w-100 button_div_pay">
-                <button className="button_order">Đặt món</button>
+                <button className="button_order" onClick={clickPay}>Đặt món</button>
               </div>
             </div>
           </div>

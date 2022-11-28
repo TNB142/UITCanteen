@@ -36,12 +36,14 @@
     padding-right: 3%;
     width: 100%;
 }
-
+.select_time_container{
+    justify-content: space-between;
+}
 .select_time_button{
     width:30%;
     height: 30px;
     border: none;
-    margin-right: 3%;
+    /* margin-right: 3%; */
     border-radius: 5px 5px 5px 5px;
 }
 .select_time_button:hover{
@@ -57,11 +59,11 @@
     font-family: "Arial";
     font-weight: 400;
     font-size: 13px;
-    line-height: 23px;
-    padding-right: 3%;
 }
+
+
 .imgMethod{
-    padding-right:10%
+    margin-right:10%
 }
 
 .payment_container{
@@ -118,9 +120,6 @@
     line-height: 18.4px;
     width: 80%;
     padding-top: 3%;
-}
-.button_div_pay{
-    padding-top: 1.5%;
 }
 .button_order{
     background-color: #F72D57;

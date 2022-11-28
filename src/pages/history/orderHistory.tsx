@@ -5,11 +5,12 @@ import {
   Button,
   Stack,
   ToggleButton,
-  ButtonGroup
+  ButtonGroup,
 } from "react-bootstrap";
 import React, { useState } from "react";
 import { OrderHistoryTable } from "../../component/history/orderHistoryTable";
-
+import { OrderHistoryTableCancel } from "../../component/history/orderHistoryTableCancel";
+import "./style.css";
 
 export function History() {
   const [radioValue, setRadioValue] = useState("1");
@@ -21,42 +22,47 @@ export function History() {
   return (
     <>
       <Container
-        className="bg-light"
+        // className="bg-light"
         style={{
           height: "100%",
         }}
         id="history"
       >
-        <div>
-          <p>Xin chào, user_name</p>
+        <div className="hello_text d-flex flex-row">
+          Xin chào, <div className="username_text"> user_name</div>
         </div>
+        <div className="header_orderHistory">Lịch sử đặt hàng</div>
         <Row>
           <Col>
-            <ButtonGroup
-            className="d-flex flex-column">
+            <ButtonGroup className="d-flex flex-column">
               {radios.map((radio, idx) => (
                 <ToggleButton
                   key={idx}
                   id={`radio-${idx}`}
                   type="radio"
-                  variant={"outline-danger"}
+                  variant={"outline-danger buttonSelect"}
                   name="radio"
                   value={radio.value}
                   checked={radioValue === radio.value}
                   onChange={(e) => setRadioValue(e.currentTarget.value)}
-                  className="mb-3 rounded"
+                  className="buttonSelect rounded d-flex flex-column justify-content-center"
                 >
-                  {radio.name}
+                  <div className="buttonText">{radio.name}</div>
                 </ToggleButton>
               ))}
             </ButtonGroup>
           </Col>
           <Col>
-            <div>
-              <h3 className="mb-5">Lịch sử đặt hàng</h3>
-              <OrderHistoryTable/>
-            </div>
-
+            {radioValue === "1" && (
+              <div>
+                <OrderHistoryTable />{" "}
+              </div>
+            )}
+            {radioValue === "2" && (
+              <div>
+                <OrderHistoryTableCancel />{" "}
+              </div>
+            )}
           </Col>
         </Row>
       </Container>

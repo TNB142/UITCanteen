@@ -13,6 +13,7 @@ import { ShoppingCartProvider } from "./context/shoppingCartContext";
 import { ForgetPassword } from "./pages/forget/Forget";
 import { VerifyEmail } from "./pages/forget/verify/Verify";
 import { RePassword } from "./pages/forget/repassword/RePassword";
+import { SuccessPay } from "./pages/successpay/SuccessPay";
 
 import { Menu_page as Menu } from "./pages/menu/Menu";
 
@@ -51,6 +52,7 @@ export default function App() {
               <Route path="/Register" element={<Register />} />
               <Route path="/ForgetPassword" element={<ForgetPassword />} />
               <Route path="/ForgetPassword/Verify" element={<VerifyEmail />} />
+              <Route path="/Success" element={<SuccessPay />} />
               <Route
                 path="/ForgetPassword/Verify/RePassword"
                 element={<RePassword />}
