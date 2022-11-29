@@ -1,0 +1,58 @@
+.textHeading{
+    font-family: "Arial";
+    font-weight: 700;
+    font-size: 35px;
+    line-height: 40.25px;
+    color: #000000;
+    text-align: center;
+    margin-bottom: 3%;
+}
+
+.DetailContainer{
+    margin-top: 3%;
+}
+
+.infoText{
+    padding-top: 2%;
+    margin-bottom: 3%;
+    background-color: #FFFFFF;
+    border-radius: 20px 20px 20px 20px;
+    box-shadow: 1px 3px 10px;
+    width: 743px;
+}
+
+.infoCurrency{
+    padding-top: 3%;
+    background-color: #FFFFFF;
+    border-radius: 20px 20px 20px 20px;
+    box-shadow: 1px 3px 10px;
+    width: 743px;
+}
+
+.textTitle{
+    margin-left: 3%;
+    font-family: "Arial";
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 27.6px;
+    color: #000000;
+    margin-bottom: 3%;
+}
+
+.textDetails{
+    font-family: "Arial";
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 27.6px;
+    /* color: #000000; */
+    margin-right: 3%;
+    text-align: end;
+}
+
+.infoImg{
+    padding-top: 3%;
+    background-color: #FFFFFF;
+    border-radius: 20px 20px 20px 20px;
+    box-shadow: 1px 3px 10px;
+    width: 743px;
+}

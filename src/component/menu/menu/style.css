@@ -27,12 +27,12 @@
 .containerMenu
 {
     background-color: white;
-    padding: 20px;
     box-shadow: 5px 6px gainsboro;
     border-radius: 0px 0px 50px 50px;
     height: 100%;
     padding-top: 1%;
     flex: content;
     justify-content: center;
+    padding-bottom: 5%;
 }
 

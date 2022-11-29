@@ -19,7 +19,8 @@ type PayCartProps = {
 };
 
 export function PayCart({ isOpenPay }: PayCartProps) {
-  const { closeCart,closePayCart, cartItems, cartQuantity } = useShoppingCart();
+  const { closeCart, closePayCart, cartItems, cartQuantity } =
+    useShoppingCart();
   const [radioValue, setRadioValue] = useState("1");
 
   const radios = [
@@ -81,7 +82,6 @@ export function PayCart({ isOpenPay }: PayCartProps) {
               value={radio.value}
               onChange={() => checkButton(radio.value)}
               checked={radioValue === radio.value}
-
             >
               <div className="button_text">{radio.name}</div>
             </ToggleButton>
@@ -156,12 +156,15 @@ export function PayCart({ isOpenPay }: PayCartProps) {
               <div className="Total_text_pay ">Tổng cộng:</div>
               <div className="currency_number_total_pay">25.000vnd</div>
               <div className="d-flex flex-row justify-content-end w-100">
-                <button className="button_order">Đặt món</button>
+                <button className="button_order" onClick={clickPay}>
+                  Đặt món
+                </button>
               </div>
             </div>
           </div>
         </Container>
       )}
+
       {cartQuantity == 3 && (
         <Container className="d-flex flex-column thanhtoan_container_pay">
           <div className="p-3 d-fex flex-column w-100 ">
@@ -198,7 +201,9 @@ export function PayCart({ isOpenPay }: PayCartProps) {
               <div className="Total_text_pay ">Tổng cộng:</div>
               <div className="currency_number_total_pay">30.000vnd</div>
               <div className="d-flex flex-row justify-content-end w-100 button_div_pay">
-                <button className="button_order" onClick={clickPay}>Đặt món</button>
+                <button className="button_order" onClick={clickPay}>
+                  Đặt món
+                </button>
               </div>
             </div>
           </div>
