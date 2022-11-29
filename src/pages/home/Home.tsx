@@ -9,7 +9,7 @@ export function Home() {
 
   return (
     <>
-      <Container fluid id="home">
+      <div id="home">
         {/* <div className="divDatMon"> */}
         <Container fluid className="orderNow_container">
           <Row className="rowContainer">
@@ -67,7 +67,7 @@ export function Home() {
         {/* <div className="mb-5 p-5"> */}
         <Menu />
         {/* </div> */}
-      </Container>
+      </div>
     </>
   );
 }
