@@ -4,6 +4,8 @@ import {
   Nav,
   Navbar as NavbarBs,
   NavItem,
+  Dropdown,
+  Form,
 } from "react-bootstrap";
 // import Image from 'react-bootstrap/Image'
 import { NavLink } from "react-router-dom";
@@ -13,7 +15,7 @@ import "./style.css";
 import axios, { Axios } from "axios";
 
 export function HeaderLogin() {
-  const { openPayCart,openCart, cartQuantity } = useShoppingCart();
+  const { openPayCart, openCart, cartQuantity } = useShoppingCart();
   return (
     <NavbarBs sticky="top" className="headerSpace">
       <Container>
@@ -79,11 +81,48 @@ export function HeaderLogin() {
         </div>
         <div>
           <Nav>
-            <button className="button">
-              <Nav.Link to="/Logout" as={NavLink}>
-                <div className="loginText">Đăng Xuất</div>
-              </Nav.Link>
-            </button>
+            <Dropdown>
+              <Dropdown.Toggle
+                id="dropdown-autoclose-true"
+                className="chicken_button rounded-circle"
+              >
+                <img
+                  alt=""
+                  src="../svg/chicken_ava.svg"
+                  className="chicken_ava"
+                />{" "}
+              </Dropdown.Toggle>{" "}
+              <Dropdown.Menu className="dropdownMenu">
+                <Dropdown.Header className="user_Name">
+                  User_Name
+                </Dropdown.Header>
+                <Dropdown.Divider className="dropdownMenu" />
+                <Dropdown.Item className="dropdownItem">
+                  <Nav.Link
+                    to="/User"
+                    as={NavLink}
+                    className="d-flex flex-row dropdownItem"
+                  >
+                    Hồ Sơ
+                    <img
+                      alt=""
+                      src="../svg/edit-settings.svg"
+                      className="imgDropdown"
+                    />
+                  </Nav.Link>
+                </Dropdown.Item>
+                <Dropdown.Item className="dropdownItem">
+                  <Nav.Link to="/Logout" as={NavLink} className="dropdownItem">
+                    Đăng xuất
+                    <img
+                      alt=""
+                      src="../svg/log-out.svg"
+                      className="imgDropdown"
+                    />
+                  </Nav.Link>
+                </Dropdown.Item>
+              </Dropdown.Menu>
+            </Dropdown>
           </Nav>
         </div>
       </Container>

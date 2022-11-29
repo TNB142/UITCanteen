@@ -154,3 +154,50 @@
     opacity: 1;
 }
 
+.chicken_button{
+    background-color:transparent !important;
+    color: #000000!important;
+    /* border-radius: 50px 50px 50px 50px !important; */
+    border: none!important;
+}
+
+.chicken_ava{
+    border-radius: 20px 20px 20px 20px;
+}
+
+.dropdownMenu{
+    border-color:#FD2925!important ;
+    border-width: 3px!important;
+}
+
+.dropdownItem{
+    color: #FD2925!important;
+    Font-family: Arial!important;
+    font-weight: 700!important;
+    Font-size: 20px!important;
+    Line-height: 100%!important;
+}
+
+/* .dropdownItem:hover{
+    opacity: 0.8!important;
+    background-color:transparent!important;
+} */
+.dropdownItem:active{
+    opacity: 1!important;
+    background-color: transparent!important;
+}
+
+.user_Name{
+    color: #FD2925!important;
+    Font-family: Arial!important;
+    font-weight: 700!important;
+    Font-size: 20px!important;
+    Line-height: 100%!important;
+    text-align: center;
+}
+
+.imgDropdown{
+    margin-left: 10%;
+}
+
+
