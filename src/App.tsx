@@ -59,26 +59,6 @@ export default function App() {
             >
               <Header />
 
-<<<<<<< HEAD
-              <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/Login" element={<Login />} />
-                <Route path="/History" element={<History />} />
-                <Route path="/About" element={<About />} />
-                <Route path="/Menu" element={<Menu />} />
-                <Route path="/Register" element={<Register />} />
-                <Route path="/ForgetPassword" element={<ForgetPassword />} />
-                <Route path="/ForgetPassword/Verify" element={<VerifyEmail />} />
-                <Route path="/Success" element={<SuccessPay />} />
-                <Route
-                  path="/ForgetPassword/Verify/RePassword"
-                  element={<RePassword />}
-                />
-              </Routes>
-            </div>
-          </ShoppingCartProvider>
-        </div>
-=======
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/Login" element={<Login />} />
@@ -98,7 +78,6 @@ export default function App() {
           </div>
         </ShoppingCartProvider>
       </div>
->>>>>>> 061955d14d11ec34047b826910e41c6222eaca25
 
         {/* </Container> */}
         <Footer />
