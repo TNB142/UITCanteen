@@ -18,13 +18,11 @@ export function Register() {
   const [usernameReg, setUsernameReg] = useState("");
   const [passwordReg, setPasswordReg] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  // const [loginStatus, setLoginStatus] = useState("");
 
   const register = () => {
     Axios.post("http://localhost:3001/register", {
       username: usernameReg,
       password: passwordReg,
-      confirmPassword: confirmPassword,
     }
     ).then((response) => {
       toast(response.data.message, {
@@ -40,16 +38,8 @@ export function Register() {
     });
   }
 
-  // useEffect(() => {
-  //   Axios.get("http://localhost:3001/login").then((response) => {
-  //     if (response.data.loggedIn == true) {
-  //       setLoginStatus(response.data.user[0].username);
-  //     }
-  //   });
-  // }, []);
 
   return (
-
     <>
       <Container className="pt-5" id="register">
         <Row>
