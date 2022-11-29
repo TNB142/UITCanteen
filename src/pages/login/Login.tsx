@@ -8,6 +8,7 @@ import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 export function Login() {
+
   const forgetButton = (event: any) => {
     console.log(event.target);
     console.log("Forget Password");
@@ -37,10 +38,11 @@ export function Login() {
           toast(response.data.message);
         } else {
           setLoginStatus(response.data);
-          toast("logged in as " + response.data.email);
           Axios.get("http://localhost:3001/login").then((response) => {
-          console.log(response);
-    });
+            console.log(response);
+          });
+          navigate("/");
+          window.location.reload();
         }
       });
     }
