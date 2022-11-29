@@ -34,7 +34,7 @@ export function Header() {
             <Nav.Link to="/" as={NavLink}>
               Trang chủ
             </Nav.Link>
-            <Nav.Link to="Menu" as={NavLink}>
+            <Nav.Link to="/Menu" as={NavLink}>
               Thực đơn
             </Nav.Link>
             <Nav.Link to="/History" as={NavLink}>
