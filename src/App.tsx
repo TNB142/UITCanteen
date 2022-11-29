@@ -14,6 +14,8 @@ import { ForgetPassword } from "./pages/forget/Forget";
 import { VerifyEmail } from "./pages/forget/verify/Verify";
 import { RePassword } from "./pages/forget/repassword/RePassword";
 import { SuccessPay } from "./pages/successpay/SuccessPay";
+import {PayCartDetails} from "./pages/details/payCartDetails";
+
 
 import { Menu_page as Menu } from "./pages/menu/Menu";
 
@@ -43,6 +45,7 @@ function App() {
               <Route path="/ForgetPassword" element={<ForgetPassword />} />
               <Route path="/ForgetPassword/Verify" element={<VerifyEmail />} />
               <Route path="/Success" element={<SuccessPay />} />
+              <Route path="/Details" element={<PayCartDetails/>}/>
               <Route
                 path="/ForgetPassword/Verify/RePassword"
                 element={<RePassword />}

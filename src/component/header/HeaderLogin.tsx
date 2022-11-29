@@ -10,7 +10,7 @@ import {
   import { useShoppingCart } from "../../context/shoppingCartContext";
   import { useRef, useState } from "react";
   import "./style.css";
-  
+
   export function Header() {
     const { openCart, cartQuantity } = useShoppingCart();
     return (
@@ -28,13 +28,13 @@ import {
               </Nav.Link>
             </Nav>
           </div>
-  
+
           <div className="nav_link">
             <Nav>
               <Nav.Link to="/" as={NavLink}>
                 Trang chủ
               </Nav.Link>
-              <Nav.Link to="Menu" as={NavLink}>
+              <Nav.Link to="/Menu" as={NavLink}>
                 Thực đơn
               </Nav.Link>
               <Nav.Link to="/History" as={NavLink}>
@@ -45,7 +45,7 @@ import {
               </Nav.Link>
             </Nav>
           </div>
-  
+
           <div className="shoppingCartIcon">
             <div
               style={{ position: "relative" }}
@@ -89,4 +89,3 @@ import {
       </NavbarBs>
     );
   }
-  
