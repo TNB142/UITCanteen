@@ -46,7 +46,7 @@ export function MenuItem({ id, name, imgUrl }: MenuItemProps) {
                 align-items-center
                 mb-4"
         >
-          <span className="fs-2">{name}</span>
+          <span className="food_text">{name}</span>
         </Card.Title>
         <div
           className="mt-auto"
