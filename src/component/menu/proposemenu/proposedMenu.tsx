@@ -17,7 +17,6 @@ import { useEffect, useState } from "react";
 import "../menu/style.css";
 import axios from "axios";
 
-
 export function ProposedMenu() {
   const [radioValue, setRadioValue] = useState("1");
 
@@ -34,22 +33,23 @@ export function ProposedMenu() {
   const [dishItemMain, setDishItemMain] = useState([]);
   const [dishItemSide, setDishItemSide] = useState([]);
 
-
   useEffect(() => {
     async function getDish() {
       const data_main = await axios.get(
-        "https://uitcanteen-backend.herokuapp.com/menu/main"
+        "https://uitcanteen-backend.herokuapp.com/menu/main/proposed"
       );
       setDishItemMain(data_main.data.menu);
       const data_side = await axios.get(
-        "https://uitcanteen-backend.herokuapp.com/menu/side"
+        "https://uitcanteen-backend.herokuapp.com/menu/side/proposed"
       );
-      setDishItemSide(data_side.data.menu)
-      return data_main.data.menu,data_side.data.menu;
+      setDishItemSide(data_side.data.menu);
+      return data_main.data.menu, data_side.data.menu;
     }
     getDish();
-  }, ["https://uitcanteen-backend.herokuapp.com/menu/main","https://uitcanteen-backend.herokuapp.com/menu/side"]);
-
+  }, [
+    "https://uitcanteen-backend.herokuapp.com/menu/main",
+    "https://uitcanteen-backend.herokuapp.com/menu/side",
+  ]);
 
   return (
     <>
@@ -96,7 +96,7 @@ export function ProposedMenu() {
         {radioValue === "1" && (
           <Container fluid className="containerMenu">
             <Row md={2} xs={3} lg={3}>
-              {dishItemMain.map((item:any) => (
+              {dishItemMain.map((item: any) => (
                 // <Col>{JSON.stringify(item)}</Col>
                 <Col key={item.DishId} className="g-3">
                   <MenuItem {...item} />
@@ -108,7 +108,7 @@ export function ProposedMenu() {
         {radioValue === "2" && (
           <Container fluid className="containerMenu">
             <Row md={2} xs={3} lg={3}>
-              {dishItemSide.map((item:any) => (
+              {dishItemSide.map((item: any) => (
                 // <Col>{JSON.stringify(item)}</Col>
                 <Col key={item.DishId} className="g-3">
                   <MenuItem {...item} />

@@ -57,11 +57,7 @@ export function Menu() {
     getDish();
   }, ["https://uitcanteen-backend.herokuapp.com/menu/main","https://uitcanteen-backend.herokuapp.com/menu/side"]);
 
-  function get_random (list:any) {
-    return list[Math.floor((Math.random()*list.length))];
-  }
 
-  console.log(get_random(dishItemMain))
   return (
     <>
       {/* <ButtonGroup className="d-flex flex-row w-50">
