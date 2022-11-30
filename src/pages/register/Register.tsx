@@ -20,7 +20,7 @@ export function Register() {
   const [confirmPassword, setConfirmPassword] = useState("");
 
   const register = () => {
-    Axios.post("http://localhost:3001/register", {
+    Axios.post("https://uitcanteen-backend.herokuapp.com/register", {
       username: usernameReg,
       password: passwordReg,
     }
