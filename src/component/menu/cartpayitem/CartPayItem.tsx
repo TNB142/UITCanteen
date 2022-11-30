@@ -1,6 +1,8 @@
 import { Button, Stack } from "react-bootstrap";
 import { useShoppingCart } from "../../../context/shoppingCartContext";
 import menuItems from "../../../data/items.json";
+import { useEffect, useState } from "react";
+import axios from "axios";
 import "./style.css";
 
 type CartPayItemProps = {
@@ -15,8 +17,28 @@ export function CartPayItem({ id, quantity }: CartPayItemProps) {
     getItemQuantity,
     cartQuantity,
   } = useShoppingCart();
-  const item = menuItems.find((i) => i.DishId === id);
+  const [dishItem, setDishItem] = useState([]);
+
+  useEffect(() => {
+    async function getDish() {
+      const data = await axios.get(
+        "https://uitcanteen-backend.herokuapp.com/menu"
+      );
+      setDishItem(data.data.menu);
+      return data.data.menu;
+    }
+    getDish();
+  }, ["https://uitcanteen-backend.herokuapp.com/menu"]);
+
+  const item: any = dishItem.find((i: any) => i.DishId === id);
+
+  const DishType = () => {
+    if (item.dishTypeId == 1) return "Món chính";
+    else return "Món phụ";
+  };
+
   if (item == null) return null;
+
   return (
     <Stack
       direction="horizontal"
@@ -34,7 +56,7 @@ export function CartPayItem({ id, quantity }: CartPayItemProps) {
         <div>
           <div className="w-100">
             <div className="nameDish_text">{item.dishName}</div>
-            <div className="typeDish_text">{item.dishTypeId}</div>
+            <div className="typeDish_text">{DishType()}</div>
           </div>
           <div className="d-flex flex-row w-100 d-flex justify-content-end text_quantity">
             Số lượng:<div>{quantity}</div>
