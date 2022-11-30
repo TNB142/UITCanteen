@@ -82,7 +82,7 @@ export function CartItem({ id, quantity }: CartItemProps) {
         <div>
           <div className="w-100">
             <div className="nameDish_text">{item.dishName}</div>
-            <div className="typeDish_text">DishType()</div>
+            <div className="typeDish_text">{DishType()}</div>
           </div>
         </div>
         <div className="h-100 d-flex justify-content-end">
