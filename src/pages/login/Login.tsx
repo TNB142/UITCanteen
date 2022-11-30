@@ -42,7 +42,7 @@ export function Login() {
           navigate("/");
           window.location.reload();
         }
-          
+
       });
     }
   };
