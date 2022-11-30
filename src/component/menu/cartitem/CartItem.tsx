@@ -34,6 +34,14 @@ export function CartItem({ id, quantity }: CartItemProps) {
   }, ["https://uitcanteen-backend.herokuapp.com/menu"]);
 
   const item:any = dishItem.find((i:any) => i.DishId === id);
+
+  const DishType = () => {
+    if (item.dishTypeId == 1)
+      return "Món chính"
+    else
+      return "Món phụ"
+  }
+
   if (item == null) return null;
   const increaseClick = (event: any) => {
     // 👇️ refers to the image element
@@ -74,7 +82,7 @@ export function CartItem({ id, quantity }: CartItemProps) {
         <div>
           <div className="w-100">
             <div className="nameDish_text">{item.dishName}</div>
-            <div className="typeDish_text">{item.dishTypeId}</div>
+            <div className="typeDish_text">DishType()</div>
           </div>
         </div>
         <div className="h-100 d-flex justify-content-end">
