@@ -1,23 +1,209 @@
 [
     {
-        "id":1,
-        "name": "Chả cá sợi",
-        "imgUrl":"/imgs/cha_ca_soi.jpg",
-        "type": "Món chính"
+        "DishId": 1,
+        "dishTypeId": 1,
+        "dishName": "Thịt kho trứng",
+        "image": "https://drive.google.com/file/d/153iOnbzc9rfiQAsGyEjolJ8KIv0-TPUk/view?usp=sharing",
+        "description": null,
+        "updateAt": "2022-11-22T20:45:00.000Z",
+        "quantity": 30
     },
-
     {
-        "id":2,
-        "name": "Đậu hủ chiên",
-        "imgUrl":"/imgs/dau_hu_chien_xa.jpg",
-        "type": "Món chính"
+        "DishId": 2,
+        "dishTypeId": 1,
+        "dishName": "Thịt gà kho sả ớt",
+        "image": "https://drive.google.com/file/d/14VHsez5I6N-JvVLOjoxHmyuiJF8WkusC/view?usp=share_link",
+        "description": null,
+        "updateAt": "2022-11-22T20:45:00.000Z",
+        "quantity": 30
     },
-
     {
-        "id":3,
-        "name": "Ốp la",
-        "imgUrl":"/imgs/op_la.jpg",
-        "type": "Món chính"
+        "DishId": 3,
+        "dishTypeId": 1,
+        "dishName": "Cá lóc kho tộ",
+        "image": "https://drive.google.com/file/d/14Y-UMUwG7Yx3VooC7zaIySlIhOkYlbmJ/view?usp=share_link",
+        "description": null,
+        "updateAt": "2022-11-22T20:45:00.000Z",
+        "quantity": 30
+    },
+    {
+        "DishId": 4,
+        "dishTypeId": 1,
+        "dishName": "Thịt heo kho măng",
+        "image": "https://drive.google.com/file/d/14Z6l54wpZ57IcZxQeMkn0nGc0TZ55QRW/view?usp=share_link",
+        "description": null,
+        "updateAt": "2022-11-22T20:45:00.000Z",
+        "quantity": 30
+    },
+    {
+        "DishId": 5,
+        "dishTypeId": 1,
+        "dishName": "Thịt heo kho củ cải",
+        "image": "https://drive.google.com/file/d/14aEYRLfPIe2IR69E_aJz-D5yf6ATF9y-/view?usp=share_link",
+        "description": null,
+        "updateAt": "2022-11-22T20:45:00.000Z",
+        "quantity": 30
+    },
+    {
+        "DishId": 6,
+        "dishTypeId": 1,
+        "dishName": "Đậu hũ nhồi thịt",
+        "image": "https://drive.google.com/file/d/14abxF6ENFgFo3SsXqygv-09B3S8i5V2b/view?usp=share_link",
+        "description": null,
+        "updateAt": "2022-11-22T20:45:00.000Z",
+        "quantity": 30
+    },
+    {
+        "DishId": 7,
+        "dishTypeId": 1,
+        "dishName": "Chả cá sốt mắm tỏi",
+        "image": "https://drive.google.com/file/d/14dIl6nGMl_t9ty7HfILQUNyBtH9Z3XWd/view?usp=share_link",
+        "description": null,
+        "updateAt": "2022-11-22T20:45:00.000Z",
+        "quantity": 30
+    },
+    {
+        "DishId": 8,
+        "dishTypeId": 1,
+        "dishName": "Trứng chiên thịt",
+        "image": "https://drive.google.com/file/d/14er4B97SHGy8nDIP1PkvR9gWpIIrmT2D/view?usp=share_link",
+        "description": null,
+        "updateAt": "2022-11-22T20:45:00.000Z",
+        "quantity": 30
+    },
+    {
+        "DishId": 9,
+        "dishTypeId": 1,
+        "dishName": "Bạch tuộc xào sả ớt",
+        "image": "https://drive.google.com/file/d/14f3W3PH1hjDDyQ2wn1IOXcgforZYyD4O/view?usp=share_link",
+        "description": null,
+        "updateAt": "2022-11-22T20:45:00.000Z",
+        "quantity": 30
+    },
+    {
+        "DishId": 10,
+        "dishTypeId": 1,
+        "dishName": "Đậu hũ sả ớt",
+        "image": "https://drive.google.com/file/d/14f_Mtmp_FIQhxdDJjd3ZjZDZUkzKkIpT/view?usp=share_link",
+        "description": null,
+        "updateAt": "2022-11-22T20:45:00.000Z",
+        "quantity": 30
+    },
+    {
+        "DishId": 11,
+        "dishTypeId": 1,
+        "dishName": "Nem nướng",
+        "image": "https://drive.google.com/file/d/14n33WXaQUCieqccSP9sX5Sul6rdyy2tJ/view?usp=share_link",
+        "description": null,
+        "updateAt": "2022-11-22T20:45:00.000Z",
+        "quantity": 30
+    },
+    {
+        "DishId": 12,
+        "dishTypeId": 1,
+        "dishName": "Lòng gà xào thơm",
+        "image": "https://drive.google.com/file/d/153zqu-ELKGJFDbmia7PErG-UX59QtnBj/view?usp=share_link",
+        "description": null,
+        "updateAt": "2022-11-22T20:45:00.000Z",
+        "quantity": 30
+    },
+    {
+        "DishId": 13,
+        "dishTypeId": 1,
+        "dishName": "Cánh gà chiên nước mắm",
+        "image": "https://drive.google.com/file/d/14kyQ3u0Nb6W7nFGkntYGVP_MHS-3V-hc/view?usp=share_link",
+        "description": null,
+        "updateAt": "2022-11-22T20:45:00.000Z",
+        "quantity": 30
+    },
+    {
+        "DishId": 14,
+        "dishTypeId": 1,
+        "dishName": "Bò kho",
+        "image": "https://drive.google.com/file/d/14r9E0nuWD2cwuMkDbuvq8GnTpvDtD4Je/view?usp=share_link",
+        "description": null,
+        "updateAt": "2022-11-22T20:45:00.000Z",
+        "quantity": 30
+    },
+    {
+        "DishId": 15,
+        "dishTypeId": 1,
+        "dishName": "Thịt luộc cà pháo mắm tôm",
+        "image": "https://drive.google.com/file/d/14rIjdpvmn9pEy-wldmRufQOaRkmUupvW/view?usp=share_link",
+        "description": null,
+        "updateAt": "2022-11-22T20:45:00.000Z",
+        "quantity": 30
+    },
+    {
+        "DishId": 16,
+        "dishTypeId": 2,
+        "dishName": "Khổ qua xào trứng",
+        "image": "https://drive.google.com/file/d/14tRNPru2lPcNpEEG1YYuggrhPyTsJXlM/view?usp=share_link",
+        "description": null,
+        "updateAt": "2022-11-22T20:45:00.000Z",
+        "quantity": 30
+    },
+    {
+        "DishId": 17,
+        "dishTypeId": 2,
+        "dishName": "Đậu cô ve xào",
+        "image": "https://drive.google.com/file/d/157esdCeb1P0uwygv4Kj-2o5dP6cEaipq/view?usp=share_link",
+        "description": null,
+        "updateAt": "2022-11-22T20:45:00.000Z",
+        "quantity": 30
+    },
+    {
+        "DishId": 18,
+        "dishTypeId": 2,
+        "dishName": "Cà rốt xào trứng",
+        "image": "https://drive.google.com/file/d/14uzBdmRNMW06j17VGOfTpTqRAaFde66k/view?usp=share_link",
+        "description": null,
+        "updateAt": "2022-11-22T20:45:00.000Z",
+        "quantity": 30
+    },
+    {
+        "DishId": 19,
+        "dishTypeId": 2,
+        "dishName": "Khoai tây xào tỏi",
+        "image": "https://drive.google.com/file/d/14xLJXotAb1Z8HY_EAYM9_jQR5BwsF5NX/view?usp=share_link",
+        "description": null,
+        "updateAt": "2022-11-22T20:45:00.000Z",
+        "quantity": 30
+    },
+    {
+        "DishId": 20,
+        "dishTypeId": 2,
+        "dishName": "Su su xào",
+        "image": "https://drive.google.com/file/d/150DRCC32ikdL2TWiva0yZ22TwW45yWsY/view?usp=share_link",
+        "description": null,
+        "updateAt": "2022-11-22T20:45:00.000Z",
+        "quantity": 30
+    },
+    {
+        "DishId": 21,
+        "dishTypeId": 2,
+        "dishName": "Nộm dưa chuột",
+        "image": "https://drive.google.com/file/d/151BHV7-B83NFdYdjXtjF7-ImizXOfGqz/view?usp=share_link",
+        "description": null,
+        "updateAt": "2022-11-22T20:45:00.000Z",
+        "quantity": 30
+    },
+    {
+        "DishId": 22,
+        "dishTypeId": 2,
+        "dishName": "Bí đỏ xào tỏi",
+        "image": "https://drive.google.com/file/d/151i0cVd5aalwpzYN2oBWWEljjV7huh_4/view?usp=share_link",
+        "description": null,
+        "updateAt": "2022-11-22T20:45:00.000Z",
+        "quantity": 30
+    },
+    {
+        "DishId": 23,
+        "dishTypeId": 2,
+        "dishName": "Rau muống xào tỏi",
+        "image": "https://drive.google.com/file/d/152mgFNQiKgWPMPQBRy2Nrqg0hNPDM1ap/view?usp=share_link",
+        "description": null,
+        "updateAt": "2022-11-22T20:45:00.000Z",
+        "quantity": 30
     }
 ]
-

@@ -77,7 +77,7 @@ export function Menu() {
             <Row md={2} xs={3} lg={3}>
               {menuItems.map((item) => (
                 // <Col>{JSON.stringify(item)}</Col>
-                <Col key={item.id} className="g-3">
+                <Col key={item.DishId} className="g-3">
                   <MenuItem {...item} />
                 </Col>
               ))}
@@ -89,7 +89,7 @@ export function Menu() {
             <Row md={2} xs={3} lg={3}>
               {anothermenuItems.map((item) => (
                 // <Col>{JSON.stringify(item)}</Col>
-                <Col key={item.id} className="g-3">
+                <Col key={item.DishId} className="g-3">
                   <MenuItem {...item} />
                 </Col>
               ))}

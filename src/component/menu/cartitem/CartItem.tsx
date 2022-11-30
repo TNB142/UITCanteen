@@ -16,14 +16,14 @@ export function CartItem({ id, quantity }: CartItemProps) {
     getItemQuantity,
     cartQuantity,
   } = useShoppingCart();
-  const item = menuItems.find((i) => i.id === id);
+  const item = menuItems.find((i) => i.DishId === id);
   if (item == null) return null;
   const increaseClick = (event: any) => {
     // 👇️ refers to the image element
     console.log(event.target);
 
     console.log("increase item");
-    if (cartQuantity < 3) increaseCartQuantity(item.id);
+    if (cartQuantity < 3) increaseCartQuantity(item.DishId);
     else alert("Chỉ được thêm tối đa 3 món");
   };
   const decreaseClick = (event: any) => {
@@ -31,7 +31,7 @@ export function CartItem({ id, quantity }: CartItemProps) {
     console.log(event.target);
 
     console.log("decrease item");
-    decreaseCartQuantity(item.id);
+    decreaseCartQuantity(item.DishId);
   };
   return (
     <Stack
@@ -40,7 +40,7 @@ export function CartItem({ id, quantity }: CartItemProps) {
       className="CartCard d-flex align-items-center"
     >
       <div>
-        <img src={item.imgUrl} className="imgDish" />
+        <img src={item.image} className="imgDish" />
       </div>
       <Stack
         direction="vertical"
@@ -51,20 +51,20 @@ export function CartItem({ id, quantity }: CartItemProps) {
           <img
             alt=""
             src="../svg/trash-can-empty.svg"
-            onClick={() => removeFromCart(item.id)}
+            onClick={() => removeFromCart(item.DishId)}
           />
         </div>
         <div>
           <div className="w-100">
-            <div className="nameDish_text">{item.name}</div>
-            <div className="typeDish_text">{item.type}</div>
+            <div className="nameDish_text">{item.dishName}</div>
+            <div className="typeDish_text">{item.dishTypeId}</div>
           </div>
         </div>
         <div className="h-100 d-flex justify-content-end">
           <button className="button_container_1" onClick={decreaseClick}>
             -
           </button>
-          <div className="quantity_text">{getItemQuantity(item.id)}</div>
+          <div className="quantity_text">{getItemQuantity(item.DishId)}</div>
           <button className="button_container_2" onClick={increaseClick}>
             +
           </button>

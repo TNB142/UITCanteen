@@ -15,7 +15,7 @@ export function CartPayItem({ id, quantity }: CartPayItemProps) {
     getItemQuantity,
     cartQuantity,
   } = useShoppingCart();
-  const item = menuItems.find((i) => i.id === id);
+  const item = menuItems.find((i) => i.DishId === id);
   if (item == null) return null;
   return (
     <Stack
@@ -24,7 +24,7 @@ export function CartPayItem({ id, quantity }: CartPayItemProps) {
       className="PayCartCard d-flex align-items-center"
     >
       <div>
-        <img src={item.imgUrl} className="payimgDish" />
+        <img src={item.image} className="payimgDish" />
       </div>
       <Stack
         direction="vertical"
@@ -33,8 +33,8 @@ export function CartPayItem({ id, quantity }: CartPayItemProps) {
       >
         <div>
           <div className="w-100">
-            <div className="nameDish_text">{item.name}</div>
-            <div className="typeDish_text">{item.type}</div>
+            <div className="nameDish_text">{item.dishName}</div>
+            <div className="typeDish_text">{item.dishTypeId}</div>
           </div>
           <div className="d-flex flex-row w-100 d-flex justify-content-end text_quantity">
             Số lượng:<div>{quantity}</div>
