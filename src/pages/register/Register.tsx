@@ -31,11 +31,15 @@ export function Register() {
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
-        draggable: true,  
+        draggable: true,
         progress: undefined,
         theme: "colored",
       });
     });
+    setTimeout(function () {
+      navigate("/Login");
+      window.location.reload();
+    }, 3000);
   }
 
 
