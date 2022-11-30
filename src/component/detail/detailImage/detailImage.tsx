@@ -9,17 +9,17 @@ type DetailImageProps = {
 };
 
 export function DetailImage({ id, quantity }: DetailImageProps) {
-  const item = menuItems.find((i) => i.id === id);
+  const item = menuItems.find((i) => i.DishId === id);
   if (item == null) return null;
   return (
     <>
       <Row>
         <Col>
-          <img alt="" src={item.imgUrl} className="dishImage" />
+          <img alt="" src={item.image} className="dishImage" />
         </Col>
         <Col className="d-flex flex-column justify-content-center">
           <div className=" d-flex flex-row">
-            <p className="dishName"> {item.name}</p>
+            <p className="dishName"> {item.dishName}</p>
             <p className="dishQuantity">x{quantity}</p>
           </div>
           <Button variant="outline-danger" >Viết đánh giá</Button>
