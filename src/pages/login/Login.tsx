@@ -24,26 +24,25 @@ export function Login() {
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [loginStatus, setLoginStatus] = useState("");
+  var userData;
 
   const login = () => {
     if (username == "") {
       toast("Please enter email");
     } else {
-      Axios.post("http://localhost:3001/login", {
+      Axios.post("https://uitcanteen-backend.herokuapp.com/login", {
         username: username,
         password: password,
       }).then((response) => {
         if (response.data.message) {
           toast(response.data.message);
-        } else {
-          setLoginStatus(response.data);
-          Axios.get("http://localhost:3001/login").then((response) => {
-            console.log(response);
-          });
+        }
+        else{
+          userData = response.data;
           navigate("/");
           window.location.reload();
         }
+          
       });
     }
   };
