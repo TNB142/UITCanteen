@@ -61,7 +61,7 @@ export function Menu() {
     return list[Math.floor((Math.random()*list.length))];
   }
 
-  console.log(dishItemMain)
+  console.log(get_random(dishItemMain))
   return (
     <>
       {/* <ButtonGroup className="d-flex flex-row w-50">
