@@ -1,6 +1,8 @@
 import { Button, Stack } from "react-bootstrap";
 import { useShoppingCart } from "../../../context/shoppingCartContext";
 import menuItems from "../../../data/items.json";
+import { useEffect, useState } from "react";
+import axios from "axios";
 import "./style.css";
 
 type CartItemProps = {
@@ -16,7 +18,22 @@ export function CartItem({ id, quantity }: CartItemProps) {
     getItemQuantity,
     cartQuantity,
   } = useShoppingCart();
-  const item = menuItems.find((i) => i.DishId === id);
+
+  const [dishItem, setDishItem] = useState([]);
+
+
+  useEffect(() => {
+    async function getDish() {
+      const data = await axios.get(
+        "https://uitcanteen-backend.herokuapp.com/menu"
+      );
+      setDishItem(data.data.menu);
+      return data.data.menu;
+    }
+    getDish();
+  }, ["https://uitcanteen-backend.herokuapp.com/menu"]);
+
+  const item:any = dishItem.find((i:any) => i.DishId === id);
   if (item == null) return null;
   const increaseClick = (event: any) => {
     // 👇️ refers to the image element

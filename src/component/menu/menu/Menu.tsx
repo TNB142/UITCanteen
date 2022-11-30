@@ -14,8 +14,9 @@ import {
 } from "react-bootstrap";
 import { MenuItem } from "../menuitem/MenuItem";
 import { useEffect, useState } from "react";
-import "./style.css";
 import axios from "axios";
+
+import "./style.css";
 
 export function Menu() {
   const [radioValue, setRadioValue] = useState("1");
