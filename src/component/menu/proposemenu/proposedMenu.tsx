@@ -1,6 +1,7 @@
 import menuItems from "../../../data/items.json";
 import anothermenuItems from "../../../data/items2.json";
 
+
 import {
   Col,
   Container,
@@ -15,6 +16,7 @@ import {
 import { MenuItem } from "../menuitem/MenuItem";
 import { useEffect, useState } from "react";
 import "../menu/style.css";
+import "./style.css";
 import axios from "axios";
 
 export function ProposedMenu() {
@@ -50,7 +52,27 @@ export function ProposedMenu() {
     "https://uitcanteen-backend.herokuapp.com/menu/main",
     "https://uitcanteen-backend.herokuapp.com/menu/side",
   ]);
+  // function LeftArrow() {
+  //   const { isFirstItemVisible, scrollPrev } =
+  //     React.useContext(VisibilityContext);
 
+  //   return (
+  //     <Arrow disabled={isFirstItemVisible} onClick={() => scrollPrev()}>
+  //       Left
+  //     </Arrow>
+  //   );
+  // }
+
+  // function RightArrow() {
+  //   const { isLastItemVisible, scrollNext } =
+  //     React.useContext(VisibilityContext);
+
+  //   return (
+  //     <Arrow disabled={isLastItemVisible} onClick={() => scrollNext()}>
+  //       Right
+  //     </Arrow>
+  //   );
+  // }
   return (
     <>
       {/* <ButtonGroup className="d-flex flex-row w-50">
@@ -95,7 +117,7 @@ export function ProposedMenu() {
         ))}
         {radioValue === "1" && (
           <Container fluid className="containerMenu">
-            <Row md={2} xs={3} lg={3}>
+            <Row md={2} xs={3} lg={5}>
               {dishItemMain.map((item: any) => (
                 // <Col>{JSON.stringify(item)}</Col>
                 <Col key={item.DishId} className="g-3">
