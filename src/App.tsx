@@ -34,15 +34,19 @@ export default function App() {
   const [user, setUser] = useState([]);
   axios.defaults.withCredentials = true;
   useEffect(() => {
-    axios.get("http://localhost:3001/login").then((response) => {
+    axios.get("https://uitcanteen-backend.herokuapp.com/").then((response) => {
       if (response.data.loggedIn) {
         setLoggedIn(true);
         setUser(response.data.user);
+        console.log(user);
         toast("logged in as " + response.data.user.email);
-      } else setLoggedIn(false);
+      } else {
+        setLoggedIn(false);
+        toast("Hello guest!");
+      }
     });
   }, []);
-  if (loggedIn == false)
+  if (loggedIn === false)
     return (
       <>
         {/* <Container fluid className="min-vh-100 main-content"> */}
@@ -50,9 +54,9 @@ export default function App() {
           <ShoppingCartProvider>
             <div
               className="route_content"
-              // className="bg-warning"
-              // className="min-vh-100 d-flex flex-column
-              //       justify-content-between"
+            // className="bg-warning"
+            // className="min-vh-100 d-flex flex-column
+            //       justify-content-between"
             >
               <Header />
 
@@ -93,9 +97,9 @@ export default function App() {
           <ShoppingCartProvider>
             <div
               className="route_content"
-              // className="bg-warning"
-              // className="min-vh-100 d-flex flex-column
-              //       justify-content-between"
+            // className="bg-warning"
+            // className="min-vh-100 d-flex flex-column
+            //       justify-content-between"
             >
               <HeaderLogin />
 
