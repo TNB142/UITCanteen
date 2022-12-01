@@ -16,6 +16,9 @@ import axios, { Axios } from "axios";
 
 export function HeaderLogin() {
   const { openPayCart, openCart, cartQuantity } = useShoppingCart();
+  const signOut = () => {
+    window.localStorage.removeItem("isLoggedIn")
+  }
   return (
     <NavbarBs sticky="top" className="headerSpace">
       <Container>
@@ -118,6 +121,7 @@ export function HeaderLogin() {
                       alt=""
                       src="../svg/log-out.svg"
                       className="imgDropdown"
+                      onClick={signOut}
                     />
                   </Nav.Link>
                 </Dropdown.Item>

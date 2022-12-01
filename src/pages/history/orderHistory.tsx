@@ -7,9 +7,12 @@ import {
   ToggleButton,
   ButtonGroup,
 } from "react-bootstrap";
-import React, { useState } from "react";
 import { OrderHistoryTable } from "../../component/history/orderHistoryTable";
 import { OrderHistoryTableCancel } from "../../component/history/orderHistoryTableCancel";
+import { useState, useEffect, useCallback } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+
 import "./style.css";
 
 export function History() {
@@ -19,6 +22,7 @@ export function History() {
     { name: "Đơn hàng đã đặt", value: "1" },
     { name: "Đơn hàng đã huỷ", value: "2" },
   ];
+
   return (
     <>
       <Container

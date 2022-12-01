@@ -31,22 +31,29 @@ import "react-toastify/dist/ReactToastify.css";
 
 export default function App() {
   const [loggedIn, setLoggedIn] = useState(false);
-  const [user, setUser] = useState([]);
   axios.defaults.withCredentials = true;
   useEffect(() => {
-    axios.get("https://uitcanteen-backend.herokuapp.com/").then((response) => {
-      if (response.data.loggedIn) {
-        setLoggedIn(true);
-        setUser(response.data.user);
-        console.log(user);
-        toast("logged in as " + response.data.user.email);
-      } else {
-        setLoggedIn(false);
-        toast("Hello guest!");
-      }
-    });
+    axios
+      .get("https://uitcanteen-backend.herokuapp.com/")
+      .then((response: any) => {
+        // if (response.data.loggedIn) {
+        //   window.localStorage.setItem("isLoggedIn",true);
+        //   setLoggedIn(true);
+        //   setUser(response.data.user);
+        //   console.log(user);
+        //   toast("logged in as " + response.data.user.email);
+        // } else {
+        //   setLoggedIn(false);
+        //   window.localStorage.setItem("isLoggedIn",false);
+        //   toast("Hello guest!");
+        // }
+        setLoggedIn(response.data.loggedIn);
+        window.localStorage.setItem("isLoggedIn", response.data.loggedIn);
+        window.localStorage.setItem("userData",response.data.user)
+      });
   }, []);
-  if (loggedIn === false)
+
+  if (!loggedIn)
     return (
       <>
         {/* <Container fluid className="min-vh-100 main-content"> */}
@@ -54,9 +61,9 @@ export default function App() {
           <ShoppingCartProvider>
             <div
               className="route_content"
-            // className="bg-warning"
-            // className="min-vh-100 d-flex flex-column
-            //       justify-content-between"
+              // className="bg-warning"
+              // className="min-vh-100 d-flex flex-column
+              //       justify-content-between"
             >
               <Header />
 
@@ -97,9 +104,9 @@ export default function App() {
           <ShoppingCartProvider>
             <div
               className="route_content"
-            // className="bg-warning"
-            // className="min-vh-100 d-flex flex-column
-            //       justify-content-between"
+              // className="bg-warning"
+              // className="min-vh-100 d-flex flex-column
+              //       justify-content-between"
             >
               <HeaderLogin />
 

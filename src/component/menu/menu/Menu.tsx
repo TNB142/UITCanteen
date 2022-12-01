@@ -25,7 +25,6 @@ export function Menu() {
     { name: "Món chính", value: "1" },
     { name: "Món phụ", value: "2" },
   ];
-
   const checkButton = (currentTargetvalue: any) => {
     setRadioValue(currentTargetvalue);
     console.log(currentTargetvalue);
@@ -60,23 +59,6 @@ export function Menu() {
 
   return (
     <>
-      {/* <ButtonGroup className="d-flex flex-row w-50">
-        {radios.map((radio, idx) => (
-          <ToggleButton
-            key={idx}
-            id={`radio-${idx}`}
-            type="radio"
-            variant={"outline-danger"}
-            name="radio"
-            value={radio.value}
-            checked={radioValue === radio.value}
-            onChange={(e) => setRadioValue(e.currentTarget.value)}
-            className="mb-3 rounded"
-          >
-            {radio.name}
-          </ToggleButton>
-        ))}
-      </ButtonGroup> */}
       <Container fluid className="">
         {radios.map((radio, idx) => (
           <ToggleButton

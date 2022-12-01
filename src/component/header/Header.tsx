@@ -8,11 +8,15 @@ import {
 // import Image from 'react-bootstrap/Image'
 import { NavLink } from "react-router-dom";
 import { useShoppingCart } from "../../context/shoppingCartContext";
-import { useRef, useState } from "react";
+import { useRef, useState,useEffect } from "react";
+import axios from "axios";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "./style.css";
 
 export function Header() {
-  const { openPayCart,openCart, cartQuantity } = useShoppingCart();
+  const { openPayCart, openCart, cartQuantity } = useShoppingCart();
+
   return (
     <NavbarBs sticky="top" className="headerSpace">
       <Container>
@@ -37,7 +41,7 @@ export function Header() {
             <Nav.Link to="/Menu" as={NavLink}>
               Thực đơn
             </Nav.Link>
-            <Nav.Link to="/History" as={NavLink}>
+            <Nav.Link to="/Login" as={NavLink}>
               Lịch sử
             </Nav.Link>
             <Nav.Link to="/About" as={NavLink}>
@@ -60,20 +64,6 @@ export function Header() {
               onClick={openCart}
               className="shoppingCartpage"
             />
-            {cartQuantity > 0 && (
-              <div
-                className="rounded-circle bg-danger d-flex justify-content-center align-items-center"
-                style={{
-                  color: "white",
-                  width: "1.25rem",
-                  height: "1.25rem",
-                  position: "absolute",
-                  transform: "translate(75%,-60%)",
-                }}
-              >
-                {cartQuantity}
-              </div>
-            )}
           </div>
         </div>
         <div>

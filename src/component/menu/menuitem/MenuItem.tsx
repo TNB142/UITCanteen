@@ -1,6 +1,9 @@
-import { Card, Button, Container } from "react-bootstrap";
+import { Card, Button, Container, Alert } from "react-bootstrap";
 import { useShoppingCart } from "../../../context/shoppingCartContext";
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+
 import "./style.css";
 
 type MenuItemProps = {
@@ -15,17 +18,31 @@ export function MenuItem({ DishId, dishName, image }: MenuItemProps) {
     increaseCartQuantity,
     decreaseCartQuantity,
     removeFromCart,
-    cartQuantity
+    cartQuantity,
   } = useShoppingCart();
+  const [loggedIn, setLoggedIn] = useState(false);
+  const [user, setUser] = useState([]);
+  axios.defaults.withCredentials = true;
+  const navigate = useNavigate();
+
+  const checkLoggedIn = window.localStorage.getItem("isLoggedIn")
+  const moveToLogin = useCallback(() => {
+    navigate("/Login");
+  }, [navigate]);
+
   const quantity = getItemQuantity(DishId);
   const handleClick = (event: any) => {
     // 👇️ refers to the image element
     console.log(event.target);
 
     console.log("add to cart");
-    if (cartQuantity <3)
-      increaseCartQuantity(DishId);
-    else alert("Chỉ được thêm tối đa 3 món")
+    if (checkLoggedIn) {
+      if (cartQuantity < 3) increaseCartQuantity(DishId);
+      else alert("Chỉ được thêm tối đa 3 món");
+    } else {
+      alert("Cần đăng nhập để chọn được món");
+      moveToLogin();
+    }
   };
   return (
     <Card className="h-100 containerItem">

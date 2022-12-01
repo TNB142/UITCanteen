@@ -1,7 +1,6 @@
 import menuItems from "../../../data/items.json";
 import anothermenuItems from "../../../data/items2.json";
 
-
 import {
   Col,
   Container,
@@ -52,46 +51,8 @@ export function ProposedMenu() {
     "https://uitcanteen-backend.herokuapp.com/menu/main",
     "https://uitcanteen-backend.herokuapp.com/menu/side",
   ]);
-  // function LeftArrow() {
-  //   const { isFirstItemVisible, scrollPrev } =
-  //     React.useContext(VisibilityContext);
-
-  //   return (
-  //     <Arrow disabled={isFirstItemVisible} onClick={() => scrollPrev()}>
-  //       Left
-  //     </Arrow>
-  //   );
-  // }
-
-  // function RightArrow() {
-  //   const { isLastItemVisible, scrollNext } =
-  //     React.useContext(VisibilityContext);
-
-  //   return (
-  //     <Arrow disabled={isLastItemVisible} onClick={() => scrollNext()}>
-  //       Right
-  //     </Arrow>
-  //   );
-  // }
   return (
     <>
-      {/* <ButtonGroup className="d-flex flex-row w-50">
-        {radios.map((radio, idx) => (
-          <ToggleButton
-            key={idx}
-            id={`radio-${idx}`}
-            type="radio"
-            variant={"outline-danger"}
-            name="radio"
-            value={radio.value}
-            checked={radioValue === radio.value}
-            onChange={(e) => setRadioValue(e.currentTarget.value)}
-            className="mb-3 rounded"
-          >
-            {radio.name}
-          </ToggleButton>
-        ))}
-      </ButtonGroup> */}
       <Container fluid className="">
         {radios.map((radio, idx) => (
           <ToggleButton
@@ -99,15 +60,9 @@ export function ProposedMenu() {
             id={`radio-${idx}+1`}
             type="radio"
             variant={"outline-danger"}
-            // name="radio"
             value={radio.value}
             checked={radioValue === radio.value}
             onChange={() => checkButton(radio.value)}
-            // className="d-flex justify-content-center w-50"
-            // style={{
-            //   width: "300px",
-            //   height: "70.45px",
-            // }}
             className="Button_radio"
           >
             <div className="p-1">
@@ -140,15 +95,6 @@ export function ProposedMenu() {
           </Container>
         )}
       </Container>
-
-      {/* <Row md={2} xs={3} lg={3} className="g-3">
-          {menuItems.map((item) => (
-            // <Col>{JSON.stringify(item)}</Col>
-            <Col key={item.id}>
-              <MenuItem {...item} />
-            </Col>
-          ))}
-        </Row> */}
     </>
   );
 }
