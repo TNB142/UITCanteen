@@ -18,6 +18,7 @@ export function HeaderLogin() {
   const { openPayCart, openCart, cartQuantity } = useShoppingCart();
   const signOut = () => {
     window.localStorage.removeItem("isLoggedIn")
+    console.log(window.localStorage.getItem("isLoggedIn"))
   }
   return (
     <NavbarBs sticky="top" className="headerSpace">

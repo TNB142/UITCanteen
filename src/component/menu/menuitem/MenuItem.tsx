@@ -34,9 +34,9 @@ export function MenuItem({ DishId, dishName, image }: MenuItemProps) {
   const handleClick = (event: any) => {
     // 👇️ refers to the image element
     console.log(event.target);
-
     console.log("add to cart");
-    if (checkLoggedIn) {
+    console.log(checkLoggedIn)
+    if (checkLoggedIn==="true") {
       if (cartQuantity < 3) increaseCartQuantity(DishId);
       else alert("Chỉ được thêm tối đa 3 món");
     } else {

@@ -50,6 +50,7 @@ export default function App() {
         setLoggedIn(response.data.loggedIn);
         window.localStorage.setItem("isLoggedIn", response.data.loggedIn);
         window.localStorage.setItem("userData",response.data.user)
+        console.log(window.localStorage.getItem("isLoggedIn"))
       });
   }, []);
 

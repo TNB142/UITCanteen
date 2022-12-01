@@ -23,41 +23,10 @@ export function ShoppingCart({ isOpen }: ShoppingCartProps) {
     cartItems.map((item) => removeFromCart(item.id));
   };
 
-  const [loggedIn, setLoggedIn] = useState(false);
-  const [user, setUser] = useState([]);
-  axios.defaults.withCredentials = true;
-  const navigate = useNavigate();
+  const checkLoggedIn = window.localStorage.getItem("isLoggedIn")
 
-  const moveToLogin = useCallback(() => {
-    navigate("/Login");
-  }, [navigate]);
 
-  // useEffect(() => {
-  //   axios.get("https://uitcanteen-backend.herokuapp.com/").then((response) => {
-  //     if (response.data.loggedIn) {
-  //       setLoggedIn(true);
-  //       setUser(response.data.user);
-  //       console.log(user);
-  //     } else {
-  //       setLoggedIn(false);
-  //     }
-  //   });
-  // }, []);
-
-  useEffect(() => {
-    async function checkLoggin() {
-      const data_check = await axios.get(
-        "https://uitcanteen-backend.herokuapp.com/"
-      );
-      setLoggedIn(data_check.data.loggedIn);
-      setUser(data_check.data.user);
-      // console.log(user);
-      return data_check.data.loggedIn, data_check.data.user;
-    }
-    checkLoggin();
-  }, ["https://uitcanteen-backend.herokuapp.com/"]);
-
-  if (loggedIn === true) {
+  if (checkLoggedIn==="true") {
     return (
       // <ShoppingCartProvider>
       <Offcanvas
