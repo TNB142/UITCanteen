@@ -33,29 +33,30 @@ export default function App() {
   const [loggedIn, setLoggedIn] = useState(false);
   axios.defaults.withCredentials = true;
   useEffect(() => {
-    axios
-      .get("https://uitcanteen-backend.herokuapp.com/")
-      .then((response) => {
-        // if (response.data.loggedIn) {
-        //   window.localStorage.setItem("isLoggedIn",true);
-        //   setLoggedIn(true);
-        //   setUser(response.data.user);
-        //   console.log(user);
-        //   toast("logged in as " + response.data.user.email);
-        // } else {
-        //   setLoggedIn(false);
-        //   window.localStorage.setItem("isLoggedIn",false);
-        //   toast("Hello guest!");
-        // }
-        setLoggedIn(response.data.loggedIn);
-        window.localStorage.setItem("isLoggedIn", response.data.loggedIn);
-        window.localStorage.setItem("userData",JSON.stringify(response.data.user));
-        const getUserPack:any = window.localStorage.getItem("userData");
-        const userData = JSON.parse(getUserPack);
+    axios.get("https://uitcanteen-backend.herokuapp.com/").then((response) => {
+      // if (response.data.loggedIn) {
+      //   window.localStorage.setItem("isLoggedIn",true);
+      //   setLoggedIn(true);
+      //   setUser(response.data.user);
+      //   console.log(user);
+      //   toast("logged in as " + response.data.user.email);
+      // } else {
+      //   setLoggedIn(false);
+      //   window.localStorage.setItem("isLoggedIn",false);
+      //   toast("Hello guest!");
+      // }
+      setLoggedIn(response.data.loggedIn);
+      window.localStorage.setItem("isLoggedIn", response.data.loggedIn);
+      window.localStorage.setItem(
+        "userData",
+        JSON.stringify(response.data.user)
+      );
+      const getUserPack: any = window.localStorage.getItem("userData");
+      const userData = JSON.parse(getUserPack);
 
-        console.log(window.localStorage.getItem("isLoggedIn"))
-        console.log(getUserPack)
-      });
+      console.log(window.localStorage.getItem("isLoggedIn"));
+      console.log(getUserPack);
+    });
   }, []);
 
   if (!loggedIn)
@@ -117,6 +118,7 @@ export default function App() {
 
               <Routes>
                 <Route path="/" element={<Home />} />
+                <Route path="/Login" element={<Login />} />
                 <Route path="/Logout" element={<Logout />} />
                 <Route path="/History" element={<History />} />
                 <Route path="/About" element={<About />} />
