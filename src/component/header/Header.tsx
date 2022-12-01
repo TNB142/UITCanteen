@@ -6,9 +6,9 @@ import {
   NavItem,
 } from "react-bootstrap";
 // import Image from 'react-bootstrap/Image'
-import { NavLink } from "react-router-dom";
 import { useShoppingCart } from "../../context/shoppingCartContext";
-import { useRef, useState,useEffect } from "react";
+import { FunctionComponent, useCallback } from "react";
+import { useNavigate, Link, NavLink } from "react-router-dom";
 import axios from "axios";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -16,7 +16,11 @@ import "./style.css";
 
 export function Header() {
   const { openPayCart, openCart, cartQuantity } = useShoppingCart();
+  const navigate = useNavigate();
 
+  const moveToLogin = useCallback(() => {
+    navigate("/Login");
+  }, [navigate]);
   return (
     <NavbarBs sticky="top" className="headerSpace">
       <Container>
@@ -41,7 +45,7 @@ export function Header() {
             <Nav.Link to="/Menu" as={NavLink}>
               Thực đơn
             </Nav.Link>
-            <Nav.Link to="/Login" as={NavLink}>
+            <Nav.Link to="/Login" as={Link}>
               Lịch sử
             </Nav.Link>
             <Nav.Link to="/About" as={NavLink}>

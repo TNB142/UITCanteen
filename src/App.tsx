@@ -135,6 +135,7 @@ export default function App() {
                   element={<RePassword />}
                 />
                 <Route path="/User" element={<User />} />
+                <Route path="/Details" element={<PayCartDetails />} />
               </Routes>
             </div>
           </ShoppingCartProvider>

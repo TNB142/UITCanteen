@@ -52,13 +52,32 @@
 
 .nav_link a:hover
 {
-    color: #F72D57;
+    /* color: #F72D57; */
     font-weight: bold;
     text-shadow: -0.125px 3.25px 3px #BDBDBD;
 }
 
 .nav_link a.nav-link.active
 {
+    color: #F72D57;
+    font-weight: bold;
+    text-shadow: -0.125px 3.25px 3px #BDBDBD;
+}
+
+.nav_link1 a.nav_link{
+    margin: 0 10px;
+    font-family: 'Arial';
+}
+.nav_link1 a.nav_link:hover{
+    color: #F72D57;
+    font-weight: bold;
+    text-shadow: -0.125px 3.25px 3px #BDBDBD;}
+.nav_link1 a.active{
+    color: #F72D57;
+    font-weight: bold;
+    text-shadow: -0.125px 3.25px 3px #BDBDBD;
+}
+.nav_link1 a.focus{
     color: #F72D57;
     font-weight: bold;
     text-shadow: -0.125px 3.25px 3px #BDBDBD;

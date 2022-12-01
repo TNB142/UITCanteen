@@ -23,6 +23,8 @@ export function History() {
     { name: "Đơn hàng đã huỷ", value: "2" },
   ];
 
+  const getUserPack: any = window.localStorage.getItem("userData");
+  const userData = JSON.parse(getUserPack);
   return (
     <>
       <Container
@@ -33,7 +35,7 @@ export function History() {
         id="history"
       >
         <div className="hello_text d-flex flex-row">
-          Xin chào, <div className="username_text"> user_name</div>
+          Xin chào, <div className="username_text">{userData.firstName}</div>
         </div>
         <div className="header_orderHistory">Lịch sử đặt hàng</div>
         <Row>

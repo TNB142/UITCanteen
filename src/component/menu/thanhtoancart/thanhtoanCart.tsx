@@ -21,6 +21,17 @@ type PayCartProps = {
 export function PayCart({ isOpenPay }: PayCartProps) {
   const { closeCart, closePayCart, cartItems, cartQuantity } =
     useShoppingCart();
+
+  const getPrice = () => {
+    if (cartQuantity == 2) {
+      const price: any = "25.000vnd";
+      return price;
+    }
+    if (cartQuantity == 3) {
+      const price: any = "30.000vnd";
+      return price;
+    }
+  };
   const [radioValue, setRadioValue] = useState("1");
 
   const radios = [
@@ -48,8 +59,16 @@ export function PayCart({ isOpenPay }: PayCartProps) {
   const clickPay = useCallback(() => {
     closePayCart();
     closeCart();
+    const date = new Date();
+    var options:any = {
+      hour: "2-digit",
+      minute: "2-digit",
+    };
+    const payTime=date.toLocaleDateString("vie-en", options)
+    console.log(payTime);
     navigate("/Success");
   }, [navigate]);
+
   return (
     <Offcanvas
       className="pay_cart_container"
@@ -120,7 +139,49 @@ export function PayCart({ isOpenPay }: PayCartProps) {
           ))}
         </Container>
       </Offcanvas.Body>
-      {cartQuantity == 2 && (
+      <Container className="d-flex flex-column thanhtoan_container_pay">
+        <div className="p-3 d-fex flex-column w-100 ">
+          <div className="d-flex flex-row  align-items-center justify-content-center text-center">
+            <div className="label_text_pay">Thành tiền </div>
+            <div
+              style={{
+                width: "5%",
+                height: "3px",
+                backgroundColor: "#C2C2C2",
+                borderRadius: "2px 2px",
+                marginLeft: "25%",
+                marginRight: "25%",
+              }}
+            ></div>
+            <div className="currency_number_pay">{getPrice()}</div>
+          </div>
+        </div>
+        <div>
+          <div>
+            {""}
+            <div
+              style={{
+                width: "100%",
+                height: "3px",
+                backgroundColor: "#C2C2C2",
+                borderRadius: "2px 2px",
+              }}
+            ></div>
+          </div>
+        </div>
+        <div className="d-fex flex-row  w-100 p-3">
+          <div className="Total_container_pay d-flex flex-row">
+            <div className="Total_text_pay ">Tổng cộng:</div>
+            <div className="currency_number_total_pay">{getPrice()}</div>
+            <div className="d-flex flex-row justify-content-end w-100 button_div_pay">
+              <button className="button_order" onClick={clickPay}>
+                Đặt món
+              </button>
+            </div>
+          </div>
+        </div>
+      </Container>
+      {/* {cartQuantity == 2 && (
         <Container className="d-flex flex-column thanhtoan_container_pay">
           <div className="p-3 d-fex flex-column w-100 ">
             <div className="d-flex flex-row  align-items-center justify-content-center text-center">
@@ -208,7 +269,7 @@ export function PayCart({ isOpenPay }: PayCartProps) {
             </div>
           </div>
         </Container>
-      )}
+      )} */}
     </Offcanvas>
   );
 }

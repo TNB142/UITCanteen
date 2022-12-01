@@ -25,7 +25,8 @@ export function ShoppingCart({ isOpen }: ShoppingCartProps) {
 
   const checkLoggedIn = window.localStorage.getItem("isLoggedIn");
 
-  if (checkLoggedIn)
+
+  if (checkLoggedIn === "true")
     return (
       // <ShoppingCartProvider>
       <Offcanvas
