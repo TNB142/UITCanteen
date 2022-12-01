@@ -35,7 +35,7 @@ export default function App() {
   useEffect(() => {
     axios
       .get("https://uitcanteen-backend.herokuapp.com/")
-      .then((response: any) => {
+      .then((response) => {
         // if (response.data.loggedIn) {
         //   window.localStorage.setItem("isLoggedIn",true);
         //   setLoggedIn(true);
@@ -49,8 +49,12 @@ export default function App() {
         // }
         setLoggedIn(response.data.loggedIn);
         window.localStorage.setItem("isLoggedIn", response.data.loggedIn);
-        window.localStorage.setItem("userData",response.data.user)
+        window.localStorage.setItem("userData",JSON.stringify(response.data.user));
+        const getUserPack:any = window.localStorage.getItem("userData");
+        const userData = JSON.parse(getUserPack);
+
         console.log(window.localStorage.getItem("isLoggedIn"))
+        console.log(getUserPack)
       });
   }, []);
 

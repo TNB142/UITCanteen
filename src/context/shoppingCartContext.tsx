@@ -34,10 +34,19 @@ export function useShoppingCart() {
 }
 
 export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
+  const getUserPack: any = window.localStorage.getItem("userData");
+  var userData;
+  if (getUserPack !== null) {
+    userData = JSON.parse(getUserPack);
+    userData = userData.email;
+    console.log(userData)
+  } else userData = "";
+
   const [cartItems, setCartItems] = useLocalStorage<CartItem[]>(
-    "shopping-cart",
+    userData+"shopping-cart",
     []
   );
+
   const [isOpen, setIsOpen] = useState(false);
 
   const [isOpenPay, setIsOpenPay] = useState(false);
@@ -53,7 +62,7 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
   };
   const closeCart = () => {
     setIsOpen(false);
-    console.log("close cart")
+    console.log("close cart");
   };
 
   const openPayCart = () => {
@@ -64,7 +73,7 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
   const closePayCart = () => {
     setIsOpenPay(false);
     openCart();
-    console.log("close pay")
+    console.log("close pay");
   };
 
   function getItemQuantity(id: number) {

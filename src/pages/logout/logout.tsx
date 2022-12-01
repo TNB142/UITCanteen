@@ -11,6 +11,10 @@ export function Logout() {
     const navigate = useNavigate();
     const loginButton = useCallback(() => {
         navigate("/Login");
+        // window.localStorage.setItem("isLoggedIn","false");
+        window.localStorage.removeItem("isLoggedIn")
+        // window.localStorage.removeItem("userData")
+        console.log(window.localStorage.getItem("isLoggedIn"));
         window.location.reload();
     }, [navigate]);
 

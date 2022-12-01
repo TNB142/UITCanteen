@@ -23,10 +23,9 @@ export function ShoppingCart({ isOpen }: ShoppingCartProps) {
     cartItems.map((item) => removeFromCart(item.id));
   };
 
-  const checkLoggedIn = window.localStorage.getItem("isLoggedIn")
+  const checkLoggedIn = window.localStorage.getItem("isLoggedIn");
 
-
-  if (checkLoggedIn==="true") {
+  if (checkLoggedIn)
     return (
       // <ShoppingCartProvider>
       <Offcanvas
@@ -163,41 +162,42 @@ export function ShoppingCart({ isOpen }: ShoppingCartProps) {
       </Offcanvas>
       // </ShoppingCartProvider>
     );
-  } else {return (
-    <Offcanvas
-      className="shopping_cart_container"
-      show={isOpen}
-      onHide={closeCart}
-      placement="end"
-    >
-      <Offcanvas.Header>
-        <Offcanvas.Title className="d-flex flex-row w-100">
-          <div className="d-flex flex-row shopping_cart_title_item">
-            <div className="shopping_cart_title_text">Giỏ hàng</div>
-            <img alt="" src="../svg/shopping-cart_2.svg" />
+  else
+    return (
+      <Offcanvas
+        className="shopping_cart_container"
+        show={isOpen}
+        onHide={closeCart}
+        placement="end"
+      >
+        <Offcanvas.Header>
+          <Offcanvas.Title className="d-flex flex-row w-100">
+            <div className="d-flex flex-row shopping_cart_title_item">
+              <div className="shopping_cart_title_text">Giỏ hàng</div>
+              <img alt="" src="../svg/shopping-cart_2.svg" />
+            </div>
+            <div
+              className="d-flex flex-row justify-content-end Delete_effect shopping_cart_title_item"
+              onClick={() => Remove()}
+            >
+              <div className="shopping_cart_title_delete">Xoá</div>
+              <img alt="" src="../svg/refresh.svg" />
+            </div>
+          </Offcanvas.Title>
+        </Offcanvas.Header>
+        <div className="p-5 d-flex flex-column align-items-center justify-content-center">
+          <img
+            alt=""
+            src="../svg/nothing-in-cart.svg"
+            // className=" d-flex flex-column align-items-center justify-content-center"
+          />
+          <div className="p-1 nothing_in_cart d-flex flex-column align-items-center">
+            Giỏ hàng đang trong
           </div>
-          <div
-            className="d-flex flex-row justify-content-end Delete_effect shopping_cart_title_item"
-            onClick={() => Remove()}
-          >
-            <div className="shopping_cart_title_delete">Xoá</div>
-            <img alt="" src="../svg/refresh.svg" />
+          <div className="nothing_in_cart d-flex flex-column align-items-center">
+            tình trạng trống
           </div>
-        </Offcanvas.Title>
-      </Offcanvas.Header>
-      <div className="p-5 d-flex flex-column align-items-center justify-content-center">
-        <img
-          alt=""
-          src="../svg/nothing-in-cart.svg"
-          // className=" d-flex flex-column align-items-center justify-content-center"
-        />
-        <div className="p-1 nothing_in_cart d-flex flex-column align-items-center">
-          Giỏ hàng đang trong
         </div>
-        <div className="nothing_in_cart d-flex flex-column align-items-center">
-          tình trạng trống
-        </div>
-      </div>
-    </Offcanvas>
-  )};
+      </Offcanvas>
+    );
 }

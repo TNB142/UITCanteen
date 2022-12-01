@@ -17,9 +17,13 @@ import axios, { Axios } from "axios";
 export function HeaderLogin() {
   const { openPayCart, openCart, cartQuantity } = useShoppingCart();
   const signOut = () => {
-    window.localStorage.removeItem("isLoggedIn")
-    console.log(window.localStorage.getItem("isLoggedIn"))
-  }
+    window.localStorage.setItem("isLoggedIn","false");
+    window.localStorage.removeItem("userData")
+    console.log(window.localStorage.getItem("isLoggedIn"));
+  };
+  const getUserPack:any = window.localStorage.getItem("userData");
+  const userData= JSON.parse(getUserPack)
+
   return (
     <NavbarBs sticky="top" className="headerSpace">
       <Container>
@@ -85,7 +89,7 @@ export function HeaderLogin() {
         </div>
         <div>
           <Nav>
-            <Dropdown>
+            <Dropdown align="end">
               <Dropdown.Toggle
                 id="dropdown-autoclose-true"
                 className="chicken_button rounded-circle"
@@ -98,7 +102,7 @@ export function HeaderLogin() {
               </Dropdown.Toggle>{" "}
               <Dropdown.Menu className="dropdownMenu">
                 <Dropdown.Header className="user_Name">
-                  User_Name
+                  {userData.firstName}
                 </Dropdown.Header>
                 <Dropdown.Divider className="dropdownMenu" />
                 <Dropdown.Item className="dropdownItem">
