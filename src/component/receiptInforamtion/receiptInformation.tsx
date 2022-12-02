@@ -11,6 +11,14 @@ export function ReceiptInformation(props: any) {
     console.log("Pay details");
     navigate("/Details");
   }, [navigate]);
+  const getPayInfo = JSON.parse(window.localStorage.getItem("PayInfo")||"{}")
+  console.log("check in receipt information",getPayInfo)
+  const getPayMethod= () => {
+    if(getPayInfo.payMethod==="1")
+      return "Ví Momo"
+    if(getPayInfo.payMethod==="2")
+      return "Online Banking"
+  }
   return (
     <div className="receipt_container">
       <h4 className="heading_receipt">Thông tin đơn hàng</h4>
@@ -28,11 +36,11 @@ export function ReceiptInformation(props: any) {
         <p className="text-success">{props.PayStatus}</p>
         <p>{props.PayMethod}</p> */}
             <p className="text-primary" onClick={clickDetails}>
-              #12345678
+              {getPayInfo.payId}
             </p>
-            <p>14/11/2022 09:32</p>
-            <p className="text-success">Đã thanh toán</p>
-            <p>Ví Momo</p>
+            <p>{getPayInfo.payTime}</p>
+            <p className="text-success">{getPayInfo.statePayCart}</p>
+            <p>{getPayMethod()}</p>
           </Col>
         </Row>
       </div>

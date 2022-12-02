@@ -34,28 +34,13 @@ export default function App() {
   axios.defaults.withCredentials = true;
   useEffect(() => {
     axios.get("https://uitcanteen-backend.herokuapp.com/").then((response) => {
-      // if (response.data.loggedIn) {
-      //   window.localStorage.setItem("isLoggedIn",true);
-      //   setLoggedIn(true);
-      //   setUser(response.data.user);
-      //   console.log(user);
-      //   toast("logged in as " + response.data.user.email);
-      // } else {
-      //   setLoggedIn(false);
-      //   window.localStorage.setItem("isLoggedIn",false);
-      //   toast("Hello guest!");
-      // }
       setLoggedIn(response.data.loggedIn);
       window.localStorage.setItem("isLoggedIn", response.data.loggedIn);
       window.localStorage.setItem(
         "userData",
         JSON.stringify(response.data.user)
       );
-      const getUserPack: any = window.localStorage.getItem("userData");
-      const userData = JSON.parse(getUserPack);
-
       console.log(window.localStorage.getItem("isLoggedIn"));
-      console.log(getUserPack);
     });
   }, []);
 
@@ -87,6 +72,8 @@ export default function App() {
                 />
                 <Route path="/Success" element={<SuccessPay />} />
                 <Route path="/Details" element={<PayCartDetails />} />
+                <Route path="/User" element={<User />} />
+
                 <Route
                   path="/ForgetPassword/Verify/RePassword"
                   element={<RePassword />}

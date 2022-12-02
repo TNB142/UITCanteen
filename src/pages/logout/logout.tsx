@@ -14,6 +14,7 @@ export function Logout() {
     window.localStorage.removeItem("isLoggedIn");
     // window.localStorage.removeItem("userData")
     console.log(window.localStorage.getItem("isLoggedIn"));
+    localStorage.removeItem("shopping-cart")
     navigate("/");
     window.location.reload();
   }, [navigate]);

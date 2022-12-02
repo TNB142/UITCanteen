@@ -34,16 +34,10 @@ export function useShoppingCart() {
 }
 
 export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
-  const getUserPack: any = window.localStorage.getItem("userData");
-  var userData;
-  if (getUserPack !== null) {
-    userData = JSON.parse(getUserPack);
-    userData = userData.email;
-    console.log(userData)
-  } else userData = "";
+
 
   const [cartItems, setCartItems] = useLocalStorage<CartItem[]>(
-    userData+"shopping-cart",
+    "shopping-cart",
     []
   );
 

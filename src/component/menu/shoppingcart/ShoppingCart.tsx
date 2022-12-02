@@ -24,6 +24,7 @@ export function ShoppingCart({ isOpen }: ShoppingCartProps) {
   };
 
   const checkLoggedIn = window.localStorage.getItem("isLoggedIn");
+  
 
 
   if (checkLoggedIn === "true")

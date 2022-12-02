@@ -13,13 +13,14 @@ import { useNavigate } from "react-router-dom";
 import { useCallback } from "react";
 
 import "./style.css";
+import axios from "axios";
 
 type PayCartProps = {
   isOpenPay: boolean;
 };
 
 export function PayCart({ isOpenPay }: PayCartProps) {
-  const { closeCart, closePayCart, cartItems, cartQuantity } =
+  const { closeCart, closePayCart, cartItems, cartQuantity, removeFromCart } =
     useShoppingCart();
 
   const getPrice = () => {
@@ -56,16 +57,38 @@ export function PayCart({ isOpenPay }: PayCartProps) {
   };
   const navigate = useNavigate();
 
+  const userData = JSON.parse(window.localStorage.getItem("userData") || "{}");
+  const idCart: any = JSON.parse(localStorage.getItem("shopping-cart") || "{}");
+  const date = new Date();
+  var options: any = {
+    hour: "2-digit",
+    minute: "2-digit",
+  };
+  const payTime = date.toLocaleDateString("vie-en", options);
+  console.log(payTime);
+  if (window.localStorage.getItem("userData"))
+    var info: any = {
+      payId: null,
+      userId: userData.userId,
+      pickupTime: radioValue,
+      items: idCart,
+      sumQuantity: cartQuantity,
+      cost: getPrice(),
+      payMethod: checkMethod,
+      statePayCart: "Đã thanh toán",
+      payTime: payTime,
+    };
+  window.localStorage.setItem("PayInfo", JSON.stringify(info));
+  console.log("PayInfo now", window.localStorage.getItem("PayInfo"));
+  const Remove = () => {
+    cartItems.map((item) => removeFromCart(item.id));
+  };
   const clickPay = useCallback(() => {
     closePayCart();
     closeCart();
-    const date = new Date();
-    var options:any = {
-      hour: "2-digit",
-      minute: "2-digit",
-    };
-    const payTime=date.toLocaleDateString("vie-en", options)
-    console.log(payTime);
+    axios.post('https://uitcanteen-backend.herokuapp.com/sendorder', info).then((response) => {
+      console.log(response.data.message)
+    })
     navigate("/Success");
   }, [navigate]);
 
@@ -181,95 +204,6 @@ export function PayCart({ isOpenPay }: PayCartProps) {
           </div>
         </div>
       </Container>
-      {/* {cartQuantity == 2 && (
-        <Container className="d-flex flex-column thanhtoan_container_pay">
-          <div className="p-3 d-fex flex-column w-100 ">
-            <div className="d-flex flex-row  align-items-center justify-content-center text-center">
-              <div className="label_text_pay">Thành tiền </div>
-              <div
-                style={{
-                  width: "5%",
-                  height: "3px",
-                  backgroundColor: "#C2C2C2",
-                  borderRadius: "2px 2px",
-                  marginLeft: "25%",
-                  marginRight: "25%",
-                }}
-              ></div>
-              <div className="currency_number_pay">25.000 vnd</div>
-            </div>
-          </div>
-          <div>
-            <div>
-              {""}
-              <div
-                style={{
-                  width: "100%",
-                  height: "3px",
-                  backgroundColor: "#C2C2C2",
-                  borderRadius: "2px 2px",
-                }}
-              ></div>
-            </div>
-          </div>
-          <div className="d-fex flex-row  w-100 p-3">
-            <div className="Total_container_pay d-flex flex-row">
-              <div className="Total_text_pay ">Tổng cộng:</div>
-              <div className="currency_number_total_pay">25.000vnd</div>
-              <div className="d-flex flex-row justify-content-end w-100">
-                <button className="button_order" onClick={clickPay}>
-                  Đặt món
-                </button>
-              </div>
-            </div>
-          </div>
-        </Container>
-      )}
-
-      {cartQuantity == 3 && (
-        <Container className="d-flex flex-column thanhtoan_container_pay">
-          <div className="p-3 d-fex flex-column w-100 ">
-            <div className="d-flex flex-row  align-items-center justify-content-center text-center">
-              <div className="label_text_pay">Thành tiền </div>
-              <div
-                style={{
-                  width: "5%",
-                  height: "3px",
-                  backgroundColor: "#C2C2C2",
-                  borderRadius: "2px 2px",
-                  marginLeft: "25%",
-                  marginRight: "25%",
-                }}
-              ></div>
-              <div className="currency_number_pay">30.000 vnd</div>
-            </div>
-          </div>
-          <div>
-            <div>
-              {""}
-              <div
-                style={{
-                  width: "100%",
-                  height: "3px",
-                  backgroundColor: "#C2C2C2",
-                  borderRadius: "2px 2px",
-                }}
-              ></div>
-            </div>
-          </div>
-          <div className="d-fex flex-row  w-100 p-3">
-            <div className="Total_container_pay d-flex flex-row">
-              <div className="Total_text_pay ">Tổng cộng:</div>
-              <div className="currency_number_total_pay">30.000vnd</div>
-              <div className="d-flex flex-row justify-content-end w-100 button_div_pay">
-                <button className="button_order" onClick={clickPay}>
-                  Đặt món
-                </button>
-              </div>
-            </div>
-          </div>
-        </Container>
-      )} */}
     </Offcanvas>
   );
 }

@@ -40,9 +40,18 @@ export function Menu() {
   const [dishItemMain, setDishItemMain] = useState([]);
   const [dishItemSide, setDishItemSide] = useState([]);
 
-
   useEffect(() => {
     async function getDish() {
+      const responseMenu = await axios.get(
+        "https://uitcanteen-backend.herokuapp.com/menu"
+      );
+      const fullMenu = responseMenu.data.menu;
+      const storedMenu = JSON.stringify(fullMenu);
+      window.localStorage.setItem("fullMenu", storedMenu);
+      // if (window.localStorage.getItem("fullMenu")) {
+      //   const getfullMenu:any = JSON.parse(window.localStorage.getItem("fullMenu"));
+      //   console.log(getfullMenu);
+      // }
       const data_main = await axios.get(
         "https://uitcanteen-backend.herokuapp.com/menu/main"
       );
@@ -50,12 +59,15 @@ export function Menu() {
       const data_side = await axios.get(
         "https://uitcanteen-backend.herokuapp.com/menu/side"
       );
-      setDishItemSide(data_side.data.menu)
-      return data_main.data.menu,data_side.data.menu;
+      setDishItemSide(data_side.data.menu);
+      return data_main.data.menu, data_side.data.menu;
     }
     getDish();
-  }, ["https://uitcanteen-backend.herokuapp.com/menu/main","https://uitcanteen-backend.herokuapp.com/menu/side"]);
-
+  }, [
+    "https://uitcanteen-backend.herokuapp.com/menu",
+    "https://uitcanteen-backend.herokuapp.com/menu/main",
+    "https://uitcanteen-backend.herokuapp.com/menu/side",
+  ]);
 
   return (
     <>
@@ -85,7 +97,7 @@ export function Menu() {
         {radioValue === "1" && (
           <Container fluid className="containerMenu">
             <Row md={2} xs={3} lg={3}>
-              {dishItemMain.map((item:any) => (
+              {dishItemMain.map((item: any) => (
                 // <Col>{JSON.stringify(item)}</Col>
                 <Col key={item.DishId} className="g-3">
                   <MenuItem {...item} />
@@ -97,7 +109,7 @@ export function Menu() {
         {radioValue === "2" && (
           <Container fluid className="containerMenu">
             <Row md={2} xs={3} lg={3}>
-              {dishItemSide.map((item:any) => (
+              {dishItemSide.map((item: any) => (
                 // <Col>{JSON.stringify(item)}</Col>
                 <Col key={item.DishId} className="g-3">
                   <MenuItem {...item} />

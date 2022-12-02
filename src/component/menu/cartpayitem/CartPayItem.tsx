@@ -17,20 +17,23 @@ export function CartPayItem({ id, quantity }: CartPayItemProps) {
     getItemQuantity,
     cartQuantity,
   } = useShoppingCart();
-  const [dishItem, setDishItem] = useState([]);
+  // const [dishItem, setDishItem] = useState([]);
 
-  useEffect(() => {
-    async function getDish() {
-      const data = await axios.get(
-        "https://uitcanteen-backend.herokuapp.com/menu"
-      );
-      setDishItem(data.data.menu);
-      return data.data.menu;
-    }
-    getDish();
-  }, ["https://uitcanteen-backend.herokuapp.com/menu"]);
+  // useEffect(() => {
+  //   async function getDish() {
+  //     const data = await axios.get(
+  //       "https://uitcanteen-backend.herokuapp.com/menu"
+  //     );
+  //     setDishItem(data.data.menu);
+  //     return data.data.menu;
+  //   }
+  //   getDish();
+  // }, ["https://uitcanteen-backend.herokuapp.com/menu"]);
+  const checkItem: any = JSON.parse(
+    window.localStorage.getItem("fullMenu") || "{}"
+  );
 
-  const item: any = dishItem.find((i: any) => i.DishId === id);
+  const item: any = checkItem.find((i: any) => i.DishId === id);
 
   const DishType = () => {
     if (item.dishTypeId == 1) return "Món chính";
@@ -38,7 +41,6 @@ export function CartPayItem({ id, quantity }: CartPayItemProps) {
   };
 
   if (item == null) return null;
-
   return (
     <Stack
       direction="horizontal"
