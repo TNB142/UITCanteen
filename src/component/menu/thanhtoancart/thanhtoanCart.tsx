@@ -77,15 +77,15 @@ export function PayCart({ isOpenPay }: PayCartProps) {
   console.log(payTime);
   if (typeof window.localStorage.getItem("userData") !== undefined)
     var info: any = {
-      // payId: null,
+      payId: null,
       userId: userData.userId,
       pickupTime: radioValue,
       items: idCart,
-      // sumQuantity: cartQuantity,
+      sumQuantity: cartQuantity,
       cost: getPrice(),
       payMethod: checkMethod,
-      // statePayCart: "Đã thanh toán",
-      // payTime: payTime,
+      statePayCart: "Đã thanh toán",
+      payTime: payTime,
     };
   window.localStorage.setItem("PayInfo", JSON.stringify(info));
   console.log(window.localStorage.getItem("PayInfo"));

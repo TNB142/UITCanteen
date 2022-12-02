@@ -4,10 +4,21 @@ import { Container, Form, Button } from "react-bootstrap";
 import { useState } from "react";
 import DatePicker from "react-date-picker";
 export function UserForm() {
+  var getPack: any;
+  if (typeof window.localStorage.getItem("userData") !== undefined) {
+    getPack = window.localStorage.getItem("userData") || {};
+    console.log(getPack);
+  } else {
+    getPack = getPack.trim();
+    console.log(getPack);
+  }
+  var userData: any;
+  if (getPack !== "undefined") userData = JSON.parse(getPack);
+  else userData = {};
   const [isEdited, setIsEdited] = useState("false");
-  const [fullName, setFullName] = useState("Họ và tên");
-  const [phoneNumber, setPhoneNumber] = useState("Số điện thoại");
-  const [birthday, setBirthday] = useState("Ngày sinh");
+  const [fullName, setFullName] = useState(userData.lastName+" "+userData.firstName);
+  const [phoneNumber, setPhoneNumber] = useState(userData.mobile);
+  const [MSSV, setMSSV] = useState(userData.studentId);
 
   const checkEdit = () => {
     setIsEdited("true");
@@ -25,8 +36,8 @@ export function UserForm() {
     setPhoneNumber(currentTargetvalue);
     console.log(currentTargetvalue);
   };
-  const editBirthday = (currentTargetvalue: any) => {
-    setBirthday(currentTargetvalue);
+  const editMSSV = (currentTargetvalue: any) => {
+    setMSSV(currentTargetvalue);
     console.log(currentTargetvalue);
   };
   return (
@@ -84,7 +95,7 @@ export function UserForm() {
             </Form.Label>
             <Form.Control
               className="formControl"
-              placeholder={birthday}
+              placeholder={MSSV}
               disabled
             />
           </Form.Group>
@@ -161,13 +172,13 @@ export function UserForm() {
               <img alt="" src="../svg/calendarIcon.svg" />
             </Form.Label>
             <Form.Control
-              type="date"
+              // type="date"
               className="formControl"
-              placeholder={birthday}
-              min="01-01-1900"
-              max="31-12-2100"
-              data-date-format="dd/mm/yyyy"
-              onChange={(e: any) => editBirthday(e.target.value)}
+              placeholder={MSSV}
+              // min="01-01-1900"
+              // max="31-12-2100"
+              // data-date-format="dd/mm/yyyy"
+              onChange={(e: any) => editMSSV(e.target.value)}
               //   disabled
             />
           </Form.Group>
