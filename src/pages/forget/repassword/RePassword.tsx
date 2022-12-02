@@ -19,11 +19,27 @@ export function RePassword() {
     navigate("/ForgetPassword/Verify");
   }, [navigate]);
 
+  const [newPassword, setNewPassowrd] = useState(null);
+  const [verifyNewPassowrd, setVerifyNewPassowrd] = useState(null);
+
+  const updateNewPassword = (currentTargetvalue: any) => {
+    setNewPassowrd(currentTargetvalue);
+    console.log(currentTargetvalue);
+  };
+  const updateVerifyNewPassowrd = (currentTargetvalue: any) => {
+    setVerifyNewPassowrd(currentTargetvalue);
+    console.log(currentTargetvalue);
+  };
+
   const forgetNext = useCallback(() => {
-    console.log("Move back to verify email");
-    alert("Đổi mật khẩu thành công");
-    navigate("/Login");
-  }, [navigate]);
+    if (newPassword === verifyNewPassowrd) {
+      alert("Đổi mật khẩu thành công");
+      console.log("Move back to verify email");
+      navigate("/Login");
+    }else{
+      alert("Mật khẩu mới và xác nhận mật khẩu không khớp, yêu cầu nhập lại")
+    }
+  }, [navigate, newPassword, verifyNewPassowrd]);
 
   return (
     <>
@@ -66,6 +82,7 @@ export function RePassword() {
                     placeholder="Nhập mật khẩu"
                     className="mb-3 border border-danger border-3 "
                     style={{ height: "60px" }}
+                    onChange={(e: any) => updateNewPassword(e.target.value)}
                   />
                 </Form.Group>
                 <Form.Group controlId="verifyPassWord">
@@ -74,6 +91,9 @@ export function RePassword() {
                     placeholder="Xác nhận mật khẩu"
                     className="mb-3 border border-danger border-3 "
                     style={{ height: "60px" }}
+                    onChange={(e: any) =>
+                      updateVerifyNewPassowrd(e.target.value)
+                    }
                   />
                 </Form.Group>
               </Form>

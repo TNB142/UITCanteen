@@ -56,11 +56,12 @@ export function Login() {
               <h1 className="CanteenUIT_login_text">Canteen UIT</h1>
               <div>
                 <img
-                  alt=""
-                  src="../imgs/UIT_CANTEEN.png"
+                  alt="Rounded image"
+                  src="../imgs/UIT_CANTEEN1.png"
                   style={{
                     width: "542px",
                   }}
+                  className="rounded-5"
                 />
               </div>
             </Stack>

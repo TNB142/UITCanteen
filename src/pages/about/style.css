@@ -1,0 +1,87 @@
+.headingAboutText{
+    font-family: Arial;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 34.5px;
+    color: #3F3F3F;
+    margin-bottom: 5%;
+    margin-top: 3%;
+}
+.ContainerAboutFirstInfo{
+    margin-bottom: 10%;
+}
+.addressContainerAbout{
+    margin-bottom: 3%;
+}
+.addressAboutText{
+    font-family: Arial;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 27.6px;
+    width: 20%;
+    color: #1A1A1A;
+}
+.addressAboutDetail{
+    font-family: Arial;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 27.6px;
+    color: #1A1A1A;
+    text-align: right;
+    width: 100%;
+}
+
+.telephoneAboutText{
+    font-family: Arial;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 27.6px;
+    width: 60%;
+    color: #1A1A1A;
+}
+.telephoneAboutDetail{
+    font-family: Arial;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 27.6px;
+    color: #1A1A1A;
+    text-align: right;
+    width: 100%;
+}
+.headingAboutText2{
+    font-family: Arial;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 34.5px;
+    color: #3F3F3F;
+    margin-bottom: 2%;
+    margin-top: 3%;
+}
+.subHeadingAboutText2{
+    font-family: Arial;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 23px;
+    font-style: italic;
+    color: #1A1A1A;
+}
+
+.formAboutName{
+    width: 286px;
+    height: 60px;
+    border-color:#F72D57!important;
+    border-width: 3px !important;
+    background-color: transparent!important;
+}
+
+.buttonSend{
+    background-color: #F72D57!important;
+    border: none!important;
+    width: 30%;
+}
+.buttonSend:hover{
+    background-color: #cf2446!important;
+}
+.buttonSend:active{
+    background-color: #e92b51!important;
+}
