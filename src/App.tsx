@@ -72,7 +72,7 @@ export default function App() {
                 />
                 <Route path="/Success" element={<SuccessPay />} />
                 <Route path="/Details" element={<PayCartDetails />} />
-                <Route path="/User" element={<User />} />
+                {/* <Route path="/User" element={<User />} /> */}
 
                 <Route
                   path="/ForgetPassword/Verify/RePassword"
@@ -92,7 +92,6 @@ export default function App() {
     return (
       <>
         <ToastContainer />
-        {/* <Container fluid className="min-vh-100 main-content"> */}
         <div className="min-vh-100 main-content">
           <ShoppingCartProvider>
             <div
@@ -127,10 +126,7 @@ export default function App() {
             </div>
           </ShoppingCartProvider>
         </div>
-
-        {/* </Container> */}
         <Footer />
-        {/* <div className="footer">aaa</div> */}
       </>
     );
   }

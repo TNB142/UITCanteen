@@ -6,11 +6,10 @@ import {
   Stack,
   Button,
 } from "react-bootstrap";
-import { useState } from "react";
 import { useShoppingCart } from "../../../context/shoppingCartContext";
 import { CartPayItem } from "../cartpayitem/CartPayItem";
 import { useNavigate } from "react-router-dom";
-import { useCallback } from "react";
+import { useCallback, useState, useEffect } from "react";
 
 import "./style.css";
 import axios from "axios";
@@ -56,9 +55,19 @@ export function PayCart({ isOpenPay }: PayCartProps) {
     console.log(currentTargetvalue);
   };
   const navigate = useNavigate();
+  var getPack: any;
+  if (typeof window.localStorage.getItem("userData") !== undefined) {
+    getPack = window.localStorage.getItem("userData") || {};
+    console.log(getPack);
+  } else {
+    getPack = getPack.trim();
+    console.log(getPack);
+  }
+  var userData: any;
+  if (getPack !== "undefined") userData = JSON.parse(getPack);
+  else userData = {};
 
-  const userData = JSON.parse(window.localStorage.getItem("userData") || "{}");
-  const idCart: any = JSON.parse(localStorage.getItem("shopping-cart") || "{}");
+  const idCart: any = localStorage.getItem("shopping-cart");
   const date = new Date();
   var options: any = {
     hour: "2-digit",
@@ -66,31 +75,44 @@ export function PayCart({ isOpenPay }: PayCartProps) {
   };
   const payTime = date.toLocaleDateString("vie-en", options);
   console.log(payTime);
-  if (window.localStorage.getItem("userData"))
+  if (typeof window.localStorage.getItem("userData") !== undefined)
     var info: any = {
-      payId: null,
+      // payId: null,
       userId: userData.userId,
       pickupTime: radioValue,
       items: idCart,
-      sumQuantity: cartQuantity,
+      // sumQuantity: cartQuantity,
       cost: getPrice(),
       payMethod: checkMethod,
-      statePayCart: "Đã thanh toán",
-      payTime: payTime,
+      // statePayCart: "Đã thanh toán",
+      // payTime: payTime,
     };
   window.localStorage.setItem("PayInfo", JSON.stringify(info));
-  console.log("PayInfo now", window.localStorage.getItem("PayInfo"));
+  console.log(window.localStorage.getItem("PayInfo"));
+
+  // var getPayInfo:any
+  // if(typeof window.localStorage.getItem("PayInfo")!== undefined)
+  // const getPayInfo:any = window.localStorage.getItem("PayInfo");
+  // var payinfo: any
+  // if(typeof getPayInfo!==undefined)
+  //   payinfo=JSON.parse(getPayInfo)
+
+  // console.log("PayInfo now", payinfo);
   const Remove = () => {
     cartItems.map((item) => removeFromCart(item.id));
   };
+
   const clickPay = useCallback(() => {
-    closePayCart();
     closeCart();
-    axios.post('https://uitcanteen-backend.herokuapp.com/sendorder', info).then((response) => {
-      console.log(response.data.message)
-    })
+    axios
+      .post("https://uitcanteen-backend.herokuapp.com/sendorder",info)
+      .then((response) => {
+        console.log(response.data);
+      });
+    closePayCart();
+    Remove();
     navigate("/Success");
-  }, [navigate]);
+  }, [navigate,info]);
 
   return (
     <Offcanvas
@@ -198,7 +220,7 @@ export function PayCart({ isOpenPay }: PayCartProps) {
             <div className="currency_number_total_pay">{getPrice()}</div>
             <div className="d-flex flex-row justify-content-end w-100 button_div_pay">
               <button className="button_order" onClick={clickPay}>
-                Đặt món
+                Thanh toán
               </button>
             </div>
           </div>

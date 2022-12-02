@@ -1,7 +1,7 @@
 import React from "react";
 import { Container, Form } from "react-bootstrap";
 import { UserForm } from "../../component/userForm/userForm";
-import "./style.css"
+import "./style.css";
 
 // const handleChange = (e, value) => {
 //   // setState({ firstName: value });
@@ -14,9 +14,13 @@ import "./style.css"
 export function User() {
   return (
     <>
-      <Container className="container_User">
-        <h1>Hồ sơ người dùng</h1>
-        <UserForm />
+      <Container className="d-flex flex-column container_User">
+        <div className="headingSpace">
+          <h1>Hồ sơ người dùng</h1>
+        </div>
+        <div>
+          <UserForm />
+        </div>
       </Container>
     </>
   );

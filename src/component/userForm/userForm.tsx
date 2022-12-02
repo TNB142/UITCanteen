@@ -9,8 +9,6 @@ export function UserForm() {
   const [phoneNumber, setPhoneNumber] = useState("Số điện thoại");
   const [birthday, setBirthday] = useState("Ngày sinh");
 
-  const [value, onChange] = useState(new Date());
-
   const checkEdit = () => {
     setIsEdited("true");
     console.log("click edit");
