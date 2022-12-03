@@ -57,20 +57,20 @@ export function PayCart({ isOpenPay }: PayCartProps) {
   const navigate = useNavigate();
   var getPack: any;
   if (typeof window.localStorage.getItem("userData") !== undefined) {
-    getPack = window.localStorage.getItem("userData") || {};
+    getPack = window.localStorage.getItem("userData");
     console.log(getPack);
   } else {
     getPack = undefined;
     console.log(getPack);
   }
   var userData: any;
-  // console.log("check getPack",typeof(getPack));
+  console.log("check getPack",typeof(getPack));
   if (getPack !== "undefined") {
     userData = JSON.parse(getPack);
-    // console.log("check userData",userData)
+    console.log("check userData",userData)
   } else {
     userData = {};
-    // console.log("check userData",userData)
+    console.log("check userData",userData)
   }
 
   const idCart: any = localStorage.getItem("shopping-cart");
