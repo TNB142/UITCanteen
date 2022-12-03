@@ -60,12 +60,18 @@ export function PayCart({ isOpenPay }: PayCartProps) {
     getPack = window.localStorage.getItem("userData") || {};
     console.log(getPack);
   } else {
-    getPack = getPack.trim();
+    getPack = undefined;
     console.log(getPack);
   }
   var userData: any;
-  if (getPack !== "undefined") userData = JSON.parse(getPack);
-  else userData = {};
+  // console.log("check getPack",typeof(getPack));
+  if (getPack !== "undefined") {
+    userData = JSON.parse(getPack);
+    // console.log("check userData",userData)
+  } else {
+    userData = {};
+    // console.log("check userData",userData)
+  }
 
   const idCart: any = localStorage.getItem("shopping-cart");
   const date = new Date();
@@ -78,7 +84,7 @@ export function PayCart({ isOpenPay }: PayCartProps) {
   if (typeof window.localStorage.getItem("userData") !== undefined)
     var info: any = {
       payId: null,
-      userId: userData.userId,
+      // userId: userData.userId,
       pickupTime: radioValue,
       items: idCart,
       sumQuantity: cartQuantity,
@@ -105,14 +111,14 @@ export function PayCart({ isOpenPay }: PayCartProps) {
   const clickPay = useCallback(() => {
     closeCart();
     axios
-      .post("https://uitcanteen-backend.herokuapp.com/sendorder",info)
+      .post("https://uitcanteen-backend.herokuapp.com/sendorder", info)
       .then((response) => {
         console.log(response.data);
       });
     closePayCart();
     Remove();
     navigate("/Success");
-  }, [navigate,info]);
+  }, [navigate, info]);
 
   return (
     <Offcanvas
