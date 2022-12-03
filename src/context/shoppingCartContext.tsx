@@ -25,6 +25,7 @@ type ShoppingCartContext = {
   removeFromCart: (id: number) => void;
   cartQuantity: number;
   cartItems: CartItem[];
+  closeAll:()=> void;
 };
 
 const ShoppingCartContext = createContext({} as ShoppingCartContext);
@@ -45,10 +46,17 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
 
   const [isOpenPay, setIsOpenPay] = useState(false);
 
+  const [isClose,setIsClose]=useState(false);
+
   const cartQuantity = cartItems.reduce(
     (quantity, item) => item.quantity + quantity,
     0
   );
+
+  const closeAll = () => {
+    setIsClose(true)
+    console.log("close all")
+  }
 
   const openCart = () => {
     setIsOpen(true);
@@ -125,6 +133,7 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
         closePayCart,
         cartItems,
         cartQuantity,
+        closeAll
       }}
     >
       {children}

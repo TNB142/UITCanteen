@@ -43,7 +43,12 @@ export default function App() {
       console.log(window.localStorage.getItem("isLoggedIn"));
     });
   }, []);
-
+  if (!loggedIn) {
+    var userInfo: any = {
+      userId: "null",
+    };
+    window.localStorage.setItem("userData", JSON.stringify(userInfo));
+  }
   if (!loggedIn)
     return (
       <>

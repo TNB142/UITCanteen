@@ -64,13 +64,15 @@ export function PayCart({ isOpenPay }: PayCartProps) {
     console.log(getPack);
   }
   var userData: any;
-  console.log("check getPack",typeof(getPack));
+  var userID:any;
+  console.log("check getPack", typeof getPack);
   if (getPack !== "undefined") {
     userData = JSON.parse(getPack);
-    console.log("check userData",userData)
+    userID=userData.userId;
+    console.log("check userData", userData);
   } else {
     userData = {};
-    console.log("check userData",userData)
+    console.log("check userData", userData);
   }
 
   const idCart: any = localStorage.getItem("shopping-cart");
@@ -84,7 +86,7 @@ export function PayCart({ isOpenPay }: PayCartProps) {
   if (typeof window.localStorage.getItem("userData") !== undefined)
     var info: any = {
       payId: null,
-      // userId: userData.userId,
+      userId: userID,
       pickupTime: radioValue,
       items: idCart,
       sumQuantity: cartQuantity,
@@ -96,12 +98,14 @@ export function PayCart({ isOpenPay }: PayCartProps) {
   window.localStorage.setItem("PayInfo", JSON.stringify(info));
   console.log(window.localStorage.getItem("PayInfo"));
 
-  // var getPayInfo:any
-  // if(typeof window.localStorage.getItem("PayInfo")!== undefined)
-  // const getPayInfo:any = window.localStorage.getItem("PayInfo");
-  // var payinfo: any
-  // if(typeof getPayInfo!==undefined)
-  //   payinfo=JSON.parse(getPayInfo)
+  var getPayInfo: any;
+  if (typeof window.localStorage.getItem("PayInfo") !== undefined)
+    getPayInfo = window.localStorage.getItem("PayInfo");
+  else getPayInfo = undefined;
+
+  var payinfo: any;
+  if (getPayInfo !== "undefined") payinfo = JSON.parse(getPayInfo);
+  else payinfo = undefined;
 
   // console.log("PayInfo now", payinfo);
   const Remove = () => {
@@ -109,13 +113,25 @@ export function PayCart({ isOpenPay }: PayCartProps) {
   };
 
   const clickPay = useCallback(() => {
+    closePayCart();
     closeCart();
     axios
       .post("https://uitcanteen-backend.herokuapp.com/sendorder", info)
       .then((response) => {
         console.log(response.data);
+        if (payinfo !== "undefined") {
+          console.log("check payinfo before", payinfo.payId);
+          payinfo.payId = response.data.orderId;
+          console.log("check get payId", payinfo.payId);
+          window.localStorage.setItem("PayInfo", JSON.stringify(payinfo));
+          console.log(
+            "Payinfo after update",
+            window.localStorage.getItem("PayInfo")
+          );
+        } else {
+          payinfo = undefined;
+        }
       });
-    closePayCart();
     Remove();
     navigate("/Success");
   }, [navigate, info]);

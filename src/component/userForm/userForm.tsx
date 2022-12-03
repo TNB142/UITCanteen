@@ -1,33 +1,66 @@
 import React from "react";
 import "./style.css";
 import { Container, Form, Button } from "react-bootstrap";
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import DatePicker from "react-date-picker";
+import axios from "axios";
+
 export function UserForm() {
   var getPack: any;
   if (typeof window.localStorage.getItem("userData") !== undefined) {
     getPack = window.localStorage.getItem("userData") || {};
-    console.log(getPack);
+    // console.log(getPack);
   } else {
-    getPack = getPack.trim();
-    console.log(getPack);
+    getPack = undefined;
+    // console.log(getPack);
   }
   var userData: any;
   if (getPack !== "undefined") userData = JSON.parse(getPack);
-  else userData = {};
+  else userData = undefined;
   const [isEdited, setIsEdited] = useState("false");
-  const [fullName, setFullName] = useState(userData.lastName+" "+userData.firstName);
-  const [phoneNumber, setPhoneNumber] = useState(userData.mobile);
-  const [MSSV, setMSSV] = useState(userData.studentId);
 
+  if (userData === "undefined") {
+    var [fullName, setFullName] = useState("Họ và tên");
+    var [phoneNumber, setPhoneNumber] = useState("Số điện thoại");
+    var [MSSV, setMSSV] = useState("Mã số sinh viên");
+  } else {
+    if (userData.firstName === null)
+      var [fullName, setFullName] = useState("Họ và tên");
+    else
+      var [fullName, setFullName] = useState(
+        userData.lastName + " " + userData.firstName
+      );
+    if (userData.mobile === null)
+      var [phoneNumber, setPhoneNumber] = useState("Số điện thoại");
+    else var [phoneNumber, setPhoneNumber] = useState("" + userData.mobile);
+    if (userData.studentId === null)
+      var [MSSV, setMSSV] = useState("Mã số sinh viên");
+    else var [MSSV, setMSSV] = useState("" + userData.studentId);
+  }
   const checkEdit = () => {
     setIsEdited("true");
     console.log("click edit");
   };
-  const checkSave = () => {
+  if (typeof window.localStorage.getItem("userData") !== undefined)
+    if (userData !== "undefined")
+      var userInfo: any = {
+        userId: userData.userId,
+        fullName: fullName,
+        phoneNumber: phoneNumber,
+        studentId: MSSV,
+      };
+
+  const checkSave = useCallback(() => {
     setIsEdited("false");
     console.log("click save");
-  };
+    axios
+      .post("https://uitcanteen-backend.herokuapp.com/updateuser", userInfo)
+      .then((response) => {
+        console.log(response.data);
+      });
+      // console.log("check userData from userForm",userData.userId)
+  }, [fullName, phoneNumber, MSSV]);
+
   const editName = (currentTargetvalue: any) => {
     setFullName(currentTargetvalue);
     console.log(currentTargetvalue);
@@ -93,11 +126,7 @@ export function UserForm() {
               {" "}
               <img alt="" src="../svg/calendarIcon.svg" />
             </Form.Label>
-            <Form.Control
-              className="formControl"
-              placeholder={MSSV}
-              disabled
-            />
+            <Form.Control className="formControl" placeholder={MSSV} disabled />
           </Form.Group>
           <div className="d-flex flex-column align-items-center justify-content-center">
             {" "}

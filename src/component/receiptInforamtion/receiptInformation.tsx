@@ -1,8 +1,9 @@
 import React from "react";
 import { Row, Col, Nav, NavLink } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-import { useCallback } from "react";
+import { useCallback, useEffect, useState } from "react";
 import "./style.css";
+import axios from "axios";
 
 export function ReceiptInformation(props: any) {
   const navigate = useNavigate();
@@ -11,14 +12,34 @@ export function ReceiptInformation(props: any) {
     console.log("Pay details");
     navigate("/Details");
   }, [navigate]);
-  const getPayInfo = JSON.parse(window.localStorage.getItem("PayInfo")||"{}")
-  console.log("check in receipt information",getPayInfo)
-  const getPayMethod= () => {
-    if(getPayInfo.payMethod==="1")
-      return "Ví Momo"
-    if(getPayInfo.payMethod==="2")
-      return "Online Banking"
-  }
+  const getPayInfo = JSON.parse(window.localStorage.getItem("PayInfo") || "{}");
+
+  const getPayMethod = () => {
+    if (getPayInfo.payMethod === "1") return "Ví Momo";
+    if (getPayInfo.payMethod === "2") return "Online Banking";
+  };
+
+  const [payId, setPayId] = useState("orderId");
+  useEffect(() => {
+    async function getPayInfo() {
+      const getPayId = await axios.get(
+        "https://uitcanteen-backend.herokuapp.com/recentorder"
+      );
+      // window.location.reload()
+      setPayId(getPayId.data.orderId)
+      console.log("check payId",payId)
+    }
+    getPayInfo();
+  }, ["https://uitcanteen-backend.herokuapp.com/recentorder"]);
+
+  // const getPayId = useCallback(() => {
+  //   console.log("check payId in reciept:", getPayinfo);
+  //   return getPayinfo;
+  //   window.location.reload();
+  // }, [navigate, getPayinfo]);
+
+  // console.log("check in receipt information", getPayId());
+
   return (
     <div className="receipt_container">
       <h4 className="heading_receipt">Thông tin đơn hàng</h4>
@@ -36,7 +57,7 @@ export function ReceiptInformation(props: any) {
         <p className="text-success">{props.PayStatus}</p>
         <p>{props.PayMethod}</p> */}
             <p className="text-primary" onClick={clickDetails}>
-              {getPayInfo.payId}
+              {payId}
             </p>
             <p>{getPayInfo.payTime}</p>
             <p className="text-success">{getPayInfo.statePayCart}</p>

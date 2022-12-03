@@ -10,6 +10,8 @@
 .heading_receipt{
     margin-top: 3%;
     text-align: center;
+    font-weight: 700;
+    font-size: 30px;    
 }
 
 .information_container{
