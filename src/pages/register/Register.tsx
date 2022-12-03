@@ -5,7 +5,7 @@ import Axios from "axios";
 import "./style.css";
 
 import { ToastContainer, toast } from "react-toastify";
-import 'react-toastify/dist/ReactToastify.css';
+import "react-toastify/dist/ReactToastify.css";
 
 export function Register() {
   const navigate = useNavigate();
@@ -19,29 +19,42 @@ export function Register() {
   const [passwordReg, setPasswordReg] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
-  const register = () => {
-    Axios.post("https://uitcanteen-backend.herokuapp.com/register", {
-      username: usernameReg,
-      password: passwordReg,
-    }
-    ).then((response) => {
-      toast(response.data.message, {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "colored",
-      });
-    });
-    setTimeout(function () {
-      navigate("/Login");
-      window.location.reload();
-    }, 3000);
-  }
+  const updatePassword = (currentTargetvalue: any) => {
+    setPasswordReg(currentTargetvalue);
+    console.log(currentTargetvalue);
+  };
+  const updateConfirmNewPassoword = (currentTargetvalue: any) => {
+    setConfirmPassword(currentTargetvalue);
+    console.log(currentTargetvalue);
+  };
 
+  const register = () => {
+    if (confirmPassword === passwordReg) {
+      Axios.post("https://uitcanteen-backend.herokuapp.com/register", {
+        username: usernameReg,
+        password: passwordReg,
+      }).then((response) => {
+        toast(response.data.message, {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+        });
+      });
+      setTimeout(function () {
+        navigate("/Login");
+        window.location.reload();
+      }, 3000);
+    }
+    else
+    {
+      alert("Mật khẩu xác nhận không khớp! Yêu cầu nhập lại mật khẩu")
+    }
+  };
 
   return (
     <>
@@ -67,9 +80,9 @@ export function Register() {
           <Col
             // className="bg-danger"
             className="d-flex flex-row justify-content-center align-items-start"
-          // style={{
-          //   paddingLeft:"10%"
-          // }}
+            // style={{
+            //   paddingLeft:"10%"
+            // }}
           >
             <div className="d-flex flex-column justify-content-center align-items-start">
               <h1 className="mb-3 mg-3 register_title">Đăng ký</h1>
@@ -97,7 +110,7 @@ export function Register() {
                     className="mb-3 border border-danger border-3"
                     style={{ height: "60px" }}
                     onChange={(e) => {
-                      setPasswordReg(e.target.value);
+                      updatePassword(e.target.value);
                     }}
                   />
                 </Form.Group>
@@ -111,7 +124,7 @@ export function Register() {
                     className="mb-3 border border-danger border-3"
                     style={{ height: "60px" }}
                     onChange={(e) => {
-                      setConfirmPassword(e.target.value);
+                      updateConfirmNewPassoword(e.target.value);
                     }}
                   />
                 </Form.Group>
@@ -155,8 +168,10 @@ export function Register() {
                   }}
                 ></div>
               </div>
-              <button className="text-center button_register_page"
-                onClick={loginButton}>
+              <button
+                className="text-center button_register_page"
+                onClick={loginButton}
+              >
                 <div className="register_page_Text">Đăng nhập</div>
               </button>
             </div>
