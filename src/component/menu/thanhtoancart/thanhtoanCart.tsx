@@ -64,11 +64,11 @@ export function PayCart({ isOpenPay }: PayCartProps) {
     console.log(getPack);
   }
   var userData: any;
-  var userID:any;
+  var userID: any;
   console.log("check getPack", typeof getPack);
   if (getPack !== "undefined") {
     userData = JSON.parse(getPack);
-    userID=userData.userId;
+    userID = userData.userId;
     console.log("check userData", userData);
   } else {
     userData = {};
@@ -95,17 +95,6 @@ export function PayCart({ isOpenPay }: PayCartProps) {
       statePayCart: "Đã thanh toán",
       payTime: payTime,
     };
-  window.localStorage.setItem("PayInfo", JSON.stringify(info));
-  console.log(window.localStorage.getItem("PayInfo"));
-
-  var getPayInfo: any;
-  if (typeof window.localStorage.getItem("PayInfo") !== undefined)
-    getPayInfo = window.localStorage.getItem("PayInfo");
-  else getPayInfo = undefined;
-
-  var payinfo: any;
-  if (getPayInfo !== "undefined") payinfo = JSON.parse(getPayInfo);
-  else payinfo = undefined;
 
   // console.log("PayInfo now", payinfo);
   const Remove = () => {
@@ -115,6 +104,19 @@ export function PayCart({ isOpenPay }: PayCartProps) {
   const clickPay = useCallback(() => {
     closePayCart();
     closeCart();
+    localStorage.setItem("PayInfo", JSON.stringify(info));
+    console.log(
+      "Pay info origin at thanhtoanCart",
+      localStorage.getItem("PayInfo")
+    );
+    var getPayInfo: any;
+    if (typeof localStorage.getItem("PayInfo") !== undefined)
+      getPayInfo = localStorage.getItem("PayInfo");
+    else getPayInfo = undefined;
+
+    var payinfo: any;
+    if (getPayInfo !== "undefined") payinfo = JSON.parse(getPayInfo);
+    else payinfo = undefined;
     axios
       .post("https://uitcanteen-backend.herokuapp.com/sendorder", info)
       .then((response) => {
@@ -123,11 +125,8 @@ export function PayCart({ isOpenPay }: PayCartProps) {
           console.log("check payinfo before", payinfo.payId);
           payinfo.payId = response.data.orderId;
           console.log("check get payId", payinfo.payId);
-          window.localStorage.setItem("PayInfo", JSON.stringify(payinfo));
-          console.log(
-            "Payinfo after update",
-            window.localStorage.getItem("PayInfo")
-          );
+          localStorage.setItem("PayInfo", JSON.stringify(payinfo));
+          console.log("Payinfo after update", localStorage.getItem("PayInfo"));
         } else {
           payinfo = undefined;
         }

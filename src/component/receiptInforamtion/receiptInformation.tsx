@@ -5,7 +5,7 @@ import { useCallback, useEffect, useState } from "react";
 import "./style.css";
 import axios from "axios";
 
-export function ReceiptInformation(props: any) {
+export function ReceiptInformation() {
   const navigate = useNavigate();
 
   const clickDetails = useCallback(() => {
@@ -13,6 +13,7 @@ export function ReceiptInformation(props: any) {
     navigate("/Details");
   }, [navigate]);
   const getPayInfo = JSON.parse(window.localStorage.getItem("PayInfo") || "{}");
+  console.log("Receipt payinfo",getPayInfo)
 
   const getPayMethod = () => {
     if (getPayInfo.payMethod === "1") return "Ví Momo";
@@ -30,7 +31,9 @@ export function ReceiptInformation(props: any) {
       console.log("check payId",payId)
     }
     getPayInfo();
-  }, ["https://uitcanteen-backend.herokuapp.com/recentorder"]);
+  }, ["https://uitcanteen-backend.herokuapp.com/recentorder",payId,setPayId]);
+
+
 
   // const getPayId = useCallback(() => {
   //   console.log("check payId in reciept:", getPayinfo);

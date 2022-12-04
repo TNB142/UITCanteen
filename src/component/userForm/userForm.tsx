@@ -53,6 +53,7 @@ export function UserForm() {
   const checkSave = useCallback(() => {
     setIsEdited("false");
     console.log("click save");
+    // window.localStorage.setItem("userName",userInfo)
     axios
       .post("https://uitcanteen-backend.herokuapp.com/updateuser", userInfo)
       .then((response) => {

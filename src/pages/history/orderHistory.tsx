@@ -22,9 +22,37 @@ export function History() {
     { name: "Đơn hàng đã đặt", value: "1" },
     { name: "Đơn hàng đã huỷ", value: "2" },
   ];
+  const [orderHistoryPaidCompleted, setOrderHistoryPaidCompleted] = useState([]);
+  const [orderHistoryPaidCancel, setOrderHistoryPaidCancel] = useState([]);
 
   const getUserPack: any = window.localStorage.getItem("userData");
   const userData = JSON.parse(getUserPack);
+  useEffect(() => {
+    async function getDish() {
+      const responseOrderHistoryPaid = await axios.get(
+        "https://uitcanteen-backend.herokuapp.com/completed"
+      );
+      setOrderHistoryPaidCompleted(responseOrderHistoryPaid.data.completedOrders);
+      const completedPay = responseOrderHistoryPaid.data.completedOrders;
+      const storedCompletedPay = JSON.stringify(completedPay);
+      window.localStorage.setItem("completedPay", storedCompletedPay);
+      
+      const responseOrderHistoryCancelPaid = await axios.get(
+        "https://uitcanteen-backend.herokuapp.com/cancelled"
+      );
+      setOrderHistoryPaidCancel(
+        responseOrderHistoryCancelPaid.data.cancelledOrders
+      );
+      const cancelPay = responseOrderHistoryCancelPaid.data.cancelledOrders;
+      const storedCancelPay = JSON.stringify(cancelPay);
+      window.localStorage.setItem("cancelPay", storedCancelPay);
+      console.log("đơn huỷ:",storedCancelPay)
+    }
+    getDish();
+  }, [
+    "https://uitcanteen-backend.herokuapp.com/completed",
+    "https://uitcanteen-backend.herokuapp.com/cancelled",
+  ]);
   return (
     <>
       <Container
@@ -61,13 +89,23 @@ export function History() {
           <Col>
             {radioValue === "1" && (
               <div>
-                <OrderHistoryTable />{" "}
+                {orderHistoryPaidCompleted.map((item: any) => (
+                  <div key={item.orderId}>
+                    {" "}
+                    <OrderHistoryTable {...item} />{" "}
+                  </div>
+                ))}
               </div>
             )}
             {radioValue === "2" && (
               <div>
-                <OrderHistoryTableCancel />{" "}
-              </div>
+              {orderHistoryPaidCancel.map((item: any) => (
+                <div key={item.orderId}>
+                  {" "}
+                  <OrderHistoryTableCancel {...item} />{" "}
+                </div>
+              ))}
+            </div>
             )}
           </Col>
         </Row>

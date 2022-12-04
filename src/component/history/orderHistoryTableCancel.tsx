@@ -1,7 +1,19 @@
 import { Button, Card, Container, Table } from "react-bootstrap";
 import "./style.css"
 
-export function OrderHistoryTableCancel() {
+type OrderHistoryTableCancelProps = {
+  orderId: number;
+};
+export function OrderHistoryTableCancel({ orderId }: OrderHistoryTableCancelProps) {
+  const checkCancelPay: any = JSON.parse(
+    window.localStorage.getItem("cancelPay") || "{}"
+  );
+  const item: any = checkCancelPay.find((i: any) => i.orderId === orderId);
+  // console.log("completed pay", checkCompletedPay);
+
+  const checkStatus = () => {
+    if(item.statusOrderId===3) return "Đã huỷ"
+  }
   return (
     <>
       <Container className="bg-white shadow-sm">
@@ -16,10 +28,10 @@ export function OrderHistoryTableCancel() {
           </thead>
           <tbody className="orderHistory_table">
             <tr>
-              <td>#12345679</td>
-              <td>30.000 vnd</td>
-              <td>14/11/2022</td>
-              <td className="text-danger ">Đã huỷ</td>
+              <td>{item.orderId}</td>
+              <td>{item.total}</td>
+              <td>{item.payAt}</td>
+              <td className="text-danger ">{checkStatus()}</td>
             </tr>
           </tbody>
         </Table>

@@ -41,7 +41,7 @@ export function Menu() {
   const [dishItemSide, setDishItemSide] = useState([]);
 
   useEffect(() => {
-    async function getDish() {  
+    async function getDish() {
       const responseMenu = await axios.get(
         "https://uitcanteen-backend.herokuapp.com/menu"
       );
