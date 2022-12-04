@@ -10,7 +10,7 @@ import "react-toastify/dist/ReactToastify.css";
 export function Register() {
   const navigate = useNavigate();
   const loginButton = useCallback(() => {
-    navigate("/login");
+    navigate("/Login");
   }, [navigate]);
 
   Axios.defaults.withCredentials = true;

@@ -30,7 +30,7 @@ export function Logout() {
   return (
     <>
       <ToastContainer />
-      <Container className="pt-5" id="login">
+      <Container className="pt-5" id="logout">
         <Row>
           <Col className="mb-5">
             <Stack>
@@ -77,7 +77,7 @@ export function Logout() {
                     width: "150%",
                   }}
                 >
-                  Muốn đăng nhập lại khum?
+                  Bạn có muốn đăng nhập lại?
                 </span>
                 <div
                   // className="text-center"
