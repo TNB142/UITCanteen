@@ -1,7 +1,7 @@
 import React from "react";
 import { Row, Col, Button } from "react-bootstrap";
 import "./style.css";
-import menuItems from "../../../data/items.json";
+// import menuItems from "../../../data/items.json";
 
 type DetailImageProps = {
   id: number;
@@ -9,7 +9,8 @@ type DetailImageProps = {
 };
 
 export function DetailImage({ id, quantity }: DetailImageProps) {
-  const item = menuItems.find((i) => i.DishId === id);
+  const checkItem:any = JSON.parse(window.localStorage.getItem('fullMenu')|| '{}')
+  const item = checkItem.find((i:any) => i.DishId === id);
   if (item == null) return null;
   return (
     <>

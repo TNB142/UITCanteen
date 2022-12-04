@@ -1,11 +1,20 @@
 import React from "react";
 import "./style.css";
 import { Container, Form, Button } from "react-bootstrap";
-import { useState, useCallback } from "react";
+import { useState, useCallback,useEffect } from "react";
 import DatePicker from "react-date-picker";
 import axios from "axios";
 
 export function UserForm() {
+  axios.defaults.withCredentials = true;
+  useEffect(() => {
+    axios.get("https://uitcanteen-backend.herokuapp.com/").then((response) => {
+      window.localStorage.setItem(
+        "userData",
+        JSON.stringify(response.data.user)
+      );
+    });
+  }, ["https://uitcanteen-backend.herokuapp.com/"]);
   var getPack: any;
   if (typeof window.localStorage.getItem("userData") !== undefined) {
     getPack = window.localStorage.getItem("userData") || {};
@@ -55,12 +64,15 @@ export function UserForm() {
     console.log("click save");
     // window.localStorage.setItem("userName",userInfo)
     axios
-      .post("https://uitcanteen-backend.herokuapp.com/updateuser", userInfo)
+      .post("https://uitcanteen-backend.herokuapp.com/updateuser", JSON.stringify(userInfo))
       .then((response) => {
         console.log(response.data);
       });
+      // window.location.reload()
       // console.log("check userData from userForm",userData.userId)
+
   }, [fullName, phoneNumber, MSSV]);
+
 
   const editName = (currentTargetvalue: any) => {
     setFullName(currentTargetvalue);
