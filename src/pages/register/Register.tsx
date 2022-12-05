@@ -34,6 +34,7 @@ export function Register() {
         username: usernameReg,
         password: passwordReg,
       }).then((response) => {
+
         toast(response.data.message, {
           position: "top-right",
           autoClose: 5000,
@@ -42,16 +43,17 @@ export function Register() {
           pauseOnHover: true,
           draggable: true,
           progress: undefined,
-          theme: "colored",
+          theme: "light",
         });
+        if (response.data.code == 1)
+          setTimeout(function () {
+            navigate("/Login");
+            // window.location.reload();
+          }, 3000);
       });
-      setTimeout(function () {
-        navigate("/Login");
-        window.location.reload();
-      }, 3000);
+
     }
-    else
-    {
+    else {
       alert("Mật khẩu xác nhận không khớp! Yêu cầu nhập lại mật khẩu")
     }
   };
@@ -80,9 +82,9 @@ export function Register() {
           <Col
             // className="bg-danger"
             className="d-flex flex-row justify-content-center align-items-start"
-            // style={{
-            //   paddingLeft:"10%"
-            // }}
+          // style={{
+          //   paddingLeft:"10%"
+          // }}
           >
             <div className="d-flex flex-column justify-content-center align-items-start">
               <h1 className="mb-3 mg-3 register_title">Đăng ký</h1>
