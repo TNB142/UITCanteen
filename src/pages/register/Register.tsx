@@ -34,7 +34,7 @@ export function Register() {
         username: usernameReg,
         password: passwordReg,
       }).then((response) => {
-
+        if (response.data.code == 0)
         toast(response.data.message, {
           position: "top-right",
           autoClose: 5000,
