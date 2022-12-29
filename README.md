@@ -1,4 +1,4 @@
-# UITCanTeen project
+# UITCanteen project
 * This project for SE104.N11 subject
 * The live demo maybe not available in the future
 ## Member
